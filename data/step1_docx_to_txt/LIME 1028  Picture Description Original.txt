@@ -1,0 +1,45 @@
+LIME 1028  Picture Description Original	
+Circus
+ yes here here ne here and here then here there one two three four five five glo golden rules then an and there I don't know 
+total words: 26
+different words:17
+YES                      
+NE                       
+HERE                     
+ONE                      
+TWO                      
+THREE                    
+FOUR                     
+FIVE                     
+GOLDEN                   
+RULES                    
+THEN                     
+AN                       
+AND                      
+THERE                    
+I                        
+DON'T                    
+KNOW
+
+Cooke Theft
+w uh  ok here here here and here and there o ok 
+total words:12
+different words: 5
+W                        
+OK                       
+AND                      
+HERE                     
+THERE                    
+O  
+Picnic
+drink words here and here this and this ok and here and here ok alright right  
+total - 16 
+diff- 8
+DRINK                    
+WORDS                    
+HERE                     
+THIS                     
+AND                      
+OK                       
+ALRIGHT                  
+RIGHT

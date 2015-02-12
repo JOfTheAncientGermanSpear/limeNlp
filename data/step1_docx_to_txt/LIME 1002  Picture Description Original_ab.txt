@@ -1,0 +1,77 @@
+LIME 1002  Picture Description Original	
+
+Circus
+shine no ok line line a a bar bar bar clown clown and a well a a a no a can't can't can can a can a boy and girl mom mom and and dad and girl and horse hor and and a far no  a a a one two three four five six six girls six girls a girls no girls a one one a one a  a girl
+total words: 70
+diff: 25
+SHINE                    
+NO                       
+OK                       
+LINE                     
+BAR                      
+CLOWN                    
+WELL                     
+A                        
+CAN'T                    
+CAN                      
+BOY                      
+MOM                      
+AND                      
+DAD                      
+HORSE 
+hor                   
+FAR                      
+TWO                      
+THREE                    
+FOUR                     
+FIVE                     
+SIX                      
+GIRLS                    
+ONE                      
+GIRL 
+
+Cookie Theft
+girl boy candy no a candy candy jar jar no I I candy I candy mom water water water water yes water soap a no sinks sinks a a a a candy a no shine a a a what a a a oh what  a a a a no
+total words: 49
+diff: 15
+GIRL                     
+BOY                      
+JAR                      
+NO                       
+CANDY                    
+I                        
+MOM                      
+WATER                    
+YES                      
+SOAP                     
+SINKS                    
+SHINE                    
+A                        
+WHAT                     
+OH 
+
+Picnic 
+boy and girl what pet pe dog dog boy and girl no plied no no black black black car car house house boat boat boat and one two two a two boys no two two person person a lake lake 
+total words: 40
+diff: 19
+AND                      
+GIRL                     
+WHAT                     
+PET 
+pe                     
+DOG                      
+BOY                      
+PLIED                    
+NO                       
+BLACK                    
+CAR                      
+HOUSE                    
+BOAT                     
+ONE                      
+TWO                      
+BOYS                     
+PERSON                   
+A                        
+LAKE
+
+
