@@ -133,10 +133,17 @@ def _create_prepped_txt_file(src, scenario_destinfo_map):
 
 	write_scenarios()
 
+num_re = re.compile('lime_([0-9]+)_')
+def _lime_num(filename):
+	return int(num_re.findall(filename)[0])
 
-def create_prepped_txt_files(src_path, dest_path):
+def create_prepped_txt_files(src_path, dest_path, start_from = 1):
+
 	srcs = _get_original_txt_files(src_path)
+	srcs = [s for s in srcs if _lime_num(s) > start_from]
+
 	src_dest_map = _create_src_dest_map(srcs, dest_path)
-	for src in src_dest_map.keys():
+
+	for src in srcs:
 		scenario_destinfo_map = src_dest_map[src]
 		_create_prepped_txt_file(src, scenario_destinfo_map)
