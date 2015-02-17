@@ -30,7 +30,6 @@ def _gen_dependencies_tree(deps, gov_map = None, root_ix = None):
 			dep = gov_map[dep_ix]
 
 		t_ix = r['governor']['index']
-		t_label = r['governor']['value']
 
 		t = gov_map[t_ix]
 		rel = r['relation']
