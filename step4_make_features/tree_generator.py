@@ -2,6 +2,43 @@ import json
 
 from nltk import Tree
 
+def _gen_dependencies_tree(deps, gov_map = None, root_ix = None):
+
+	if gov_map is None:
+		gov_map = {d['governor']['index']: Tree(d['governor']['value'], []) 
+				for d in deps}
+
+	if root_ix is None:
+		child_ixs = {d['dependent']['index'] for d in deps}
+		governor_ixs = set(gov_map.keys()) 
+		root_ix = governor_ixs.difference(child_ixs)
+		root_ix = list(root_ix)[0]
+
+	root = [d for d in deps if d['governor']['index'] is root_ix]
+
+	for r in root:
+		dep = r['dependent']
+		dep_ix = dep['index']
+
+		is_leaf = not dep_ix in gov_map
+
+		dep_label = dep['value']
+		if is_leaf:
+			dep = [dep_label]
+		else:
+			_dependencies_to_tree(deps, gov_map, dep_ix)
+			dep = gov_map[dep_ix]
+
+		t_ix = r['governor']['index']
+		t_label = r['governor']['value']
+
+		t = gov_map[t_ix]
+		rel = r['relation']
+		t.append(Tree(rel['value'], [dep]))
+
+	return t
+
+
 def _gen_phrase_structure_tree(phrase):
 	label = phrase['category']
 
@@ -13,6 +50,7 @@ def _gen_phrase_structure_tree(phrase):
 	sorted_children = map(_gen_phrase_structure_tree, sorted_children)
 	return Tree(label, sorted_children)
 
+
 def _gen_coref_tree(coref):
 	def gen_mentions_tree(m):
 		word_field = 'start: ' + str(m['start'])
@@ -21,9 +59,6 @@ def _gen_coref_tree(coref):
 		return Tree(sent_field, [word_tree])
 
 	return map(gen_mentions_tree, coref['mentions'])
-
-def _gen_dependencies_tree():
-	print('hi')
 
 def gen_from_file(src):
 	with open(src) as f:
@@ -70,4 +105,5 @@ def gen_from_file(src):
 
 	corefs_tree = safe_load(['coreferences'])
 	phrase_structures_tree = safe_load(['sentences', 'phrase_structure'])
-	return (corefs_tree, phrase_structures_tree)
+	dependencies_tree = safe_load(['sentences', 'dependencies'])
+	return (corefs_tree, phrase_structures_tree, dependencies_tree)
