@@ -12,30 +12,26 @@ def _gen_dependencies_tree(deps, gov_map = None, root_ix = None):
 		child_ixs = {d['dependent']['index'] for d in deps}
 		governor_ixs = set(gov_map.keys()) 
 		root_ix = governor_ixs.difference(child_ixs)
-		root_ix = list(root_ix)[0]
 
-	root = [d for d in deps if d['governor']['index'] is root_ix]
+	roots = [d for d in deps if d['governor']['index'] in root_ix]
 
-	for r in root:
+	for r in roots:
 		dep = r['dependent']
 		dep_ix = dep['index']
 
 		is_leaf = not dep_ix in gov_map
 
 		dep_label = dep['value']
-		if is_leaf:
-			dep = [dep_label]
-		else:
-			_dependencies_to_tree(deps, gov_map, dep_ix)
-			dep = gov_map[dep_ix]
 
-		t_ix = r['governor']['index']
+		dep = [dep_label] if is_leaf else gov_map[dep_ix] 
 
-		t = gov_map[t_ix]
+		gov_ix = r['governor']['index']
+
+		gov = gov_map[gov_ix]
 		rel = r['relation']
-		t.append(Tree(rel['value'], [dep]))
+		gov.append(Tree(rel['value'], [dep]))
 
-	return t
+	return [gov_map[r] for r in root_ix]
 
 
 def _gen_phrase_structure_tree(phrase):
@@ -86,7 +82,7 @@ def gen_from_file(src):
 
 		def gen_children(fn):
 			sorted_children = sorted(content, key = id_fn)
-			tree_with_id = lambda c: nltk.Tree('id: {}'.format(id_fn(c)), fn(c))
+			tree_with_id = lambda c: Tree('id: {}'.format(id_fn(c)), fn(c))
 			return map(tree_with_id, sorted_children)
 
 		if not field_path:
