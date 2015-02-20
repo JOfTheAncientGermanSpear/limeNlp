@@ -4,8 +4,11 @@ from nltk import Tree
 
 def _gen_dependencies_tree(deps, gov_map = None, root_ix = None):
 
+	def mk_label(x):
+		return 'word: {}, index: {}'.format(x['value'], x['index'])
+
 	if gov_map is None:
-		gov_map = {d['governor']['index']: Tree(d['governor']['value'], []) 
+		gov_map = {d['governor']['index']: Tree(mk_label(d['governor']), []) 
 				for d in deps}
 
 	if root_ix is None:
@@ -15,20 +18,20 @@ def _gen_dependencies_tree(deps, gov_map = None, root_ix = None):
 
 	roots = [d for d in deps if d['governor']['index'] in root_ix]
 
-	for r in roots:
-		dep = r['dependent']
+	for d in deps:
+		dep = d['dependent']
 		dep_ix = dep['index']
 
 		is_leaf = not dep_ix in gov_map
 
-		dep_label = dep['value']
+		dep_label = mk_label(dep)
 
 		dep = [dep_label] if is_leaf else gov_map[dep_ix] 
 
-		gov_ix = r['governor']['index']
+		gov_ix = d['governor']['index']
 
 		gov = gov_map[gov_ix]
-		rel = r['relation']
+		rel = d['relation']
 		gov.append(Tree(rel['value'], [dep]))
 
 	return [gov_map[r] for r in root_ix]
@@ -52,15 +55,21 @@ def _gen_coref_tree(coref):
 		sent_field = 'sent: ' + str(m['sentence'])
 		word_tree = Tree(word_field, [m['text']])
 		return Tree(sent_field, [word_tree])
+	
+	mentions = coref['mentions']
 
-	return map(gen_mentions_tree, coref['mentions'])
+	return map(gen_mentions_tree, mentions) if len(mentions) > 1 else []
 
 def gen_from_file(src):
 	with open(src) as f:
 		content = json.load(f)
 		
 	fn_map = {
-			'coreferences': {'fn': _gen_coref_tree, 'is_array' : 1, 'id': 'id'},
+			'coreferences': {'fn': _gen_coref_tree, 
+				'is_array' : 1, 
+				'id': 'id',
+				'child_filter_fn': lambda c: len(c['mentions']) > 1
+				},
 			'sentences': 
 				{'phrase_structure': {'fn': _gen_phrase_structure_tree},
 				'dependencies': {'fn': _gen_dependencies_tree},
@@ -82,8 +91,12 @@ def gen_from_file(src):
 
 		def gen_children(fn):
 			sorted_children = sorted(content, key = id_fn)
+
 			tree_with_id = lambda c: Tree('id: {}'.format(id_fn(c)), fn(c))
-			return map(tree_with_id, sorted_children)
+
+			child_filter_fn = fn_map.get('child_filter_fn')
+			return [tree_with_id(c) for c in sorted_children if 
+					(not child_filter_fn or child_filter_fn(c))]
 
 		if not field_path:
 			fn = fn_map['fn']
