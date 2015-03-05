@@ -1,4 +1,10 @@
+from __future__ import division
+
 import json
+import os
+from os import listdir
+from os.path import basename, join, splitext
+import pickle
 
 from nltk import Tree
 
@@ -115,3 +121,31 @@ def gen_from_file(src):
 	phrase_structures_tree = safe_load(['sentences', 'phrase_structure'])
 	dependencies_tree = safe_load(['sentences', 'dependencies'])
 	return (corefs_tree, phrase_structures_tree, dependencies_tree)
+
+#http://stackoverflow.com/questions/23429117/saving-nltk-drawn-parse-tree-to-image-file
+def print_tree(t, file_name):
+	from nltk.draw.tree import TreeView
+	tv = TreeView(t)
+	tv._cframe.print_to_file(file_name)
+
+def dir_to_trees(src_dir, dest_dir, src_filter = lambda f: f.endswith('.json')):
+	if not os.path.exists(dest_dir):
+		os.makedirs(dest_dir)
+
+	src_files = [join(src_dir, f) for f in listdir(src_dir) if src_filter(f)]
+	num_files = len(src_files)
+	for (i, s) in enumerate(src_files):
+		print('file: {}, percent_done: {}'.format(basename(s), i/num_files * 100))
+		trees = dict()
+		trees['corefs'], trees['phrase'], trees['deps'] = gen_from_file(s)
+		def dests(tree_type):
+			base = join(dest_dir, splitext(basename(s))[0])
+			image = base + '_' + tree_type + '.ps'
+			pkl = base + '_' + tree_type + '.pkl'
+			return (image, pkl)
+
+		for tree_type in trees:
+			image_file, pkl_file = dests(tree_type)
+			print_tree(trees[tree_type], image_file)
+			with open(pkl_file, 'wb') as pkl:
+				pickle.dump(trees[tree_type], pkl)
