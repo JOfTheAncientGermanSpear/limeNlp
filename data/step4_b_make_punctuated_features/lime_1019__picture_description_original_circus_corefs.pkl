@@ -1,0 +1,1358 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VThis
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 2'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Va circus
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 3'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 2'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+V's
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 2'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 3'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 2'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vthe top
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 5'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 3'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vthe top
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 20'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 12'
+p65
+sbatp66
+Rp67
+(dp68
+g11
+S'id: 5'
+p69
+sbag0
+(g1
+g2
+(lp70
+g0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+VWe
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 1'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 4'
+p81
+sbag0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vwe
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 7'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 5'
+p92
+sbatp93
+Rp94
+(dp95
+g11
+S'id: 6'
+p96
+sbag0
+(g1
+g2
+(lp97
+g0
+(g1
+g2
+(lp98
+g0
+(g1
+g2
+(lp99
+Va tight ropewalker
+p100
+atp101
+Rp102
+(dp103
+g11
+S'start: 4'
+p104
+sbatp105
+Rp106
+(dp107
+g11
+S'sent: 4'
+p108
+sbag0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+Vhis
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 10'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 4'
+p119
+sbag0
+(g1
+g2
+(lp120
+g0
+(g1
+g2
+(lp121
+Vhis
+p122
+atp123
+Rp124
+(dp125
+g11
+S'start: 16'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'sent: 4'
+p130
+sbag0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+Vhe
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 21'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 4'
+p141
+sbag0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Vhe
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 24'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 4'
+p152
+sbag0
+(g1
+g2
+(lp153
+g0
+(g1
+g2
+(lp154
+Vhis
+p155
+atp156
+Rp157
+(dp158
+g11
+S'start: 28'
+p159
+sbatp160
+Rp161
+(dp162
+g11
+S'sent: 5'
+p163
+sbag0
+(g1
+g2
+(lp164
+g0
+(g1
+g2
+(lp165
+Vhis
+p166
+atp167
+Rp168
+(dp169
+g11
+S'start: 33'
+p170
+sbatp171
+Rp172
+(dp173
+g11
+S'sent: 5'
+p174
+sbag0
+(g1
+g2
+(lp175
+g0
+(g1
+g2
+(lp176
+Vhis
+p177
+atp178
+Rp179
+(dp180
+g11
+S'start: 4'
+p181
+sbatp182
+Rp183
+(dp184
+g11
+S'sent: 6'
+p185
+sbatp186
+Rp187
+(dp188
+g11
+S'id: 7'
+p189
+sbag0
+(g1
+g2
+(lp190
+g0
+(g1
+g2
+(lp191
+g0
+(g1
+g2
+(lp192
+Va little bit
+p193
+atp194
+Rp195
+(dp196
+g11
+S'start: 3'
+p197
+sbatp198
+Rp199
+(dp200
+g11
+S'sent: 5'
+p201
+sbag0
+(g1
+g2
+(lp202
+g0
+(g1
+g2
+(lp203
+Vit
+p204
+atp205
+Rp206
+(dp207
+g11
+S'start: 15'
+p208
+sbatp209
+Rp210
+(dp211
+g11
+S'sent: 5'
+p212
+sbag0
+(g1
+g2
+(lp213
+g0
+(g1
+g2
+(lp214
+Va little bit
+p215
+atp216
+Rp217
+(dp218
+g11
+S'start: 19'
+p219
+sbatp220
+Rp221
+(dp222
+g11
+S'sent: 14'
+p223
+sbatp224
+Rp225
+(dp226
+g11
+S'id: 14'
+p227
+sbag0
+(g1
+g2
+(lp228
+g0
+(g1
+g2
+(lp229
+g0
+(g1
+g2
+(lp230
+Vthe lion
+p231
+atp232
+Rp233
+(dp234
+g11
+S'start: 10'
+p235
+sbatp236
+Rp237
+(dp238
+g11
+S'sent: 5'
+p239
+sbag0
+(g1
+g2
+(lp240
+g0
+(g1
+g2
+(lp241
+Vthe lion
+p242
+atp243
+Rp244
+(dp245
+g11
+S'start: 19'
+p246
+sbatp247
+Rp248
+(dp249
+g11
+S'sent: 6'
+p250
+sbag0
+(g1
+g2
+(lp251
+g0
+(g1
+g2
+(lp252
+Vthe lion
+p253
+atp254
+Rp255
+(dp256
+g11
+S'start: 3'
+p257
+sbatp258
+Rp259
+(dp260
+g11
+S'sent: 10'
+p261
+sbag0
+(g1
+g2
+(lp262
+g0
+(g1
+g2
+(lp263
+Vthe lion
+p264
+atp265
+Rp266
+(dp267
+g11
+S'start: 7'
+p268
+sbatp269
+Rp270
+(dp271
+g11
+S'sent: 13'
+p272
+sbatp273
+Rp274
+(dp275
+g11
+S'id: 16'
+p276
+sbag0
+(g1
+g2
+(lp277
+g0
+(g1
+g2
+(lp278
+g0
+(g1
+g2
+(lp279
+Vhis left paw
+p280
+atp281
+Rp282
+(dp283
+g11
+S'start: 33'
+p284
+sbatp285
+Rp286
+(dp287
+g11
+S'sent: 5'
+p288
+sbag0
+(g1
+g2
+(lp289
+g0
+(g1
+g2
+(lp290
+Vhis left paw
+p291
+atp292
+Rp293
+(dp294
+g11
+S'start: 23'
+p295
+sbatp296
+Rp297
+(dp298
+g11
+S'sent: 6'
+p299
+sbatp300
+Rp301
+(dp302
+g11
+S'id: 23'
+p303
+sbag0
+(g1
+g2
+(lp304
+g0
+(g1
+g2
+(lp305
+g0
+(g1
+g2
+(lp306
+Vhis lion trainer
+p307
+atp308
+Rp309
+(dp310
+g11
+S'start: 4'
+p311
+sbatp312
+Rp313
+(dp314
+g11
+S'sent: 6'
+p315
+sbag0
+(g1
+g2
+(lp316
+g0
+(g1
+g2
+(lp317
+Vhis
+p318
+atp319
+Rp320
+(dp321
+g11
+S'start: 11'
+p322
+sbatp323
+Rp324
+(dp325
+g11
+S'sent: 6'
+p326
+sbag0
+(g1
+g2
+(lp327
+g0
+(g1
+g2
+(lp328
+Vhis
+p329
+atp330
+Rp331
+(dp332
+g11
+S'start: 14'
+p333
+sbatp334
+Rp335
+(dp336
+g11
+S'sent: 6'
+p337
+sbag0
+(g1
+g2
+(lp338
+g0
+(g1
+g2
+(lp339
+Vhis
+p340
+atp341
+Rp342
+(dp343
+g11
+S'start: 23'
+p344
+sbatp345
+Rp346
+(dp347
+g11
+S'sent: 6'
+p348
+sbag0
+(g1
+g2
+(lp349
+g0
+(g1
+g2
+(lp350
+Vthe lion trainer
+p351
+atp352
+Rp353
+(dp354
+g11
+S'start: 2'
+p355
+sbatp356
+Rp357
+(dp358
+g11
+S'sent: 7'
+p359
+sbag0
+(g1
+g2
+(lp360
+g0
+(g1
+g2
+(lp361
+Vhe
+p362
+atp363
+Rp364
+(dp365
+g11
+S'start: 13'
+p366
+sbatp367
+Rp368
+(dp369
+g11
+S'sent: 7'
+p370
+sbatp371
+Rp372
+(dp373
+g11
+S'id: 26'
+p374
+sbag0
+(g1
+g2
+(lp375
+g0
+(g1
+g2
+(lp376
+g0
+(g1
+g2
+(lp377
+Vhis hand
+p378
+atp379
+Rp380
+(dp381
+g11
+S'start: 11'
+p382
+sbatp383
+Rp384
+(dp385
+g11
+S'sent: 6'
+p386
+sbag0
+(g1
+g2
+(lp387
+g0
+(g1
+g2
+(lp388
+Vhis right hand
+p389
+atp390
+Rp391
+(dp392
+g11
+S'start: 14'
+p393
+sbatp394
+Rp395
+(dp396
+g11
+S'sent: 6'
+p397
+sbatp398
+Rp399
+(dp400
+g11
+S'id: 30'
+p401
+sbag0
+(g1
+g2
+(lp402
+g0
+(g1
+g2
+(lp403
+g0
+(g1
+g2
+(lp404
+Vstripes , very wide stripes
+p405
+atp406
+Rp407
+(dp408
+g11
+S'start: 4'
+p409
+sbatp410
+Rp411
+(dp412
+g11
+S'sent: 9'
+p413
+sbag0
+(g1
+g2
+(lp414
+g0
+(g1
+g2
+(lp415
+Vstripes
+p416
+atp417
+Rp418
+(dp419
+g11
+S'start: 4'
+p420
+sbatp421
+Rp422
+(dp423
+g11
+S'sent: 9'
+p424
+sbag0
+(g1
+g2
+(lp425
+g0
+(g1
+g2
+(lp426
+Vvery wide stripes
+p427
+atp428
+Rp429
+(dp430
+g11
+S'start: 6'
+p431
+sbatp432
+Rp433
+(dp434
+g11
+S'sent: 9'
+p435
+sbag0
+(g1
+g2
+(lp436
+g0
+(g1
+g2
+(lp437
+Vstripes
+p438
+atp439
+Rp440
+(dp441
+g11
+S'start: 49'
+p442
+sbatp443
+Rp444
+(dp445
+g11
+S'sent: 12'
+p446
+sbatp447
+Rp448
+(dp449
+g11
+S'id: 48'
+p450
+sbag0
+(g1
+g2
+(lp451
+g0
+(g1
+g2
+(lp452
+g0
+(g1
+g2
+(lp453
+Va little girl
+p454
+atp455
+Rp456
+(dp457
+g11
+S'start: 9'
+p458
+sbatp459
+Rp460
+(dp461
+g11
+S'sent: 10'
+p462
+sbag0
+(g1
+g2
+(lp463
+g0
+(g1
+g2
+(lp464
+Vshe
+p465
+atp466
+Rp467
+(dp468
+g11
+S'start: 14'
+p469
+sbatp470
+Rp471
+(dp472
+g11
+S'sent: 10'
+p473
+sbag0
+(g1
+g2
+(lp474
+g0
+(g1
+g2
+(lp475
+Vshe
+p476
+atp477
+Rp478
+(dp479
+g11
+S'start: 35'
+p480
+sbatp481
+Rp482
+(dp483
+g11
+S'sent: 12'
+p484
+sbag0
+(g1
+g2
+(lp485
+g0
+(g1
+g2
+(lp486
+Vshe
+p487
+atp488
+Rp489
+(dp490
+g11
+S'start: 46'
+p491
+sbatp492
+Rp493
+(dp494
+g11
+S'sent: 12'
+p495
+sbag0
+(g1
+g2
+(lp496
+g0
+(g1
+g2
+(lp497
+Vshe
+p498
+atp499
+Rp500
+(dp501
+g11
+S'start: 2'
+p502
+sbatp503
+Rp504
+(dp505
+g11
+S'sent: 13'
+p506
+sbag0
+(g1
+g2
+(lp507
+g0
+(g1
+g2
+(lp508
+Vher , the clown
+p509
+atp510
+Rp511
+(dp512
+g11
+S'start: 11'
+p513
+sbatp514
+Rp515
+(dp516
+g11
+S'sent: 14'
+p517
+sbag0
+(g1
+g2
+(lp518
+g0
+(g1
+g2
+(lp519
+Vher
+p520
+atp521
+Rp522
+(dp523
+g11
+S'start: 11'
+p524
+sbatp525
+Rp526
+(dp527
+g11
+S'sent: 14'
+p528
+sbag0
+(g1
+g2
+(lp529
+g0
+(g1
+g2
+(lp530
+Vher
+p531
+atp532
+Rp533
+(dp534
+g11
+S'start: 17'
+p535
+sbatp536
+Rp537
+(dp538
+g11
+S'sent: 14'
+p539
+sbatp540
+Rp541
+(dp542
+g11
+S'id: 53'
+p543
+sbag0
+(g1
+g2
+(lp544
+g0
+(g1
+g2
+(lp545
+g0
+(g1
+g2
+(lp546
+Vthe clown
+p547
+atp548
+Rp549
+(dp550
+g11
+S'start: 18'
+p551
+sbatp552
+Rp553
+(dp554
+g11
+S'sent: 10'
+p555
+sbag0
+(g1
+g2
+(lp556
+g0
+(g1
+g2
+(lp557
+Vthe clown , who 's in the middle of the picture
+p558
+atp559
+Rp560
+(dp561
+g11
+S'start: 20'
+p562
+sbatp563
+Rp564
+(dp565
+g11
+S'sent: 11'
+p566
+sbag0
+(g1
+g2
+(lp567
+g0
+(g1
+g2
+(lp568
+Vthe clown
+p569
+atp570
+Rp571
+(dp572
+g11
+S'start: 20'
+p573
+sbatp574
+Rp575
+(dp576
+g11
+S'sent: 11'
+p577
+sbag0
+(g1
+g2
+(lp578
+g0
+(g1
+g2
+(lp579
+Vthe clown
+p580
+atp581
+Rp582
+(dp583
+g11
+S'start: 10'
+p584
+sbatp585
+Rp586
+(dp587
+g11
+S'sent: 13'
+p588
+sbag0
+(g1
+g2
+(lp589
+g0
+(g1
+g2
+(lp590
+Vthe clown , the lion 's in front of her , the clown
+p591
+atp592
+Rp593
+(dp594
+g11
+S'start: 2'
+p595
+sbatp596
+Rp597
+(dp598
+g11
+S'sent: 14'
+p599
+sbag0
+(g1
+g2
+(lp600
+g0
+(g1
+g2
+(lp601
+Vthe clown
+p602
+atp603
+Rp604
+(dp605
+g11
+S'start: 2'
+p606
+sbatp607
+Rp608
+(dp609
+g11
+S'sent: 14'
+p610
+sbag0
+(g1
+g2
+(lp611
+g0
+(g1
+g2
+(lp612
+Vthe clown
+p613
+atp614
+Rp615
+(dp616
+g11
+S'start: 13'
+p617
+sbatp618
+Rp619
+(dp620
+g11
+S'sent: 14'
+p621
+sbag0
+(g1
+g2
+(lp622
+g0
+(g1
+g2
+(lp623
+VThe clown
+p624
+atp625
+Rp626
+(dp627
+g11
+S'start: 1'
+p628
+sbatp629
+Rp630
+(dp631
+g11
+S'sent: 15'
+p632
+sbatp633
+Rp634
+(dp635
+g11
+S'id: 55'
+p636
+sbag0
+(g1
+g2
+(lp637
+g0
+(g1
+g2
+(lp638
+g0
+(g1
+g2
+(lp639
+Va man in the bottom right hand , bottom left hand corner , who 's looking at the clown , who 's in the middle of the picture
+p640
+atp641
+Rp642
+(dp643
+g11
+S'start: 3'
+p644
+sbatp645
+Rp646
+(dp647
+g11
+S'sent: 11'
+p648
+sbag0
+(g1
+g2
+(lp649
+g0
+(g1
+g2
+(lp650
+Vthe man
+p651
+atp652
+Rp653
+(dp654
+g11
+S'start: 3'
+p655
+sbatp656
+Rp657
+(dp658
+g11
+S'sent: 12'
+p659
+sbag0
+(g1
+g2
+(lp660
+g0
+(g1
+g2
+(lp661
+Vhim
+p662
+atp663
+Rp664
+(dp665
+g11
+S'start: 10'
+p666
+sbatp667
+Rp668
+(dp669
+g11
+S'sent: 12'
+p670
+sbatp671
+Rp672
+(dp673
+g11
+S'id: 56'
+p674
+sbatp675
+Rp676
+(dp677
+g11
+S'coreferences'
+p678
+sb.

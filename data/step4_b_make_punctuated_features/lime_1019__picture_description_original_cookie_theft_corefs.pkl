@@ -1,0 +1,1028 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Van old fashion kitchen
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 4'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VThe kitchen
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 9'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+V's
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 2'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 10'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 2'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VMom 's there drying the dishes .
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 1'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 2'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+VMom 's
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 1'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 6'
+p65
+sbatp66
+Rp67
+(dp68
+g11
+S'id: 3'
+p69
+sbag0
+(g1
+g2
+(lp70
+g0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+VThe sink
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 1'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 3'
+p81
+sbag0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vthe sink
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 14'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 20'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vthe sink
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 20'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 20'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vthe sink
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 29'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 20'
+p114
+sbatp115
+Rp116
+(dp117
+g11
+S'id: 5'
+p118
+sbag0
+(g1
+g2
+(lp119
+g0
+(g1
+g2
+(lp120
+g0
+(g1
+g2
+(lp121
+VThe boy 's
+p122
+atp123
+Rp124
+(dp125
+g11
+S'start: 1'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'sent: 5'
+p130
+sbag0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+Vhe
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 14'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 5'
+p141
+sbag0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Vhis
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 19'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 5'
+p152
+sbag0
+(g1
+g2
+(lp153
+g0
+(g1
+g2
+(lp154
+VThe boy
+p155
+atp156
+Rp157
+(dp158
+g11
+S'start: 1'
+p159
+sbatp160
+Rp161
+(dp162
+g11
+S'sent: 16'
+p163
+sbag0
+(g1
+g2
+(lp164
+g0
+(g1
+g2
+(lp165
+Vthe boy 's
+p166
+atp167
+Rp168
+(dp169
+g11
+S'start: 23'
+p170
+sbatp171
+Rp172
+(dp173
+g11
+S'sent: 21'
+p174
+sbatp175
+Rp176
+(dp177
+g11
+S'id: 10'
+p178
+sbag0
+(g1
+g2
+(lp179
+g0
+(g1
+g2
+(lp180
+g0
+(g1
+g2
+(lp181
+Vthe stool
+p182
+atp183
+Rp184
+(dp185
+g11
+S'start: 6'
+p186
+sbatp187
+Rp188
+(dp189
+g11
+S'sent: 5'
+p190
+sbag0
+(g1
+g2
+(lp191
+g0
+(g1
+g2
+(lp192
+Vthe stool
+p193
+atp194
+Rp195
+(dp196
+g11
+S'start: 9'
+p197
+sbatp198
+Rp199
+(dp200
+g11
+S'sent: 5'
+p201
+sbatp202
+Rp203
+(dp204
+g11
+S'id: 12'
+p205
+sbag0
+(g1
+g2
+(lp206
+g0
+(g1
+g2
+(lp207
+g0
+(g1
+g2
+(lp208
+Vhis little sister
+p209
+atp210
+Rp211
+(dp212
+g11
+S'start: 19'
+p213
+sbatp214
+Rp215
+(dp216
+g11
+S'sent: 5'
+p217
+sbag0
+(g1
+g2
+(lp218
+g0
+(g1
+g2
+(lp219
+Vher
+p220
+atp221
+Rp222
+(dp223
+g11
+S'start: 31'
+p224
+sbatp225
+Rp226
+(dp227
+g11
+S'sent: 5'
+p228
+sbatp229
+Rp230
+(dp231
+g11
+S'id: 16'
+p232
+sbag0
+(g1
+g2
+(lp233
+g0
+(g1
+g2
+(lp234
+g0
+(g1
+g2
+(lp235
+VThe window 's open
+p236
+atp237
+Rp238
+(dp239
+g11
+S'start: 1'
+p240
+sbatp241
+Rp242
+(dp243
+g11
+S'sent: 8'
+p244
+sbag0
+(g1
+g2
+(lp245
+g0
+(g1
+g2
+(lp246
+Vit
+p247
+atp248
+Rp249
+(dp250
+g11
+S'start: 6'
+p251
+sbatp252
+Rp253
+(dp254
+g11
+S'sent: 8'
+p255
+sbag0
+(g1
+g2
+(lp256
+g0
+(g1
+g2
+(lp257
+Va nice spring day
+p258
+atp259
+Rp260
+(dp261
+g11
+S'start: 9'
+p262
+sbatp263
+Rp264
+(dp265
+g11
+S'sent: 8'
+p266
+sbag0
+(g1
+g2
+(lp267
+g0
+(g1
+g2
+(lp268
+Vthe window
+p269
+atp270
+Rp271
+(dp272
+g11
+S'start: 35'
+p273
+sbatp274
+Rp275
+(dp276
+g11
+S'sent: 20'
+p277
+sbatp278
+Rp279
+(dp280
+g11
+S'id: 26'
+p281
+sbag0
+(g1
+g2
+(lp282
+g0
+(g1
+g2
+(lp283
+g0
+(g1
+g2
+(lp284
+VTwo
+p285
+atp286
+Rp287
+(dp288
+g11
+S'start: 1'
+p289
+sbatp290
+Rp291
+(dp292
+g11
+S'sent: 13'
+p293
+sbag0
+(g1
+g2
+(lp294
+g0
+(g1
+g2
+(lp295
+Vtwo
+p296
+atp297
+Rp298
+(dp299
+g11
+S'start: 4'
+p300
+sbatp301
+Rp302
+(dp303
+g11
+S'sent: 19'
+p304
+sbag0
+(g1
+g2
+(lp305
+g0
+(g1
+g2
+(lp306
+Vtwo
+p307
+atp308
+Rp309
+(dp310
+g11
+S'start: 7'
+p311
+sbatp312
+Rp313
+(dp314
+g11
+S'sent: 20'
+p315
+sbag0
+(g1
+g2
+(lp316
+g0
+(g1
+g2
+(lp317
+Vtwo
+p318
+atp319
+Rp320
+(dp321
+g11
+S'start: 17'
+p322
+sbatp323
+Rp324
+(dp325
+g11
+S'sent: 20'
+p326
+sbag0
+(g1
+g2
+(lp327
+g0
+(g1
+g2
+(lp328
+Vtwo
+p329
+atp330
+Rp331
+(dp332
+g11
+S'start: 23'
+p333
+sbatp334
+Rp335
+(dp336
+g11
+S'sent: 20'
+p337
+sbatp338
+Rp339
+(dp340
+g11
+S'id: 43'
+p341
+sbag0
+(g1
+g2
+(lp342
+g0
+(g1
+g2
+(lp343
+g0
+(g1
+g2
+(lp344
+Vthe counter
+p345
+atp346
+Rp347
+(dp348
+g11
+S'start: 8'
+p349
+sbatp350
+Rp351
+(dp352
+g11
+S'sent: 13'
+p353
+sbag0
+(g1
+g2
+(lp354
+g0
+(g1
+g2
+(lp355
+Vthe counter
+p356
+atp357
+Rp358
+(dp359
+g11
+S'start: 15'
+p360
+sbatp361
+Rp362
+(dp363
+g11
+S'sent: 13'
+p364
+sbag0
+(g1
+g2
+(lp365
+g0
+(g1
+g2
+(lp366
+Vthe counter
+p367
+atp368
+Rp369
+(dp370
+g11
+S'start: 17'
+p371
+sbatp372
+Rp373
+(dp374
+g11
+S'sent: 21'
+p375
+sbatp376
+Rp377
+(dp378
+g11
+S'id: 48'
+p379
+sbag0
+(g1
+g2
+(lp380
+g0
+(g1
+g2
+(lp381
+g0
+(g1
+g2
+(lp382
+Vshorts on , and little Mary Jane sandals
+p383
+atp384
+Rp385
+(dp386
+g11
+S'start: 4'
+p387
+sbatp388
+Rp389
+(dp390
+g11
+S'sent: 15'
+p391
+sbag0
+(g1
+g2
+(lp392
+g0
+(g1
+g2
+(lp393
+Vshorts
+p394
+atp395
+Rp396
+(dp397
+g11
+S'start: 9'
+p398
+sbatp399
+Rp400
+(dp401
+g11
+S'sent: 16'
+p402
+sbatp403
+Rp404
+(dp405
+g11
+S'id: 53'
+p406
+sbag0
+(g1
+g2
+(lp407
+g0
+(g1
+g2
+(lp408
+g0
+(g1
+g2
+(lp409
+VI
+p410
+atp411
+Rp412
+(dp413
+g11
+S'start: 5'
+p414
+sbatp415
+Rp416
+(dp417
+g11
+S'sent: 16'
+p418
+sbag0
+(g1
+g2
+(lp419
+g0
+(g1
+g2
+(lp420
+VI
+p421
+atp422
+Rp423
+(dp424
+g11
+S'start: 1'
+p425
+sbatp426
+Rp427
+(dp428
+g11
+S'sent: 21'
+p429
+sbag0
+(g1
+g2
+(lp430
+g0
+(g1
+g2
+(lp431
+VI
+p432
+atp433
+Rp434
+(dp435
+g11
+S'start: 6'
+p436
+sbatp437
+Rp438
+(dp439
+g11
+S'sent: 21'
+p440
+sbag0
+(g1
+g2
+(lp441
+g0
+(g1
+g2
+(lp442
+VI
+p443
+atp444
+Rp445
+(dp446
+g11
+S'start: 11'
+p447
+sbatp448
+Rp449
+(dp450
+g11
+S'sent: 21'
+p451
+sbatp452
+Rp453
+(dp454
+g11
+S'id: 56'
+p455
+sbag0
+(g1
+g2
+(lp456
+g0
+(g1
+g2
+(lp457
+g0
+(g1
+g2
+(lp458
+VWe
+p459
+atp460
+Rp461
+(dp462
+g11
+S'start: 1'
+p463
+sbatp464
+Rp465
+(dp466
+g11
+S'sent: 19'
+p467
+sbag0
+(g1
+g2
+(lp468
+g0
+(g1
+g2
+(lp469
+Vwe
+p470
+atp471
+Rp472
+(dp473
+g11
+S'start: 2'
+p474
+sbatp475
+Rp476
+(dp477
+g11
+S'sent: 20'
+p478
+sbatp479
+Rp480
+(dp481
+g11
+S'id: 68'
+p482
+sbag0
+(g1
+g2
+(lp483
+g0
+(g1
+g2
+(lp484
+g0
+(g1
+g2
+(lp485
+Vtwo kitchen cabinets
+p486
+atp487
+Rp488
+(dp489
+g11
+S'start: 4'
+p490
+sbatp491
+Rp492
+(dp493
+g11
+S'sent: 19'
+p494
+sbag0
+(g1
+g2
+(lp495
+g0
+(g1
+g2
+(lp496
+Vtwo cabinets
+p497
+atp498
+Rp499
+(dp500
+g11
+S'start: 7'
+p501
+sbatp502
+Rp503
+(dp504
+g11
+S'sent: 20'
+p505
+sbatp506
+Rp507
+(dp508
+g11
+S'id: 69'
+p509
+sbatp510
+Rp511
+(dp512
+g11
+S'coreferences'
+p513
+sb.
