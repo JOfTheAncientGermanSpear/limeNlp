@@ -1,0 +1,594 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vthe water drip , drip on the floor
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 6'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthe water drip
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 6'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vdrip on the floor
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 10'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 1'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+Vthe water drip
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 11'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 12'
+p49
+sbatp50
+Rp51
+(dp52
+g11
+S'id: 3'
+p53
+sbag0
+(g1
+g2
+(lp54
+g0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vthe floor
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 12'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 1'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vthe floor
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 15'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 12'
+p76
+sbatp77
+Rp78
+(dp79
+g11
+S'id: 6'
+p80
+sbag0
+(g1
+g2
+(lp81
+g0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vtwo
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 5'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 2'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vit
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 26'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 2'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vthat
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 2'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 3'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Vit
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 4'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 3'
+p125
+sbag0
+(g1
+g2
+(lp126
+g0
+(g1
+g2
+(lp127
+Vthat
+p128
+atp129
+Rp130
+(dp131
+g11
+S'start: 6'
+p132
+sbatp133
+Rp134
+(dp135
+g11
+S'sent: 3'
+p136
+sbatp137
+Rp138
+(dp139
+g11
+S'id: 7'
+p140
+sbag0
+(g1
+g2
+(lp141
+g0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Vthe two kids
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 4'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 2'
+p152
+sbag0
+(g1
+g2
+(lp153
+g0
+(g1
+g2
+(lp154
+Vtheir
+p155
+atp156
+Rp157
+(dp158
+g11
+S'start: 16'
+p159
+sbatp160
+Rp161
+(dp162
+g11
+S'sent: 2'
+p163
+sbatp164
+Rp165
+(dp166
+g11
+S'id: 8'
+p167
+sbag0
+(g1
+g2
+(lp168
+g0
+(g1
+g2
+(lp169
+g0
+(g1
+g2
+(lp170
+V's
+p171
+atp172
+Rp173
+(dp174
+g11
+S'start: 3'
+p175
+sbatp176
+Rp177
+(dp178
+g11
+S'sent: 4'
+p179
+sbag0
+(g1
+g2
+(lp180
+g0
+(g1
+g2
+(lp181
+V's
+p182
+atp183
+Rp184
+(dp185
+g11
+S'start: 3'
+p186
+sbatp187
+Rp188
+(dp189
+g11
+S'sent: 11'
+p190
+sbag0
+(g1
+g2
+(lp191
+g0
+(g1
+g2
+(lp192
+Velse she
+p193
+atp194
+Rp195
+(dp196
+g11
+S'start: 6'
+p197
+sbatp198
+Rp199
+(dp200
+g11
+S'sent: 11'
+p201
+sbag0
+(g1
+g2
+(lp202
+g0
+(g1
+g2
+(lp203
+VShe
+p204
+atp205
+Rp206
+(dp207
+g11
+S'start: 1'
+p208
+sbatp209
+Rp210
+(dp211
+g11
+S'sent: 12'
+p212
+sbag0
+(g1
+g2
+(lp213
+g0
+(g1
+g2
+(lp214
+Vshe
+p215
+atp216
+Rp217
+(dp218
+g11
+S'start: 6'
+p219
+sbatp220
+Rp221
+(dp222
+g11
+S'sent: 12'
+p223
+sbag0
+(g1
+g2
+(lp224
+g0
+(g1
+g2
+(lp225
+Vshe
+p226
+atp227
+Rp228
+(dp229
+g11
+S'start: 4'
+p230
+sbatp231
+Rp232
+(dp233
+g11
+S'sent: 13'
+p234
+sbatp235
+Rp236
+(dp237
+g11
+S'id: 18'
+p238
+sbag0
+(g1
+g2
+(lp239
+g0
+(g1
+g2
+(lp240
+g0
+(g1
+g2
+(lp241
+VWhatever
+p242
+atp243
+Rp244
+(dp245
+g11
+S'start: 1'
+p246
+sbatp247
+Rp248
+(dp249
+g11
+S'sent: 8'
+p250
+sbag0
+(g1
+g2
+(lp251
+g0
+(g1
+g2
+(lp252
+Vit
+p253
+atp254
+Rp255
+(dp256
+g11
+S'start: 12'
+p257
+sbatp258
+Rp259
+(dp260
+g11
+S'sent: 10'
+p261
+sbatp262
+Rp263
+(dp264
+g11
+S'id: 30'
+p265
+sbag0
+(g1
+g2
+(lp266
+g0
+(g1
+g2
+(lp267
+g0
+(g1
+g2
+(lp268
+Vthe little boy
+p269
+atp270
+Rp271
+(dp272
+g11
+S'start: 2'
+p273
+sbatp274
+Rp275
+(dp276
+g11
+S'sent: 10'
+p277
+sbag0
+(g1
+g2
+(lp278
+g0
+(g1
+g2
+(lp279
+Vhe
+p280
+atp281
+Rp282
+(dp283
+g11
+S'start: 9'
+p284
+sbatp285
+Rp286
+(dp287
+g11
+S'sent: 10'
+p288
+sbatp289
+Rp290
+(dp291
+g11
+S'id: 35'
+p292
+sbatp293
+Rp294
+(dp295
+g11
+S'coreferences'
+p296
+sb.

@@ -1,0 +1,278 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vits
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vit
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 4'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Va circus
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 6'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 1'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 1'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Va horse
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 2'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 2'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vits
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 6'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 2'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Va horse
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 10'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 2'
+p76
+sbatp77
+Rp78
+(dp79
+g11
+S'id: 7'
+p80
+sbag0
+(g1
+g2
+(lp81
+g0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+VThe the the the man , and two , a little girl
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 1'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 5'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vthe
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 10'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 12'
+p103
+sbatp104
+Rp105
+(dp106
+g11
+S'id: 16'
+p107
+sbag0
+(g1
+g2
+(lp108
+g0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+Va type
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 4'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 10'
+p119
+sbag0
+(g1
+g2
+(lp120
+g0
+(g1
+g2
+(lp121
+VThe type
+p122
+atp123
+Rp124
+(dp125
+g11
+S'start: 1'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'sent: 12'
+p130
+sbatp131
+Rp132
+(dp133
+g11
+S'id: 24'
+p134
+sbatp135
+Rp136
+(dp137
+g11
+S'coreferences'
+p138
+sb.

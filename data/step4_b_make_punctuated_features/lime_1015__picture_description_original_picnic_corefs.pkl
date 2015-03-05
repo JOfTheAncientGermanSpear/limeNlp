@@ -1,0 +1,450 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Va boy flying a kite with a dog
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 3'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vhis
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 7'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 2'
+p27
+sbatp28
+Rp29
+(dp30
+g11
+S'id: 1'
+p31
+sbag0
+(g1
+g2
+(lp32
+g0
+(g1
+g2
+(lp33
+g0
+(g1
+g2
+(lp34
+Va kite
+p35
+atp36
+Rp37
+(dp38
+g11
+S'start: 6'
+p39
+sbatp40
+Rp41
+(dp42
+g11
+S'sent: 1'
+p43
+sbag0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vthe kite
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 6'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 17'
+p54
+sbatp55
+Rp56
+(dp57
+g11
+S'id: 2'
+p58
+sbag0
+(g1
+g2
+(lp59
+g0
+(g1
+g2
+(lp60
+g0
+(g1
+g2
+(lp61
+Va man fishing
+p62
+atp63
+Rp64
+(dp65
+g11
+S'start: 3'
+p66
+sbatp67
+Rp68
+(dp69
+g11
+S'sent: 5'
+p70
+sbag0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+VMan fishing
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 1'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 11'
+p81
+sbatp82
+Rp83
+(dp84
+g11
+S'id: 12'
+p85
+sbag0
+(g1
+g2
+(lp86
+g0
+(g1
+g2
+(lp87
+g0
+(g1
+g2
+(lp88
+Vtwo
+p89
+atp90
+Rp91
+(dp92
+g11
+S'start: 3'
+p93
+sbatp94
+Rp95
+(dp96
+g11
+S'sent: 6'
+p97
+sbag0
+(g1
+g2
+(lp98
+g0
+(g1
+g2
+(lp99
+Vtwo
+p100
+atp101
+Rp102
+(dp103
+g11
+S'start: 3'
+p104
+sbatp105
+Rp106
+(dp107
+g11
+S'sent: 15'
+p108
+sbatp109
+Rp110
+(dp111
+g11
+S'id: 13'
+p112
+sbag0
+(g1
+g2
+(lp113
+g0
+(g1
+g2
+(lp114
+g0
+(g1
+g2
+(lp115
+Va boat
+p116
+atp117
+Rp118
+(dp119
+g11
+S'start: 6'
+p120
+sbatp121
+Rp122
+(dp123
+g11
+S'sent: 6'
+p124
+sbag0
+(g1
+g2
+(lp125
+g0
+(g1
+g2
+(lp126
+VThe boat
+p127
+atp128
+Rp129
+(dp130
+g11
+S'start: 1'
+p131
+sbatp132
+Rp133
+(dp134
+g11
+S'sent: 18'
+p135
+sbatp136
+Rp137
+(dp138
+g11
+S'id: 15'
+p139
+sbag0
+(g1
+g2
+(lp140
+g0
+(g1
+g2
+(lp141
+g0
+(g1
+g2
+(lp142
+Va house
+p143
+atp144
+Rp145
+(dp146
+g11
+S'start: 8'
+p147
+sbatp148
+Rp149
+(dp150
+g11
+S'sent: 8'
+p151
+sbag0
+(g1
+g2
+(lp152
+g0
+(g1
+g2
+(lp153
+Vthe house
+p154
+atp155
+Rp156
+(dp157
+g11
+S'start: 5'
+p158
+sbatp159
+Rp160
+(dp161
+g11
+S'sent: 14'
+p162
+sbatp163
+Rp164
+(dp165
+g11
+S'id: 19'
+p166
+sbag0
+(g1
+g2
+(lp167
+g0
+(g1
+g2
+(lp168
+g0
+(g1
+g2
+(lp169
+Va blanket
+p170
+atp171
+Rp172
+(dp173
+g11
+S'start: 6'
+p174
+sbatp175
+Rp176
+(dp177
+g11
+S'sent: 9'
+p178
+sbag0
+(g1
+g2
+(lp179
+g0
+(g1
+g2
+(lp180
+Vthe blanket
+p181
+atp182
+Rp183
+(dp184
+g11
+S'start: 6'
+p185
+sbatp186
+Rp187
+(dp188
+g11
+S'sent: 13'
+p189
+sbatp190
+Rp191
+(dp192
+g11
+S'id: 22'
+p193
+sbag0
+(g1
+g2
+(lp194
+g0
+(g1
+g2
+(lp195
+g0
+(g1
+g2
+(lp196
+Vshorts
+p197
+atp198
+Rp199
+(dp200
+g11
+S'start: 4'
+p201
+sbatp202
+Rp203
+(dp204
+g11
+S'sent: 10'
+p205
+sbag0
+(g1
+g2
+(lp206
+g0
+(g1
+g2
+(lp207
+Vshorts
+p208
+atp209
+Rp210
+(dp211
+g11
+S'start: 3'
+p212
+sbatp213
+Rp214
+(dp215
+g11
+S'sent: 16'
+p216
+sbatp217
+Rp218
+(dp219
+g11
+S'id: 24'
+p220
+sbatp221
+Rp222
+(dp223
+g11
+S'coreferences'
+p224
+sb.

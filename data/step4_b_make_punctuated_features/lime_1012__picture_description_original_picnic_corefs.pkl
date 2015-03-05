@@ -1,0 +1,192 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Va
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 3'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vit
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 5'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Va dark this time
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 8'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 1'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+Vit
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 14'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 1'
+p49
+sbag0
+(g1
+g2
+(lp50
+g0
+(g1
+g2
+(lp51
+Vit
+p52
+atp53
+Rp54
+(dp55
+g11
+S'start: 17'
+p56
+sbatp57
+Rp58
+(dp59
+g11
+S'sent: 1'
+p60
+sbatp61
+Rp62
+(dp63
+g11
+S'id: 2'
+p64
+sbag0
+(g1
+g2
+(lp65
+g0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vsomebody 's fishing
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 2'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 4'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vthat
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 3'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 5'
+p87
+sbatp88
+Rp89
+(dp90
+g11
+S'id: 12'
+p91
+sbatp92
+Rp93
+(dp94
+g11
+S'coreferences'
+p95
+sb.
