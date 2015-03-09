@@ -133,6 +133,7 @@ def dir_to_trees(src_dir, dest_dir, src_filter = lambda f: f.endswith('.json')):
 		os.makedirs(dest_dir)
 
 	src_files = [join(src_dir, f) for f in listdir(src_dir) if src_filter(f)]
+        src_files = sorted(src_files)
 	num_files = len(src_files)
 	for (i, s) in enumerate(src_files):
 		print('file: {}, percent_done: {}'.format(basename(s), i/num_files * 100))
