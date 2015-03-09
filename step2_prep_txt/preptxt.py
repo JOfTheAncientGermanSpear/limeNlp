@@ -31,42 +31,59 @@ class DestInfo:
 
 
 def mk_title_re(scenario):
-	return re.compile(r'(?:\n|\A).{,10}(' + scenario + r').{,10}(?:\n|\Z)', re.IGNORECASE)
+	return re.compile(r'(?:\n|\A).{,10}(' + scenario + r').{,20}(?:\n|\Z)', re.IGNORECASE)
 
 title_res = {}
 title_res['circus'] = mk_title_re('circus')
-title_res['cookie_theft'] = mk_title_re('cooki?e theft')
+title_res['cookie_theft'] = mk_title_re('cooki?e ?theft')
 title_res['picnic'] = mk_title_re('picnic')
 
-def get_title(scenario, content):
+def get_title_location(scenario, content):
 	"""Get the title component of file content
-	>>> get_title('circus', 'LM201PDcircus (0:15)')
-	'circus'
-	>>> get_title('picnic', '\\nLM201PDpicnic (0:15)\\n')
-	'picnic'
-	>>> get_title('cookie_theft', '\\nCooke Theft')
-	'Cooke Theft'
+	>>> get_title_location('circus', 'LM201PDcircus (0:15)')
+	(0, 20)
+	>>> get_title_location('picnic', 'hello there\\nLM201PDpicnic (0:15)\\n')
+	(11, 33)
+	>>> get_title_location('cookie_theft', '\\nCooke Theft')
+	(0, 12)
+	>>> get_title_location('cookie_theft', 'LM2013PDcookietheft (0:59 - 1:44)')
+	(0, 33)
 	"""
-	ret = title_res[scenario].findall(content)
-	return ret[0] if ret else None
+	ret = list(title_res[scenario].finditer(content))
+	return (ret[0].start(), ret[0].end())
+
+def get_scenario_content(scenario, scenarios, content):
+	"""Return the content for a given scenario
+	>>> get_scenario_content('circus', ['circus', 'cookie_theft'],'Circus\\nok clan um one\\nCooke Theft')
+	'ok clan um one'
+	>>> get_scenario_content('picnic', ['circus', 'cookie_theft', 'picnic'],'Circus\\nok clan um one\\nCooke Theft\\ncookie stuff, picnic over there\\nPicnic\\nThis is a picnic')
+	'This is a picnic'
+	"""
+	scenario_ix = scenarios.index(scenario) 
+	next_scenario = scenarios[scenario_ix + 1] if scenario_ix < len(scenarios) - 1  else None 
+	
+	(_, sce_end) = get_title_location(scenario, content)	
+	(n_sce_start, _) = get_title_location(next_scenario, content) if next_scenario else (None, None)
+
+	return content[sce_end:n_sce_start] if n_sce_start else content[sce_end:]
 
 
-def _get_original_txt_files(path):
-	f_names = [f for f in listdir(path) if f.endswith('Original.txt')]
+def _get_original_txt_files(path, file_filter_fn):
+	f_names = [f for f in listdir(path) if file_filter_fn(f)]
 	return [join(path, f) for f in f_names]
 
 
 def _create_src_dest_map(src_paths, dest_path):
-	ret = {}
+	ret = dict() 
 	for s in src_paths:
 		src_filename = basename(s)
 		dest_filename = src_filename.replace(' ', '_')
 		dest_filename = dest_filename.lower()
 		dest_filename = join(dest_path, dest_filename)
 
-		ret_s = {}
+		ret_s = dict() 
 		for k in scenarios:
-			dest_content_filename = dest_filename.replace('l.txt', 'l_{}.txt'.format(k))
+			dest_content_filename = dest_filename.replace('.txt', '_{}.txt'.format(k))
 			dest_meta_filename = dest_filename.replace('.txt', '_' + k + '_convert_meta.json')
 			ret_s[k] = DestInfo(dest_content_filename, dest_meta_filename)
 
@@ -103,43 +120,22 @@ def _sanitize_content(content):
 	return (content, meta)
 
 def _create_prepped_txt_file(src, scenario_destinfo_map):
-
 	with open(src) as src_f:
 		content = src_f.read()
 
-	titles = dict( (s, get_title(s, content)) for s in scenarios)
-		
-	local_scenarios = [s for s in titles.keys() if titles[s]]
-
-	def get_word_index(scenario, content = content):
-		title = titles[scenario]
-		return content.index(title)
+	def get_scenario_start(scenario):
+		(start, _) = get_title_location(scenario, content)
+		return start
 	
-	sorted_scenarios = sorted(local_scenarios, lambda l, r: get_word_index(l) - get_word_index(r))
+	sorted_scenarios = sorted(scenarios, lambda l, r: get_scenario_start(l) - get_scenario_start(r))
 
-	def write_scenarios(scenarios = sorted_scenarios):
-
-		if len(scenarios) > 0:
-			scenario = scenarios[0]
-			tail = scenarios[1:] if len(scenarios) > 1 else []
-
-			title = titles[scenario]
-
-			below_scenario = content.split(title)[1]
-
-			end_index = get_word_index(tail[0], below_scenario) if tail else -1
-			curr_content = below_scenario[:end_index]
-			curr_content, sanitize_meta = _sanitize_content(curr_content)
-
-			write_scenarios(tail)
-		else:
-			return
+        for scenario in sorted_scenarios:
+		scenario_content = get_scenario_content(scenario, sorted_scenarios, content)
+		scenario_content, scenario_meta = _sanitize_content(scenario_content)
 
 		destinfo = scenario_destinfo_map[scenario]
-		destinfo.write(content = curr_content, meta = sanitize_meta)
+		destinfo.write(content = scenario_content, meta = scenario_meta)
 
-
-	write_scenarios()
 
 num_re = re.compile('[^0-9]*([0-9]+)[^0-9]*')
 def lime_num(filename):
@@ -151,10 +147,11 @@ def lime_num(filename):
 	"""
 	return int(num_re.findall(filename)[0])
 
-def create_prepped_txt_files(src_path, dest_path, start_from = 1):
 
-	srcs = _get_original_txt_files(src_path)
-	srcs = [s for s in srcs if lime_num(s) > start_from]
+def create_prepped_txt_files(src_path, dest_path, start_from = 1, txt_filter= lambda f: f.endswith('Original.txt')):
+
+	srcs = _get_original_txt_files(src_path, txt_filter)
+	srcs = [s for s in srcs if lime_num(basename(s)) > start_from]
 
 	src_dest_map = _create_src_dest_map(srcs, dest_path)
 
