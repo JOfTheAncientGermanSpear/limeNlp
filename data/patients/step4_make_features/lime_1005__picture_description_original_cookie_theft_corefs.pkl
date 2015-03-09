@@ -1,0 +1,256 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vthe kitchen
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 9'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 3'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vwater flowing
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 12'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 3'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vwater flowing on the floor
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 15'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 3'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 14'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Va beb
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 3'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 4'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vberry nice kitchen
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 6'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 4'
+p65
+sbatp66
+Rp67
+(dp68
+g11
+S'id: 20'
+p69
+sbag0
+(g1
+g2
+(lp70
+g0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+Vsome plates
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 3'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 5'
+p81
+sbag0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vplates
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 9'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 5'
+p92
+sbatp93
+Rp94
+(dp95
+g11
+S'id: 24'
+p96
+sbag0
+(g1
+g2
+(lp97
+g0
+(g1
+g2
+(lp98
+g0
+(g1
+g2
+(lp99
+Vno
+p100
+atp101
+Rp102
+(dp103
+g11
+S'start: 1'
+p104
+sbatp105
+Rp106
+(dp107
+g11
+S'sent: 6'
+p108
+sbag0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+Vpa , what is
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 3'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 6'
+p119
+sbatp120
+Rp121
+(dp122
+g11
+S'id: 29'
+p123
+sbatp124
+Rp125
+(dp126
+g11
+S'coreferences'
+p127
+sb.

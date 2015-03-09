@@ -1,0 +1,246 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VClown
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 5'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vclown , and a well
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 3'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 5'
+p27
+sbatp28
+Rp29
+(dp30
+g11
+S'id: 7'
+p31
+sbag0
+(g1
+g2
+(lp32
+g0
+(g1
+g2
+(lp33
+g0
+(g1
+g2
+(lp34
+Vsix
+p35
+atp36
+Rp37
+(dp38
+g11
+S'start: 11'
+p39
+sbatp40
+Rp41
+(dp42
+g11
+S'sent: 9'
+p43
+sbag0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vsix
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 13'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 9'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vsix
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 16'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 9'
+p65
+sbatp66
+Rp67
+(dp68
+g11
+S'id: 26'
+p69
+sbag0
+(g1
+g2
+(lp70
+g0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+Vsix girls
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 13'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 9'
+p81
+sbag0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vsix girls
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 16'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 9'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vgirls no girls
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 19'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 9'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vno girls
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 20'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 9'
+p114
+sbatp115
+Rp116
+(dp117
+g11
+S'id: 30'
+p118
+sbatp119
+Rp120
+(dp121
+g11
+S'coreferences'
+p122
+sb.

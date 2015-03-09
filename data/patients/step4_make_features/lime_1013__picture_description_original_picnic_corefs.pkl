@@ -1,0 +1,192 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vthe water
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 10'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthe water
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 11'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 2'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vthe water
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 7'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 3'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 2'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VI
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 1'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 4'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+VI
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 1'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 5'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+VI
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 1'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 6'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+VI
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 3'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 8'
+p87
+sbatp88
+Rp89
+(dp90
+g11
+S'id: 9'
+p91
+sbatp92
+Rp93
+(dp94
+g11
+S'coreferences'
+p95
+sb.

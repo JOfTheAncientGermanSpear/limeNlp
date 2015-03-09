@@ -1,0 +1,214 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VA baderina
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 9'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vhis , circus , clan
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 5'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 11'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vhis
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 5'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 11'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 14'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VSorry
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 1'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 17'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+VIt
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 1'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 18'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vtwo , one lady , two kids
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 3'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 18'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vtwo
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 3'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 18'
+p87
+sbag0
+(g1
+g2
+(lp88
+g0
+(g1
+g2
+(lp89
+Vtwo
+p90
+atp91
+Rp92
+(dp93
+g11
+S'start: 8'
+p94
+sbatp95
+Rp96
+(dp97
+g11
+S'sent: 18'
+p98
+sbatp99
+Rp100
+(dp101
+g11
+S'id: 26'
+p102
+sbatp103
+Rp104
+(dp105
+g11
+S'coreferences'
+p106
+sb.

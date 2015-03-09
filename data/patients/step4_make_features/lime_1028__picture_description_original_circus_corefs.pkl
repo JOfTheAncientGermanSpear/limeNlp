@@ -1,0 +1,148 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vhere
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 3'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthen here , there .
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 2'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vthen here
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 1'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 2'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 4'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vfive
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 9'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 3'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vfive
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 11'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 3'
+p65
+sbatp66
+Rp67
+(dp68
+g11
+S'id: 11'
+p69
+sbatp70
+Rp71
+(dp72
+g11
+S'coreferences'
+p73
+sb.

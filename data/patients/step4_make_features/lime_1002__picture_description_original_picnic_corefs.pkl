@@ -1,0 +1,356 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VBoy and girl .
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VBoy and girl .
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 5'
+p27
+sbatp28
+Rp29
+(dp30
+g11
+S'id: 1'
+p31
+sbag0
+(g1
+g2
+(lp32
+g0
+(g1
+g2
+(lp33
+g0
+(g1
+g2
+(lp34
+VNo
+p35
+atp36
+Rp37
+(dp38
+g11
+S'start: 1'
+p39
+sbatp40
+Rp41
+(dp42
+g11
+S'sent: 6'
+p43
+sbag0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VNo
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 1'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 7'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+VNo , no , black , black , black .
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 1'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 8'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+VNo , no
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 1'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 8'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+VNo
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 1'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 8'
+p87
+sbag0
+(g1
+g2
+(lp88
+g0
+(g1
+g2
+(lp89
+Vno
+p90
+atp91
+Rp92
+(dp93
+g11
+S'start: 3'
+p94
+sbatp95
+Rp96
+(dp97
+g11
+S'sent: 8'
+p98
+sbatp99
+Rp100
+(dp101
+g11
+S'id: 5'
+p102
+sbag0
+(g1
+g2
+(lp103
+g0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vtwo
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 10'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 11'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Vtwo
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 12'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 11'
+p125
+sbag0
+(g1
+g2
+(lp126
+g0
+(g1
+g2
+(lp127
+Vtwo
+p128
+atp129
+Rp130
+(dp131
+g11
+S'start: 14'
+p132
+sbatp133
+Rp134
+(dp135
+g11
+S'sent: 11'
+p136
+sbag0
+(g1
+g2
+(lp137
+g0
+(g1
+g2
+(lp138
+VNo two
+p139
+atp140
+Rp141
+(dp142
+g11
+S'start: 1'
+p143
+sbatp144
+Rp145
+(dp146
+g11
+S'sent: 12'
+p147
+sbag0
+(g1
+g2
+(lp148
+g0
+(g1
+g2
+(lp149
+Vtwo
+p150
+atp151
+Rp152
+(dp153
+g11
+S'start: 2'
+p154
+sbatp155
+Rp156
+(dp157
+g11
+S'sent: 12'
+p158
+sbag0
+(g1
+g2
+(lp159
+g0
+(g1
+g2
+(lp160
+Vtwo
+p161
+atp162
+Rp163
+(dp164
+g11
+S'start: 4'
+p165
+sbatp166
+Rp167
+(dp168
+g11
+S'sent: 12'
+p169
+sbatp170
+Rp171
+(dp172
+g11
+S'id: 15'
+p173
+sbatp174
+Rp175
+(dp176
+g11
+S'coreferences'
+p177
+sb.

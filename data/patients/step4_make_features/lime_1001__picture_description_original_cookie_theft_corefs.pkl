@@ -1,0 +1,182 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VTwo
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 3'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vtwo
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 3'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 3'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+VTwo , one kid , one up high grabbing .
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 1'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 5'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+VTwo
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 1'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 5'
+p49
+sbag0
+(g1
+g2
+(lp50
+g0
+(g1
+g2
+(lp51
+VTwo , two spoons .
+p52
+atp53
+Rp54
+(dp55
+g11
+S'start: 1'
+p56
+sbatp57
+Rp58
+(dp59
+g11
+S'sent: 12'
+p60
+sbag0
+(g1
+g2
+(lp61
+g0
+(g1
+g2
+(lp62
+VTwo
+p63
+atp64
+Rp65
+(dp66
+g11
+S'start: 1'
+p67
+sbatp68
+Rp69
+(dp70
+g11
+S'sent: 12'
+p71
+sbag0
+(g1
+g2
+(lp72
+g0
+(g1
+g2
+(lp73
+Vtwo
+p74
+atp75
+Rp76
+(dp77
+g11
+S'start: 3'
+p78
+sbatp79
+Rp80
+(dp81
+g11
+S'sent: 12'
+p82
+sbatp83
+Rp84
+(dp85
+g11
+S'id: 3'
+p86
+sbatp87
+Rp88
+(dp89
+g11
+S'coreferences'
+p90
+sb.

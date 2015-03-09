@@ -1,0 +1,584 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vthe cage
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 12'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 2'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthe cage
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 7'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 6'
+p27
+sbatp28
+Rp29
+(dp30
+g11
+S'id: 8'
+p31
+sbag0
+(g1
+g2
+(lp32
+g0
+(g1
+g2
+(lp33
+g0
+(g1
+g2
+(lp34
+Va young lady with a , with a printed blouse on
+p35
+atp36
+Rp37
+(dp38
+g11
+S'start: 2'
+p39
+sbatp40
+Rp41
+(dp42
+g11
+S'sent: 5'
+p43
+sbag0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Va
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 6'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 5'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vshe
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 15'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 5'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vher
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 23'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 5'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vher
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 29'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 5'
+p87
+sbag0
+(g1
+g2
+(lp88
+g0
+(g1
+g2
+(lp89
+Va , a , what do you call that thing on it 's head
+p90
+atp91
+Rp92
+(dp93
+g11
+S'start: 5'
+p94
+sbatp95
+Rp96
+(dp97
+g11
+S'sent: 9'
+p98
+sbag0
+(g1
+g2
+(lp99
+g0
+(g1
+g2
+(lp100
+Va
+p101
+atp102
+Rp103
+(dp104
+g11
+S'start: 5'
+p105
+sbatp106
+Rp107
+(dp108
+g11
+S'sent: 9'
+p109
+sbag0
+(g1
+g2
+(lp110
+g0
+(g1
+g2
+(lp111
+Va
+p112
+atp113
+Rp114
+(dp115
+g11
+S'start: 7'
+p116
+sbatp117
+Rp118
+(dp119
+g11
+S'sent: 9'
+p120
+sbatp121
+Rp122
+(dp123
+g11
+S'id: 15'
+p124
+sbag0
+(g1
+g2
+(lp125
+g0
+(g1
+g2
+(lp126
+g0
+(g1
+g2
+(lp127
+Vthe
+p128
+atp129
+Rp130
+(dp131
+g11
+S'start: 2'
+p132
+sbatp133
+Rp134
+(dp135
+g11
+S'sent: 6'
+p136
+sbag0
+(g1
+g2
+(lp137
+g0
+(g1
+g2
+(lp138
+Vthe the
+p139
+atp140
+Rp141
+(dp142
+g11
+S'start: 4'
+p143
+sbatp144
+Rp145
+(dp146
+g11
+S'sent: 7'
+p147
+sbag0
+(g1
+g2
+(lp148
+g0
+(g1
+g2
+(lp149
+Vit
+p150
+atp151
+Rp152
+(dp153
+g11
+S'start: 25'
+p154
+sbatp155
+Rp156
+(dp157
+g11
+S'sent: 7'
+p158
+sbag0
+(g1
+g2
+(lp159
+g0
+(g1
+g2
+(lp160
+Vit
+p161
+atp162
+Rp163
+(dp164
+g11
+S'start: 2'
+p165
+sbatp166
+Rp167
+(dp168
+g11
+S'sent: 9'
+p169
+sbag0
+(g1
+g2
+(lp170
+g0
+(g1
+g2
+(lp171
+Vit
+p172
+atp173
+Rp174
+(dp175
+g11
+S'start: 16'
+p176
+sbatp177
+Rp178
+(dp179
+g11
+S'sent: 9'
+p180
+sbatp181
+Rp182
+(dp183
+g11
+S'id: 26'
+p184
+sbag0
+(g1
+g2
+(lp185
+g0
+(g1
+g2
+(lp186
+g0
+(g1
+g2
+(lp187
+Vthe man in the cage
+p188
+atp189
+Rp190
+(dp191
+g11
+S'start: 4'
+p192
+sbatp193
+Rp194
+(dp195
+g11
+S'sent: 6'
+p196
+sbag0
+(g1
+g2
+(lp197
+g0
+(g1
+g2
+(lp198
+Vhe
+p199
+atp200
+Rp201
+(dp202
+g11
+S'start: 22'
+p203
+sbatp204
+Rp205
+(dp206
+g11
+S'sent: 6'
+p207
+sbatp208
+Rp209
+(dp210
+g11
+S'id: 27'
+p211
+sbag0
+(g1
+g2
+(lp212
+g0
+(g1
+g2
+(lp213
+g0
+(g1
+g2
+(lp214
+Vhorse is in a
+p215
+atp216
+Rp217
+(dp218
+g11
+S'start: 7'
+p219
+sbatp220
+Rp221
+(dp222
+g11
+S'sent: 7'
+p223
+sbag0
+(g1
+g2
+(lp224
+g0
+(g1
+g2
+(lp225
+Vthe horse 's
+p226
+atp227
+Rp228
+(dp229
+g11
+S'start: 2'
+p230
+sbatp231
+Rp232
+(dp233
+g11
+S'sent: 8'
+p234
+sbatp235
+Rp236
+(dp237
+g11
+S'id: 35'
+p238
+sbag0
+(g1
+g2
+(lp239
+g0
+(g1
+g2
+(lp240
+g0
+(g1
+g2
+(lp241
+Va fancy
+p242
+atp243
+Rp244
+(dp245
+g11
+S'start: 28'
+p246
+sbatp247
+Rp248
+(dp249
+g11
+S'sent: 7'
+p250
+sbag0
+(g1
+g2
+(lp251
+g0
+(g1
+g2
+(lp252
+Vthat
+p253
+atp254
+Rp255
+(dp256
+g11
+S'start: 33'
+p257
+sbatp258
+Rp259
+(dp260
+g11
+S'sent: 7'
+p261
+sbag0
+(g1
+g2
+(lp262
+g0
+(g1
+g2
+(lp263
+Va harness on it
+p264
+atp265
+Rp266
+(dp267
+g11
+S'start: 35'
+p268
+sbatp269
+Rp270
+(dp271
+g11
+S'sent: 7'
+p272
+sbag0
+(g1
+g2
+(lp273
+g0
+(g1
+g2
+(lp274
+Vit
+p275
+atp276
+Rp277
+(dp278
+g11
+S'start: 38'
+p279
+sbatp280
+Rp281
+(dp282
+g11
+S'sent: 7'
+p283
+sbatp284
+Rp285
+(dp286
+g11
+S'id: 40'
+p287
+sbatp288
+Rp289
+(dp290
+g11
+S'coreferences'
+p291
+sb.
