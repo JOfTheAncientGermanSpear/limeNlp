@@ -1,8 +1,12 @@
 from os import listdir
 from os.path import join, basename
+import sys
 
 import json
 import re
+
+sys.path.insert(0, '../utils/')
+import utils
 
 scenarios = ['circus', 'cookie_theft', 'picnic']
 
@@ -137,21 +141,10 @@ def _create_prepped_txt_file(src, scenario_destinfo_map):
 		destinfo.write(content = scenario_content, meta = scenario_meta)
 
 
-num_re = re.compile('[^0-9]*([0-9]+)[^0-9]*')
-def lime_num(filename):
-	""" Extract number out of a string
-	>>> lime_num('LM201PD.txt')
-	201
-	>>> lime_num('LIME 1001 Picture Description Original.txt')
-	1001
-	"""
-	return int(num_re.findall(filename)[0])
-
-
 def create_prepped_txt_files(src_path, dest_path, start_from = 1, txt_filter= lambda f: f.endswith('Original.txt')):
 
 	srcs = _get_original_txt_files(src_path, txt_filter)
-	srcs = [s for s in srcs if lime_num(basename(s)) > start_from]
+	srcs = [s for s in srcs if utils.lime_num(basename(s)) > start_from]
 
 	src_dest_map = _create_src_dest_map(srcs, dest_path)
 
