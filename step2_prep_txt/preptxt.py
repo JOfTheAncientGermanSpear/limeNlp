@@ -31,7 +31,7 @@ class DestInfo:
 
 
 def mk_title_re(scenario):
-	return re.compile(r'\n\W*({})\W*\n'.format(scenario), re.IGNORECASE)
+	return re.compile(r'(?:\n|\A).{,10}(' + scenario + r').{,10}(?:\n|\Z)', re.IGNORECASE)
 
 title_res = {}
 title_res['circus'] = mk_title_re('circus')
@@ -39,6 +39,14 @@ title_res['cookie_theft'] = mk_title_re('cooki?e theft')
 title_res['picnic'] = mk_title_re('picnic')
 
 def get_title(scenario, content):
+	"""Get the title component of file content
+	>>> get_title('circus', 'LM201PDcircus (0:15)')
+	'circus'
+	>>> get_title('picnic', '\\nLM201PDpicnic (0:15)\\n')
+	'picnic'
+	>>> get_title('cookie_theft', '\\nCooke Theft')
+	'Cooke Theft'
+	"""
 	ret = title_res[scenario].findall(content)
 	return ret[0] if ret else None
 
@@ -133,17 +141,27 @@ def _create_prepped_txt_file(src, scenario_destinfo_map):
 
 	write_scenarios()
 
-num_re = re.compile('lime_([0-9]+)_')
-def _lime_num(filename):
+num_re = re.compile('[^0-9]*([0-9]+)[^0-9]*')
+def lime_num(filename):
+	""" Extract number out of a string
+	>>> lime_num('LM201PD.txt')
+	201
+	>>> lime_num('LIME 1001 Picture Description Original.txt')
+	1001
+	"""
 	return int(num_re.findall(filename)[0])
 
 def create_prepped_txt_files(src_path, dest_path, start_from = 1):
 
 	srcs = _get_original_txt_files(src_path)
-	srcs = [s for s in srcs if _lime_num(s) > start_from]
+	srcs = [s for s in srcs if lime_num(s) > start_from]
 
 	src_dest_map = _create_src_dest_map(srcs, dest_path)
 
 	for src in srcs:
 		scenario_destinfo_map = src_dest_map[src]
 		_create_prepped_txt_file(src, scenario_destinfo_map)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
