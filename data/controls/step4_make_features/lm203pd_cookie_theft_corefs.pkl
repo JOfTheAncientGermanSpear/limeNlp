@@ -1,0 +1,540 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vi
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 2'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthat
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 13'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbatp28
+Rp29
+(dp30
+g11
+S'id: 1'
+p31
+sbag0
+(g1
+g2
+(lp32
+g0
+(g1
+g2
+(lp33
+g0
+(g1
+g2
+(lp34
+Vthe , title of it
+p35
+atp36
+Rp37
+(dp38
+g11
+S'start: 4'
+p39
+sbatp40
+Rp41
+(dp42
+g11
+S'sent: 1'
+p43
+sbag0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vthe
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 4'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 1'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vtitle of it
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 6'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 1'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vit
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 8'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 1'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vcookie theft
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 10'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 1'
+p87
+sbag0
+(g1
+g2
+(lp88
+g0
+(g1
+g2
+(lp89
+Vthe , son
+p90
+atp91
+Rp92
+(dp93
+g11
+S'start: 1'
+p94
+sbatp95
+Rp96
+(dp97
+g11
+S'sent: 2'
+p98
+sbag0
+(g1
+g2
+(lp99
+g0
+(g1
+g2
+(lp100
+Vthe
+p101
+atp102
+Rp103
+(dp104
+g11
+S'start: 1'
+p105
+sbatp106
+Rp107
+(dp108
+g11
+S'sent: 2'
+p109
+sbatp110
+Rp111
+(dp112
+g11
+S'id: 2'
+p113
+sbag0
+(g1
+g2
+(lp114
+g0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Vthe sister 's
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 15'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 2'
+p125
+sbag0
+(g1
+g2
+(lp126
+g0
+(g1
+g2
+(lp127
+Vshe
+p128
+atp129
+Rp130
+(dp131
+g11
+S'start: 23'
+p132
+sbatp133
+Rp134
+(dp135
+g11
+S'sent: 2'
+p136
+sbatp137
+Rp138
+(dp139
+g11
+S'id: 13'
+p140
+sbag0
+(g1
+g2
+(lp141
+g0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Vmom 's not real happy the water 's overflowing in the sink .
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 1'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 3'
+p152
+sbag0
+(g1
+g2
+(lp153
+g0
+(g1
+g2
+(lp154
+Vshe
+p155
+atp156
+Rp157
+(dp158
+g11
+S'start: 1'
+p159
+sbatp160
+Rp161
+(dp162
+g11
+S'sent: 4'
+p163
+sbatp164
+Rp165
+(dp166
+g11
+S'id: 16'
+p167
+sbag0
+(g1
+g2
+(lp168
+g0
+(g1
+g2
+(lp169
+g0
+(g1
+g2
+(lp170
+Va couple of
+p171
+atp172
+Rp173
+(dp174
+g11
+S'start: 3'
+p175
+sbatp176
+Rp177
+(dp178
+g11
+S'sent: 5'
+p179
+sbag0
+(g1
+g2
+(lp180
+g0
+(g1
+g2
+(lp181
+Vshe she 's
+p182
+atp183
+Rp184
+(dp185
+g11
+S'start: 1'
+p186
+sbatp187
+Rp188
+(dp189
+g11
+S'sent: 6'
+p190
+sbag0
+(g1
+g2
+(lp191
+g0
+(g1
+g2
+(lp192
+Vshe
+p193
+atp194
+Rp195
+(dp196
+g11
+S'start: 1'
+p197
+sbatp198
+Rp199
+(dp200
+g11
+S'sent: 6'
+p201
+sbag0
+(g1
+g2
+(lp202
+g0
+(g1
+g2
+(lp203
+Vher
+p204
+atp205
+Rp206
+(dp207
+g11
+S'start: 10'
+p208
+sbatp209
+Rp210
+(dp211
+g11
+S'sent: 6'
+p212
+sbag0
+(g1
+g2
+(lp213
+g0
+(g1
+g2
+(lp214
+Vshe
+p215
+atp216
+Rp217
+(dp218
+g11
+S'start: 1'
+p219
+sbatp220
+Rp221
+(dp222
+g11
+S'sent: 9'
+p223
+sbatp224
+Rp225
+(dp226
+g11
+S'id: 22'
+p227
+sbag0
+(g1
+g2
+(lp228
+g0
+(g1
+g2
+(lp229
+g0
+(g1
+g2
+(lp230
+Vthe kitchen
+p231
+atp232
+Rp233
+(dp234
+g11
+S'start: 3'
+p235
+sbatp236
+Rp237
+(dp238
+g11
+S'sent: 7'
+p239
+sbag0
+(g1
+g2
+(lp240
+g0
+(g1
+g2
+(lp241
+Vthat
+p242
+atp243
+Rp244
+(dp245
+g11
+S'start: 1'
+p246
+sbatp247
+Rp248
+(dp249
+g11
+S'sent: 8'
+p250
+sbag0
+(g1
+g2
+(lp251
+g0
+(g1
+g2
+(lp252
+Vit
+p253
+atp254
+Rp255
+(dp256
+g11
+S'start: 3'
+p257
+sbatp258
+Rp259
+(dp260
+g11
+S'sent: 8'
+p261
+sbatp262
+Rp263
+(dp264
+g11
+S'id: 32'
+p265
+sbatp266
+Rp267
+(dp268
+g11
+S'coreferences'
+p269
+sb.

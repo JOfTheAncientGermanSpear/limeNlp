@@ -1,0 +1,256 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vthe lake
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 10'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthe lake
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 8'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 8'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vthe lake
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 18'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 8'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 4'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vthe boy
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 2'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 5'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vhis
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 10'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 5'
+p65
+sbatp66
+Rp67
+(dp68
+g11
+S'id: 9'
+p69
+sbag0
+(g1
+g2
+(lp70
+g0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+Vhis dog
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 10'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 5'
+p81
+sbag0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vhim
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 14'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 5'
+p92
+sbatp93
+Rp94
+(dp95
+g11
+S'id: 11'
+p96
+sbag0
+(g1
+g2
+(lp97
+g0
+(g1
+g2
+(lp98
+g0
+(g1
+g2
+(lp99
+Vthe middle of the lake
+p100
+atp101
+Rp102
+(dp103
+g11
+S'start: 5'
+p104
+sbatp105
+Rp106
+(dp107
+g11
+S'sent: 8'
+p108
+sbag0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+Va boat that 's , sailing down the lake
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 11'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 8'
+p119
+sbatp120
+Rp121
+(dp122
+g11
+S'id: 20'
+p123
+sbatp124
+Rp125
+(dp126
+g11
+S'coreferences'
+p127
+sb.
