@@ -9,3 +9,7 @@ def lime_num(filename):
 	1001
 	"""
 	return int(num_re.findall(filename)[0])
+
+if __name__ == "__main__":
+	import doctest
+	doctest.testmod()
