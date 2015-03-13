@@ -69,7 +69,10 @@ def _gen_coref_tree(coref):
 def gen_from_file(src):
 	with open(src) as f:
 		content = json.load(f)
-		
+	return gen_from_json(content)
+
+def gen_from_json(content):
+
 	fn_map = {
 			'coreferences': {'fn': _gen_coref_tree, 
 				'is_array' : 1, 
