@@ -2,7 +2,10 @@ from os import listdir
 from os.path import join, basename
 import sys
 
+import bs4
+from bs4 import BeautifulSoup
 import json
+import nltk
 import re
 
 sys.path.insert(0, '../utils/')
@@ -151,6 +154,48 @@ def create_prepped_txt_files(src_path, dest_path, start_from = 1, txt_filter= la
 	for src in srcs:
 		scenario_destinfo_map = src_dest_map[src]
 		_create_prepped_txt_file(src, scenario_destinfo_map)
+
+def strip_tags(text, sent=0, get_plain_text = True):
+	"""
+	>>> x = "<repeat times='3'>The</repeat> world is <mispronounce words='rund, bound'>round</mispronounce> and big"
+	>>> (meta, stripped) = strip_tags(x)
+	>>> stripped
+	u'The world is round and big'
+	>>> meta
+	[{'tag': 'repeat', 'sent': 0, 'times': 3}, {'tag': 'mispronounce', 'words': ['rund', 'bound'], 'sent': 0}]
+	"""
+	sents = nltk.sent_tokenize(text)
+	if not sents:
+		return
+
+	meta = []
+
+	def fill_meta(soup):
+		tags = [e for e in soup if type(e) is bs4.element.Tag]
+		for t in tags:
+			tag_meta = {'tag': t.name, 'sent': sent} 
+			for (a, v) in t.attrs.iteritems():
+				if ',' in v:
+					v = [i.strip() for i in v.split(',')]
+				else:
+					num = re.match(r'[0-9]+', v)
+					if num:
+						v = int(num.group())
+				tag_meta.update({a: v})
+			meta.append(tag_meta)
+
+	if len(sents) == 1:
+		text = sents[0]
+		soup = BeautifulSoup("<root>" + text + "</root>").root
+		fill_meta(soup)
+	else:
+		for (i, s) in enumerate(nltk.sent_tokenize(text)):
+			meta_sent = strip_tags(text, i, False)
+			meta.extend(meta_sent)
+		soup = BeautifulSoup("<root>" + text + "</root>").root
+
+	return (meta, soup.get_text()) if get_plain_text else meta
+
 
 if __name__ == "__main__":
     import doctest
