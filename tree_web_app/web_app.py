@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from subprocess import call
 import sys
 
@@ -17,12 +18,21 @@ urls = (
 )
 app = web.application(urls, globals())
 
+s = re.compile(r'([^ ])\]')
+def sanitize(latex_text):
+    """
+    >>> sanitize('a]')
+    'a ]'
+    """
+    return s.sub(r'\1 ]', latex_text)
+
+
 def latex_wrap(tree):
     return """\\documentclass{book}
     \\usepackage{qtree}
     \\begin{document}
 
-    """ + tree + "\n\\end{document}"
+    """ + sanitize(tree) + "\n\\end{document}"
 
 class file_maker:        
     def GET(self, text):
@@ -40,6 +50,10 @@ class file_maker:
             l = "<a href='" + pdf + "'>" + files[i] + "</a>"
             links.append(l)
         return "<br/>".join(links)
+
+def test():
+    import doctest
+    doctest.testmod()
 
 if __name__ == "__main__":
     app.run()
