@@ -18,21 +18,32 @@ urls = (
 )
 app = web.application(urls, globals())
 
-s = re.compile(r'([^ ])\]')
+add_space = re.compile(r'([^ ])\]')
+word_index = re.compile(r'word: ([^,]*), index: ')
+colon_num = re.compile(r': ([0-9])+')
 def sanitize(latex_text):
     """
     >>> sanitize('a]')
     'a ]'
+    >>> sanitize('.word: big, index: 4')
+    '.big_4'
     """
-    return s.sub(r'\1 ]', latex_text)
+    text = add_space.sub(r'\1 ]', latex_text)
+    text = word_index.sub(r'\1_', text)
+    text = colon_num.sub(r'_\1', text)
+    return text
 
 
 def latex_wrap(tree):
     return """\\documentclass{book}
     \\usepackage{qtree}
+    \\usepackage{adjustbox}
     \\begin{document}
+    \\begin{adjustbox}{width=1\\textwidth}
 
-    """ + sanitize(tree) + "\n\\end{document}"
+    """ + sanitize(tree) + """\n
+    \\end{adjustbox}
+    \\end{document}"""
 
 class file_maker:        
     def GET(self, text):
