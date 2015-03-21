@@ -47,6 +47,13 @@ def latex_wrap(tree):
 
 class file_maker:        
     def GET(self, text):
+        if not text:
+            return """
+<p>please enter a sentence in the URL</p>
+<br/>
+<p>For example:</p>
+<a href="./The world is round and it moves.">The world is round and it moves</a>
+        """
         parse_res = text_parser.parse(text)
         cpd = tree_generator.gen_from_json(parse_res)
         files = ['corefs', 'phrase', 'deps']
