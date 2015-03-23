@@ -17,7 +17,8 @@ import tree_generator
 render = web.template.render("templates")
 
 urls = (
-    '/(.*)', 'file_maker'
+    '/', 'file_maker',
+    '/parseresults/(.+)', 'parse_results'
 )
 app = web.application(urls, globals())
 
@@ -49,12 +50,19 @@ def latex_wrap(tree):
     \\end{document}"""
 
 def parse_to_files(text):
+        res_dir = 'static/{}'.format(hashlib.sha1(text).hexdigest())
+        if os.path.exists(res_dir):
+            return res_dir
+        os.mkdir(res_dir)
+
         parse_res = text_parser.parse(text)
         cpd = tree_generator.gen_from_json(parse_res)
+
+        
+        with open(res_dir + '/' + 'text.txt', 'w') as f:
+            f.write(text)
+
         files = ['corefs', 'phrase', 'deps']
-        links = []
-        res_dir = 'static/{}'.format(hashlib.sha1(text).hexdigest())
-        os.mkdir(res_dir)
         for i in range(3):
             f_name = '{}/{}.TEX'.format(res_dir, files[i])
             with open(f_name, 'w') as f:
@@ -64,20 +72,23 @@ def parse_to_files(text):
             os.system("mv *.aux *.pdf *.log {}".format(res_dir))
 
             pdf = '{}/{}.pdf'.format(res_dir, files[i])
-            l = "<a href='" + pdf + "'>" + files[i] + "</a>"
-            links.append(l)
-        return links
+
+        return res_dir
 
 class file_maker:        
-    def GET(self, x):
+    def GET(self):
         f = sentence_form.the_form()
         return render.home(f)
 
-    def POST(self, x):
+    def POST(self):
         f = sentence_form.the_form()
         f.validates()
-        links = parse_to_files(f.d.text)
-        return "<br/>".join(links)
+        res_dir = parse_to_files(f.d.text)
+        raise web.seeother('/parseresults/' + res_dir)
+
+class parse_results:
+    def GET(self, res_dir):
+        return render.parse_results(res_dir)
 
 def test():
     import doctest
