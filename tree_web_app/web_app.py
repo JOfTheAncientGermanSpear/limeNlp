@@ -25,16 +25,24 @@ app = web.application(urls, globals())
 add_space = re.compile(r'([^ ])\]')
 word_index = re.compile(r'word: ([^,]*), index: ')
 colon_num = re.compile(r': ([0-9])+')
+underscore_nums = re.compile(r"([.'][^ ]+_[0-9])([0-9]+)")
 def sanitize(latex_text):
     """
     >>> sanitize('a]')
     'a ]'
     >>> sanitize('.word: big, index: 4')
     '.big_4'
+    >>> sanitize('.word: big, index: 40')
+    '.big_4_0'
     """
+    def insert_underscores(mobj):
+        nums = list(mobj.group(2))
+        nums = '_' + '_'.join(nums)
+        return mobj.group(1) + nums
     text = add_space.sub(r'\1 ]', latex_text)
     text = word_index.sub(r'\1_', text)
     text = colon_num.sub(r'_\1', text)
+    text = underscore_nums.sub(insert_underscores, text)
     return text
 
 
