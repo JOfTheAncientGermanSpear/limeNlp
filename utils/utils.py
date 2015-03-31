@@ -17,6 +17,22 @@ def lime_num(filename):
 	matches = num_re.findall(filename)
 	return int(matches[0]) if matches else None
 
+def within_bounds(f, bounds):
+	"""
+	>>> within_bounds('lime_1030_description', [1029, 1031])
+	True
+	>>> within_bounds('lime_1030_description', [1029, 1030])
+	True
+	>>> within_bounds('lime_1030_description', [1027, 1029])
+	False
+	>>> within_bounds('lime_1030_description', [1037, 1029])
+	True
+	"""
+	f_num = lime_num(f)
+	bounds = sorted(bounds)
+	return f_num >= bounds[0] and f_num <= bounds[1]
+
+
 if __name__ == "__main__":
 	import doctest
 	doctest.testmod()

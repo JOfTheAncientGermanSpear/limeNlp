@@ -39,11 +39,7 @@ def parse_to_dir(src_dir, dest_dir, src_filter = lambda f: f.endswith('.txt'), b
 	if not os.path.exists(dest_dir):
 		os.makedirs(dest_dir)
 
-	def within_bounds(f):
-		f_num = utils.lime_num(f)
-		return f_num > bounds[0] and f_num < bounds[1]
-
-	src_files = [join(src_dir, f) for f in listdir(src_dir) if src_filter(f) and within_bounds(f)]
+	src_files = [join(src_dir, f) for f in listdir(src_dir) if src_filter(f) and utils.within_bounds(f, bounds)]
         src_files = sorted(src_files)
 	num_files = len(src_files)
 	for (i, s) in enumerate(src_files):

@@ -1,4 +1,5 @@
 from __future__ import division
+import sys
 
 import json
 import os
@@ -7,6 +8,10 @@ from os.path import basename, join, splitext
 import pickle
 
 from nltk import Tree
+import numpy as np
+
+sys.path.insert(0, '../utils/')
+import utils
 
 def _gen_dependencies_tree(deps, gov_map = None, root_ix = None):
 
@@ -131,11 +136,11 @@ def print_tree(t, file_name):
 	tv = TreeView(t)
 	tv._cframe.print_to_file(file_name)
 
-def dir_to_trees(src_dir, dest_dir, src_filter = lambda f: f.endswith('.json')):
+def dir_to_trees(src_dir, dest_dir, src_filter = lambda f: f.endswith('.json'), bounds = [-np.inf, np.inf]):
 	if not os.path.exists(dest_dir):
 		os.makedirs(dest_dir)
 
-	src_files = [join(src_dir, f) for f in listdir(src_dir) if src_filter(f)]
+	src_files = [join(src_dir, f) for f in listdir(src_dir) if src_filter(f) and utils.within_bounds(f, bounds)]
         src_files = sorted(src_files)
 	num_files = len(src_files)
 	for (i, s) in enumerate(src_files):
