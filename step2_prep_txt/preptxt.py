@@ -6,6 +6,7 @@ import bs4
 from bs4 import BeautifulSoup
 import json
 import nltk
+import numpy as np
 import re
 
 sys.path.insert(0, '../utils/')
@@ -144,16 +145,17 @@ def _create_prepped_txt_file(src, scenario_destinfo_map):
 		destinfo.write(content = scenario_content, meta = scenario_meta)
 
 
-def create_prepped_txt_files(src_path, dest_path, start_from = 1, txt_filter= lambda f: f.endswith('Original.txt')):
+def create_prepped_txt_files(src_path, dest_path, txt_filter= lambda f: f.endswith('Original.txt'), bounds=[-np.inf, np.inf]):
 
 	srcs = _get_original_txt_files(src_path, txt_filter)
-	srcs = [s for s in srcs if utils.lime_num(basename(s)) > start_from]
+	srcs = [s for s in srcs if utils.within_bounds(s, bounds)]
 
 	src_dest_map = _create_src_dest_map(srcs, dest_path)
 
 	for src in srcs:
 		scenario_destinfo_map = src_dest_map[src]
 		_create_prepped_txt_file(src, scenario_destinfo_map)
+
 
 def strip_tags(text, sent=0, get_plain_text = True):
 	"""
