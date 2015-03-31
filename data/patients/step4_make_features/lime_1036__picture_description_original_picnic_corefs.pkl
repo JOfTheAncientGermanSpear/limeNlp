@@ -1,0 +1,972 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vtwo
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 6'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 2'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vtwo
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 15'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 11'
+p27
+sbatp28
+Rp29
+(dp30
+g11
+S'id: 5'
+p31
+sbag0
+(g1
+g2
+(lp32
+g0
+(g1
+g2
+(lp33
+g0
+(g1
+g2
+(lp34
+Vthe lake on a blanket
+p35
+atp36
+Rp37
+(dp38
+g11
+S'start: 9'
+p39
+sbatp40
+Rp41
+(dp42
+g11
+S'sent: 3'
+p43
+sbag0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vthe lake
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 14'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 8'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vthe lake
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 7'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 11'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vit
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 18'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 11'
+p76
+sbatp77
+Rp78
+(dp79
+g11
+S'id: 12'
+p80
+sbag0
+(g1
+g2
+(lp81
+g0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+VThe lady
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 1'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 4'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vthe lady
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 8'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 15'
+p103
+sbatp104
+Rp105
+(dp106
+g11
+S'id: 17'
+p107
+sbag0
+(g1
+g2
+(lp108
+g0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+VThe man
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 1'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 5'
+p119
+sbag0
+(g1
+g2
+(lp120
+g0
+(g1
+g2
+(lp121
+Vthe man 's
+p122
+atp123
+Rp124
+(dp125
+g11
+S'start: 11'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'sent: 15'
+p130
+sbag0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+Vhis
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 17'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 15'
+p141
+sbatp142
+Rp143
+(dp144
+g11
+S'id: 20'
+p145
+sbag0
+(g1
+g2
+(lp146
+g0
+(g1
+g2
+(lp147
+g0
+(g1
+g2
+(lp148
+Vthe right of the house
+p149
+atp150
+Rp151
+(dp152
+g11
+S'start: 7'
+p153
+sbatp154
+Rp155
+(dp156
+g11
+S'sent: 7'
+p157
+sbag0
+(g1
+g2
+(lp158
+g0
+(g1
+g2
+(lp159
+Vhis right
+p160
+atp161
+Rp162
+(dp163
+g11
+S'start: 7'
+p164
+sbatp165
+Rp166
+(dp167
+g11
+S'sent: 10'
+p168
+sbag0
+(g1
+g2
+(lp169
+g0
+(g1
+g2
+(lp170
+Vhis right
+p171
+atp172
+Rp173
+(dp174
+g11
+S'start: 17'
+p175
+sbatp176
+Rp177
+(dp178
+g11
+S'sent: 15'
+p179
+sbatp180
+Rp181
+(dp182
+g11
+S'id: 28'
+p183
+sbag0
+(g1
+g2
+(lp184
+g0
+(g1
+g2
+(lp185
+g0
+(g1
+g2
+(lp186
+Valso a man standing on the deck , on the deck of the lake
+p187
+atp188
+Rp189
+(dp190
+g11
+S'start: 2'
+p191
+sbatp192
+Rp193
+(dp194
+g11
+S'sent: 8'
+p195
+sbag0
+(g1
+g2
+(lp196
+g0
+(g1
+g2
+(lp197
+Vit
+p198
+atp199
+Rp200
+(dp201
+g11
+S'start: 27'
+p202
+sbatp203
+Rp204
+(dp205
+g11
+S'sent: 8'
+p206
+sbatp207
+Rp208
+(dp209
+g11
+S'id: 30'
+p210
+sbag0
+(g1
+g2
+(lp211
+g0
+(g1
+g2
+(lp212
+g0
+(g1
+g2
+(lp213
+Vthe deck
+p214
+atp215
+Rp216
+(dp217
+g11
+S'start: 7'
+p218
+sbatp219
+Rp220
+(dp221
+g11
+S'sent: 8'
+p222
+sbag0
+(g1
+g2
+(lp223
+g0
+(g1
+g2
+(lp224
+Vthe deck
+p225
+atp226
+Rp227
+(dp228
+g11
+S'start: 11'
+p229
+sbatp230
+Rp231
+(dp232
+g11
+S'sent: 8'
+p233
+sbatp234
+Rp235
+(dp236
+g11
+S'id: 31'
+p237
+sbag0
+(g1
+g2
+(lp238
+g0
+(g1
+g2
+(lp239
+g0
+(g1
+g2
+(lp240
+Vthe
+p241
+atp242
+Rp243
+(dp244
+g11
+S'start: 9'
+p245
+sbatp246
+Rp247
+(dp248
+g11
+S'sent: 9'
+p249
+sbag0
+(g1
+g2
+(lp250
+g0
+(g1
+g2
+(lp251
+Vthe , the little girl , she
+p252
+atp253
+Rp254
+(dp255
+g11
+S'start: 2'
+p256
+sbatp257
+Rp258
+(dp259
+g11
+S'sent: 12'
+p260
+sbag0
+(g1
+g2
+(lp261
+g0
+(g1
+g2
+(lp262
+Vthe
+p263
+atp264
+Rp265
+(dp266
+g11
+S'start: 2'
+p267
+sbatp268
+Rp269
+(dp270
+g11
+S'sent: 12'
+p271
+sbatp272
+Rp273
+(dp274
+g11
+S'id: 38'
+p275
+sbag0
+(g1
+g2
+(lp276
+g0
+(g1
+g2
+(lp277
+g0
+(g1
+g2
+(lp278
+Vhe
+p279
+atp280
+Rp281
+(dp282
+g11
+S'start: 15'
+p283
+sbatp284
+Rp285
+(dp286
+g11
+S'sent: 9'
+p287
+sbag0
+(g1
+g2
+(lp288
+g0
+(g1
+g2
+(lp289
+Vhim
+p290
+atp291
+Rp292
+(dp293
+g11
+S'start: 20'
+p294
+sbatp295
+Rp296
+(dp297
+g11
+S'sent: 9'
+p298
+sbag0
+(g1
+g2
+(lp299
+g0
+(g1
+g2
+(lp300
+Vhis
+p301
+atp302
+Rp303
+(dp304
+g11
+S'start: 7'
+p305
+sbatp306
+Rp307
+(dp308
+g11
+S'sent: 10'
+p309
+sbatp310
+Rp311
+(dp312
+g11
+S'id: 40'
+p313
+sbag0
+(g1
+g2
+(lp314
+g0
+(g1
+g2
+(lp315
+g0
+(g1
+g2
+(lp316
+Vthe dog trailing him
+p317
+atp318
+Rp319
+(dp320
+g11
+S'start: 17'
+p321
+sbatp322
+Rp323
+(dp324
+g11
+S'sent: 9'
+p325
+sbag0
+(g1
+g2
+(lp326
+g0
+(g1
+g2
+(lp327
+Vthe dog
+p328
+atp329
+Rp330
+(dp331
+g11
+S'start: 2'
+p332
+sbatp333
+Rp334
+(dp335
+g11
+S'sent: 14'
+p336
+sbag0
+(g1
+g2
+(lp337
+g0
+(g1
+g2
+(lp338
+Vhe
+p339
+atp340
+Rp341
+(dp342
+g11
+S'start: 6'
+p343
+sbatp344
+Rp345
+(dp346
+g11
+S'sent: 14'
+p347
+sbatp348
+Rp349
+(dp350
+g11
+S'id: 41'
+p351
+sbag0
+(g1
+g2
+(lp352
+g0
+(g1
+g2
+(lp353
+g0
+(g1
+g2
+(lp354
+Va girl to his right
+p355
+atp356
+Rp357
+(dp358
+g11
+S'start: 4'
+p359
+sbatp360
+Rp361
+(dp362
+g11
+S'sent: 10'
+p363
+sbag0
+(g1
+g2
+(lp364
+g0
+(g1
+g2
+(lp365
+Va
+p366
+atp367
+Rp368
+(dp369
+g11
+S'start: 25'
+p370
+sbatp371
+Rp372
+(dp373
+g11
+S'sent: 10'
+p374
+sbag0
+(g1
+g2
+(lp375
+g0
+(g1
+g2
+(lp376
+Va
+p377
+atp378
+Rp379
+(dp380
+g11
+S'start: 2'
+p381
+sbatp382
+Rp383
+(dp384
+g11
+S'sent: 16'
+p385
+sbatp386
+Rp387
+(dp388
+g11
+S'id: 43'
+p389
+sbag0
+(g1
+g2
+(lp390
+g0
+(g1
+g2
+(lp391
+g0
+(g1
+g2
+(lp392
+Vthe little girl
+p393
+atp394
+Rp395
+(dp396
+g11
+S'start: 4'
+p397
+sbatp398
+Rp399
+(dp400
+g11
+S'sent: 12'
+p401
+sbag0
+(g1
+g2
+(lp402
+g0
+(g1
+g2
+(lp403
+Vshe
+p404
+atp405
+Rp406
+(dp407
+g11
+S'start: 8'
+p408
+sbatp409
+Rp410
+(dp411
+g11
+S'sent: 12'
+p412
+sbatp413
+Rp414
+(dp415
+g11
+S'id: 62'
+p416
+sbag0
+(g1
+g2
+(lp417
+g0
+(g1
+g2
+(lp418
+g0
+(g1
+g2
+(lp419
+Vthe man that 's out in the lake fishing
+p420
+atp421
+Rp422
+(dp423
+g11
+S'start: 2'
+p424
+sbatp425
+Rp426
+(dp427
+g11
+S'sent: 13'
+p428
+sbag0
+(g1
+g2
+(lp429
+g0
+(g1
+g2
+(lp430
+Vhe
+p431
+atp432
+Rp433
+(dp434
+g11
+S'start: 14'
+p435
+sbatp436
+Rp437
+(dp438
+g11
+S'sent: 13'
+p439
+sbag0
+(g1
+g2
+(lp440
+g0
+(g1
+g2
+(lp441
+Vhe
+p442
+atp443
+Rp444
+(dp445
+g11
+S'start: 18'
+p446
+sbatp447
+Rp448
+(dp449
+g11
+S'sent: 13'
+p450
+sbatp451
+Rp452
+(dp453
+g11
+S'id: 65'
+p454
+sbag0
+(g1
+g2
+(lp455
+g0
+(g1
+g2
+(lp456
+g0
+(g1
+g2
+(lp457
+Vthe people in the picture , the lady , the man 's shoes
+p458
+atp459
+Rp460
+(dp461
+g11
+S'start: 2'
+p462
+sbatp463
+Rp464
+(dp465
+g11
+S'sent: 15'
+p466
+sbag0
+(g1
+g2
+(lp467
+g0
+(g1
+g2
+(lp468
+Vthat
+p469
+atp470
+Rp471
+(dp472
+g11
+S'start: 4'
+p473
+sbatp474
+Rp475
+(dp476
+g11
+S'sent: 16'
+p477
+sbatp478
+Rp479
+(dp480
+g11
+S'id: 72'
+p481
+sbatp482
+Rp483
+(dp484
+g11
+S'coreferences'
+p485
+sb.

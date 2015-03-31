@@ -1,0 +1,322 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VLion , and chair , and picture , picture right there , and picture right there .
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VLion and , and
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 8'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+VLion and
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 1'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 8'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 1'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VLion
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 1'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 1'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+VLion
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 1'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 8'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vit
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 7'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 10'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vthat
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 12'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 10'
+p87
+sbatp88
+Rp89
+(dp90
+g11
+S'id: 2'
+p91
+sbag0
+(g1
+g2
+(lp92
+g0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vmuziko right
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 7'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 2'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vit
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 9'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 3'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Va circus
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 11'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 3'
+p125
+sbatp126
+Rp127
+(dp128
+g11
+S'id: 7'
+p129
+sbag0
+(g1
+g2
+(lp130
+g0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+Vof
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 3'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 7'
+p141
+sbag0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Vher
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 2'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 9'
+p152
+sbatp153
+Rp154
+(dp155
+g11
+S'id: 15'
+p156
+sbatp157
+Rp158
+(dp159
+g11
+S'coreferences'
+p160
+sb.

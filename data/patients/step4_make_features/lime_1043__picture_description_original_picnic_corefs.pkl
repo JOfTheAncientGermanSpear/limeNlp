@@ -1,0 +1,890 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VI
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthat
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 11'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vmy
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 4'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 2'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+Vmy
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 7'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 2'
+p49
+sbag0
+(g1
+g2
+(lp50
+g0
+(g1
+g2
+(lp51
+Vmy
+p52
+atp53
+Rp54
+(dp55
+g11
+S'start: 10'
+p56
+sbatp57
+Rp58
+(dp59
+g11
+S'sent: 2'
+p60
+sbag0
+(g1
+g2
+(lp61
+g0
+(g1
+g2
+(lp62
+Vmy
+p63
+atp64
+Rp65
+(dp66
+g11
+S'start: 13'
+p67
+sbatp68
+Rp69
+(dp70
+g11
+S'sent: 2'
+p71
+sbag0
+(g1
+g2
+(lp72
+g0
+(g1
+g2
+(lp73
+Vmy
+p74
+atp75
+Rp76
+(dp77
+g11
+S'start: 16'
+p78
+sbatp79
+Rp80
+(dp81
+g11
+S'sent: 2'
+p82
+sbag0
+(g1
+g2
+(lp83
+g0
+(g1
+g2
+(lp84
+VI
+p85
+atp86
+Rp87
+(dp88
+g11
+S'start: 1'
+p89
+sbatp90
+Rp91
+(dp92
+g11
+S'sent: 5'
+p93
+sbag0
+(g1
+g2
+(lp94
+g0
+(g1
+g2
+(lp95
+VI
+p96
+atp97
+Rp98
+(dp99
+g11
+S'start: 1'
+p100
+sbatp101
+Rp102
+(dp103
+g11
+S'sent: 6'
+p104
+sbag0
+(g1
+g2
+(lp105
+g0
+(g1
+g2
+(lp106
+VI
+p107
+atp108
+Rp109
+(dp110
+g11
+S'start: 1'
+p111
+sbatp112
+Rp113
+(dp114
+g11
+S'sent: 7'
+p115
+sbag0
+(g1
+g2
+(lp116
+g0
+(g1
+g2
+(lp117
+VI
+p118
+atp119
+Rp120
+(dp121
+g11
+S'start: 1'
+p122
+sbatp123
+Rp124
+(dp125
+g11
+S'sent: 8'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'id: 1'
+p130
+sbag0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+g0
+(g1
+g2
+(lp133
+Vthis guy
+p134
+atp135
+Rp136
+(dp137
+g11
+S'start: 3'
+p138
+sbatp139
+Rp140
+(dp141
+g11
+S'sent: 1'
+p142
+sbag0
+(g1
+g2
+(lp143
+g0
+(g1
+g2
+(lp144
+Vthis guy that 's the
+p145
+atp146
+Rp147
+(dp148
+g11
+S'start: 3'
+p149
+sbatp150
+Rp151
+(dp152
+g11
+S'sent: 6'
+p153
+sbag0
+(g1
+g2
+(lp154
+g0
+(g1
+g2
+(lp155
+Vthis guy that 's ca
+p156
+atp157
+Rp158
+(dp159
+g11
+S'start: 3'
+p160
+sbatp161
+Rp162
+(dp163
+g11
+S'sent: 7'
+p164
+sbatp165
+Rp166
+(dp167
+g11
+S'id: 2'
+p168
+sbag0
+(g1
+g2
+(lp169
+g0
+(g1
+g2
+(lp170
+g0
+(g1
+g2
+(lp171
+Vthe feed
+p172
+atp173
+Rp174
+(dp175
+g11
+S'start: 14'
+p176
+sbatp177
+Rp178
+(dp179
+g11
+S'sent: 1'
+p180
+sbag0
+(g1
+g2
+(lp181
+g0
+(g1
+g2
+(lp182
+Vthe car
+p183
+atp184
+Rp185
+(dp186
+g11
+S'start: 17'
+p187
+sbatp188
+Rp189
+(dp190
+g11
+S'sent: 1'
+p191
+sbag0
+(g1
+g2
+(lp192
+g0
+(g1
+g2
+(lp193
+Vmy car
+p194
+atp195
+Rp196
+(dp197
+g11
+S'start: 7'
+p198
+sbatp199
+Rp200
+(dp201
+g11
+S'sent: 2'
+p202
+sbatp203
+Rp204
+(dp205
+g11
+S'id: 5'
+p206
+sbag0
+(g1
+g2
+(lp207
+g0
+(g1
+g2
+(lp208
+g0
+(g1
+g2
+(lp209
+Vno
+p210
+atp211
+Rp212
+(dp213
+g11
+S'start: 11'
+p214
+sbatp215
+Rp216
+(dp217
+g11
+S'sent: 2'
+p218
+sbag0
+(g1
+g2
+(lp219
+g0
+(g1
+g2
+(lp220
+Vmy no , my key
+p221
+atp222
+Rp223
+(dp224
+g11
+S'start: 13'
+p225
+sbatp226
+Rp227
+(dp228
+g11
+S'sent: 2'
+p229
+sbag0
+(g1
+g2
+(lp230
+g0
+(g1
+g2
+(lp231
+Vno , my key
+p232
+atp233
+Rp234
+(dp235
+g11
+S'start: 14'
+p236
+sbatp237
+Rp238
+(dp239
+g11
+S'sent: 2'
+p240
+sbag0
+(g1
+g2
+(lp241
+g0
+(g1
+g2
+(lp242
+Vno
+p243
+atp244
+Rp245
+(dp246
+g11
+S'start: 14'
+p247
+sbatp248
+Rp249
+(dp250
+g11
+S'sent: 2'
+p251
+sbag0
+(g1
+g2
+(lp252
+g0
+(g1
+g2
+(lp253
+Vmy key
+p254
+atp255
+Rp256
+(dp257
+g11
+S'start: 16'
+p258
+sbatp259
+Rp260
+(dp261
+g11
+S'sent: 2'
+p262
+sbag0
+(g1
+g2
+(lp263
+g0
+(g1
+g2
+(lp264
+Vkey
+p265
+atp266
+Rp267
+(dp268
+g11
+S'start: 19'
+p269
+sbatp270
+Rp271
+(dp272
+g11
+S'sent: 2'
+p273
+sbag0
+(g1
+g2
+(lp274
+g0
+(g1
+g2
+(lp275
+Vthat
+p276
+atp277
+Rp278
+(dp279
+g11
+S'start: 22'
+p280
+sbatp281
+Rp282
+(dp283
+g11
+S'sent: 2'
+p284
+sbag0
+(g1
+g2
+(lp285
+g0
+(g1
+g2
+(lp286
+Vno
+p287
+atp288
+Rp289
+(dp290
+g11
+S'start: 15'
+p291
+sbatp292
+Rp293
+(dp294
+g11
+S'sent: 7'
+p295
+sbatp296
+Rp297
+(dp298
+g11
+S'id: 15'
+p299
+sbag0
+(g1
+g2
+(lp300
+g0
+(g1
+g2
+(lp301
+g0
+(g1
+g2
+(lp302
+Vthis thing
+p303
+atp304
+Rp305
+(dp306
+g11
+S'start: 2'
+p307
+sbatp308
+Rp309
+(dp310
+g11
+S'sent: 4'
+p311
+sbag0
+(g1
+g2
+(lp312
+g0
+(g1
+g2
+(lp313
+Vthis car
+p314
+atp315
+Rp316
+(dp317
+g11
+S'start: 5'
+p318
+sbatp319
+Rp320
+(dp321
+g11
+S'sent: 4'
+p322
+sbag0
+(g1
+g2
+(lp323
+g0
+(g1
+g2
+(lp324
+Vno care
+p325
+atp326
+Rp327
+(dp328
+g11
+S'start: 8'
+p329
+sbatp330
+Rp331
+(dp332
+g11
+S'sent: 4'
+p333
+sbag0
+(g1
+g2
+(lp334
+g0
+(g1
+g2
+(lp335
+Vcar no
+p336
+atp337
+Rp338
+(dp339
+g11
+S'start: 12'
+p340
+sbatp341
+Rp342
+(dp343
+g11
+S'sent: 9'
+p344
+sbatp345
+Rp346
+(dp347
+g11
+S'id: 25'
+p348
+sbag0
+(g1
+g2
+(lp349
+g0
+(g1
+g2
+(lp350
+g0
+(g1
+g2
+(lp351
+Vthis guy right in there
+p352
+atp353
+Rp354
+(dp355
+g11
+S'start: 3'
+p356
+sbatp357
+Rp358
+(dp359
+g11
+S'sent: 5'
+p360
+sbag0
+(g1
+g2
+(lp361
+g0
+(g1
+g2
+(lp362
+Vthat
+p363
+atp364
+Rp365
+(dp366
+g11
+S'start: 9'
+p367
+sbatp368
+Rp369
+(dp370
+g11
+S'sent: 5'
+p371
+sbatp372
+Rp373
+(dp374
+g11
+S'id: 29'
+p375
+sbag0
+(g1
+g2
+(lp376
+g0
+(g1
+g2
+(lp377
+g0
+(g1
+g2
+(lp378
+Vno that
+p379
+atp380
+Rp381
+(dp382
+g11
+S'start: 9'
+p383
+sbatp384
+Rp385
+(dp386
+g11
+S'sent: 7'
+p387
+sbag0
+(g1
+g2
+(lp388
+g0
+(g1
+g2
+(lp389
+Va cow , no
+p390
+atp391
+Rp392
+(dp393
+g11
+S'start: 12'
+p394
+sbatp395
+Rp396
+(dp397
+g11
+S'sent: 7'
+p398
+sbag0
+(g1
+g2
+(lp399
+g0
+(g1
+g2
+(lp400
+Va cow
+p401
+atp402
+Rp403
+(dp404
+g11
+S'start: 12'
+p405
+sbatp406
+Rp407
+(dp408
+g11
+S'sent: 7'
+p409
+sbatp410
+Rp411
+(dp412
+g11
+S'id: 36'
+p413
+sbag0
+(g1
+g2
+(lp414
+g0
+(g1
+g2
+(lp415
+g0
+(g1
+g2
+(lp416
+V's
+p417
+atp418
+Rp419
+(dp420
+g11
+S'start: 3'
+p421
+sbatp422
+Rp423
+(dp424
+g11
+S'sent: 9'
+p425
+sbag0
+(g1
+g2
+(lp426
+g0
+(g1
+g2
+(lp427
+Vhe
+p428
+atp429
+Rp430
+(dp431
+g11
+S'start: 7'
+p432
+sbatp433
+Rp434
+(dp435
+g11
+S'sent: 9'
+p436
+sbatp437
+Rp438
+(dp439
+g11
+S'id: 43'
+p440
+sbatp441
+Rp442
+(dp443
+g11
+S'coreferences'
+p444
+sb.

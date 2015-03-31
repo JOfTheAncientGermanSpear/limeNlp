@@ -1,0 +1,714 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vthe cookie jar , a little girl asking for a cookie
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 6'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthe cookie jar
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 6'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+VThe cookie jar
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 1'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 5'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+Vit
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 13'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 5'
+p49
+sbatp50
+Rp51
+(dp52
+g11
+S'id: 2'
+p53
+sbag0
+(g1
+g2
+(lp54
+g0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Va little girl asking for a cookie
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 10'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 1'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vthe little girl
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 14'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 4'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vthe little girl
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 2'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 10'
+p87
+sbag0
+(g1
+g2
+(lp88
+g0
+(g1
+g2
+(lp89
+Vthe little girl
+p90
+atp91
+Rp92
+(dp93
+g11
+S'start: 16'
+p94
+sbatp95
+Rp96
+(dp97
+g11
+S'sent: 10'
+p98
+sbatp99
+Rp100
+(dp101
+g11
+S'id: 4'
+p102
+sbag0
+(g1
+g2
+(lp103
+g0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Va cookie
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 15'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 1'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Va cookie
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 24'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 10'
+p125
+sbatp126
+Rp127
+(dp128
+g11
+S'id: 5'
+p129
+sbag0
+(g1
+g2
+(lp130
+g0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+VThe mother 's at the
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 1'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 2'
+p141
+sbag0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Va female 's
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 7'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 2'
+p152
+sbag0
+(g1
+g2
+(lp153
+g0
+(g1
+g2
+(lp154
+Vshe
+p155
+atp156
+Rp157
+(dp158
+g11
+S'start: 19'
+p159
+sbatp160
+Rp161
+(dp162
+g11
+S'sent: 2'
+p163
+sbag0
+(g1
+g2
+(lp164
+g0
+(g1
+g2
+(lp165
+Vher
+p166
+atp167
+Rp168
+(dp169
+g11
+S'start: 24'
+p170
+sbatp171
+Rp172
+(dp173
+g11
+S'sent: 2'
+p174
+sbatp175
+Rp176
+(dp177
+g11
+S'id: 7'
+p178
+sbag0
+(g1
+g2
+(lp179
+g0
+(g1
+g2
+(lp180
+g0
+(g1
+g2
+(lp181
+Vthe sink , the sink 's overflowing
+p182
+atp183
+Rp184
+(dp185
+g11
+S'start: 11'
+p186
+sbatp187
+Rp188
+(dp189
+g11
+S'sent: 2'
+p190
+sbag0
+(g1
+g2
+(lp191
+g0
+(g1
+g2
+(lp192
+Vthe sink
+p193
+atp194
+Rp195
+(dp196
+g11
+S'start: 11'
+p197
+sbatp198
+Rp199
+(dp200
+g11
+S'sent: 2'
+p201
+sbag0
+(g1
+g2
+(lp202
+g0
+(g1
+g2
+(lp203
+Vthe sink 's overflowing
+p204
+atp205
+Rp206
+(dp207
+g11
+S'start: 14'
+p208
+sbatp209
+Rp210
+(dp211
+g11
+S'sent: 2'
+p212
+sbag0
+(g1
+g2
+(lp213
+g0
+(g1
+g2
+(lp214
+Vthe sink
+p215
+atp216
+Rp217
+(dp218
+g11
+S'start: 6'
+p219
+sbatp220
+Rp221
+(dp222
+g11
+S'sent: 7'
+p223
+sbatp224
+Rp225
+(dp226
+g11
+S'id: 9'
+p227
+sbag0
+(g1
+g2
+(lp228
+g0
+(g1
+g2
+(lp229
+g0
+(g1
+g2
+(lp230
+VThe mother
+p231
+atp232
+Rp233
+(dp234
+g11
+S'start: 1'
+p235
+sbatp236
+Rp237
+(dp238
+g11
+S'sent: 3'
+p239
+sbag0
+(g1
+g2
+(lp240
+g0
+(g1
+g2
+(lp241
+Vthe mother 's
+p242
+atp243
+Rp244
+(dp245
+g11
+S'start: 2'
+p246
+sbatp247
+Rp248
+(dp249
+g11
+S'sent: 6'
+p250
+sbag0
+(g1
+g2
+(lp251
+g0
+(g1
+g2
+(lp252
+VThe mother , water
+p253
+atp254
+Rp255
+(dp256
+g11
+S'start: 1'
+p257
+sbatp258
+Rp259
+(dp260
+g11
+S'sent: 11'
+p261
+sbag0
+(g1
+g2
+(lp262
+g0
+(g1
+g2
+(lp263
+VThe mother
+p264
+atp265
+Rp266
+(dp267
+g11
+S'start: 1'
+p268
+sbatp269
+Rp270
+(dp271
+g11
+S'sent: 11'
+p272
+sbag0
+(g1
+g2
+(lp273
+g0
+(g1
+g2
+(lp274
+Vher
+p275
+atp276
+Rp277
+(dp278
+g11
+S'start: 9'
+p279
+sbatp280
+Rp281
+(dp282
+g11
+S'sent: 11'
+p283
+sbatp284
+Rp285
+(dp286
+g11
+S'id: 17'
+p287
+sbag0
+(g1
+g2
+(lp288
+g0
+(g1
+g2
+(lp289
+g0
+(g1
+g2
+(lp290
+VThe little boy
+p291
+atp292
+Rp293
+(dp294
+g11
+S'start: 1'
+p295
+sbatp296
+Rp297
+(dp298
+g11
+S'sent: 4'
+p299
+sbag0
+(g1
+g2
+(lp300
+g0
+(g1
+g2
+(lp301
+VThe little boy
+p302
+atp303
+Rp304
+(dp305
+g11
+S'start: 1'
+p306
+sbatp307
+Rp308
+(dp309
+g11
+S'sent: 9'
+p310
+sbag0
+(g1
+g2
+(lp311
+g0
+(g1
+g2
+(lp312
+Vthe little boy
+p313
+atp314
+Rp315
+(dp316
+g11
+S'start: 14'
+p317
+sbatp318
+Rp319
+(dp320
+g11
+S'sent: 12'
+p321
+sbatp322
+Rp323
+(dp324
+g11
+S'id: 19'
+p325
+sbag0
+(g1
+g2
+(lp326
+g0
+(g1
+g2
+(lp327
+g0
+(g1
+g2
+(lp328
+Va stool
+p329
+atp330
+Rp331
+(dp332
+g11
+S'start: 12'
+p333
+sbatp334
+Rp335
+(dp336
+g11
+S'sent: 9'
+p337
+sbag0
+(g1
+g2
+(lp338
+g0
+(g1
+g2
+(lp339
+Vit
+p340
+atp341
+Rp342
+(dp343
+g11
+S'start: 16'
+p344
+sbatp345
+Rp346
+(dp347
+g11
+S'sent: 9'
+p348
+sbatp349
+Rp350
+(dp351
+g11
+S'id: 38'
+p352
+sbatp353
+Rp354
+(dp355
+g11
+S'coreferences'
+p356
+sb.

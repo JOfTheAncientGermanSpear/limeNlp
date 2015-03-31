@@ -1,0 +1,592 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VI
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VI
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 3'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+VI
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 1'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 5'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 1'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Va , a guy walking a rope
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 3'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 1'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vit
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 10'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 3'
+p65
+sbatp66
+Rp67
+(dp68
+g11
+S'id: 2'
+p69
+sbag0
+(g1
+g2
+(lp70
+g0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+Va
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 3'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 1'
+p81
+sbag0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Va guy walking a rope
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 5'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 1'
+p92
+sbatp93
+Rp94
+(dp95
+g11
+S'id: 3'
+p96
+sbag0
+(g1
+g2
+(lp97
+g0
+(g1
+g2
+(lp98
+g0
+(g1
+g2
+(lp99
+Va rope
+p100
+atp101
+Rp102
+(dp103
+g11
+S'start: 8'
+p104
+sbatp105
+Rp106
+(dp107
+g11
+S'sent: 1'
+p108
+sbag0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+Vthe rope
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 12'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 7'
+p119
+sbatp120
+Rp121
+(dp122
+g11
+S'id: 5'
+p123
+sbag0
+(g1
+g2
+(lp124
+g0
+(g1
+g2
+(lp125
+g0
+(g1
+g2
+(lp126
+VClen
+p127
+atp128
+Rp129
+(dp130
+g11
+S'start: 1'
+p131
+sbatp132
+Rp133
+(dp134
+g11
+S'sent: 2'
+p135
+sbag0
+(g1
+g2
+(lp136
+g0
+(g1
+g2
+(lp137
+Vhe
+p138
+atp139
+Rp140
+(dp141
+g11
+S'start: 6'
+p142
+sbatp143
+Rp144
+(dp145
+g11
+S'sent: 3'
+p146
+sbatp147
+Rp148
+(dp149
+g11
+S'id: 6'
+p150
+sbag0
+(g1
+g2
+(lp151
+g0
+(g1
+g2
+(lp152
+g0
+(g1
+g2
+(lp153
+Vfive
+p154
+atp155
+Rp156
+(dp157
+g11
+S'start: 5'
+p158
+sbatp159
+Rp160
+(dp161
+g11
+S'sent: 5'
+p162
+sbag0
+(g1
+g2
+(lp163
+g0
+(g1
+g2
+(lp164
+Vfive
+p165
+atp166
+Rp167
+(dp168
+g11
+S'start: 6'
+p169
+sbatp170
+Rp171
+(dp172
+g11
+S'sent: 7'
+p173
+sbatp174
+Rp175
+(dp176
+g11
+S'id: 12'
+p177
+sbag0
+(g1
+g2
+(lp178
+g0
+(g1
+g2
+(lp179
+g0
+(g1
+g2
+(lp180
+Vfive people watching the clown
+p181
+atp182
+Rp183
+(dp184
+g11
+S'start: 5'
+p185
+sbatp186
+Rp187
+(dp188
+g11
+S'sent: 5'
+p189
+sbag0
+(g1
+g2
+(lp190
+g0
+(g1
+g2
+(lp191
+Vthe people
+p192
+atp193
+Rp194
+(dp195
+g11
+S'start: 9'
+p196
+sbatp197
+Rp198
+(dp199
+g11
+S'sent: 7'
+p200
+sbatp201
+Rp202
+(dp203
+g11
+S'id: 16'
+p204
+sbag0
+(g1
+g2
+(lp205
+g0
+(g1
+g2
+(lp206
+g0
+(g1
+g2
+(lp207
+Vtwo
+p208
+atp209
+Rp210
+(dp211
+g11
+S'start: 11'
+p212
+sbatp213
+Rp214
+(dp215
+g11
+S'sent: 6'
+p216
+sbag0
+(g1
+g2
+(lp217
+g0
+(g1
+g2
+(lp218
+Vtwo , four , five people watching the people walking the rope
+p219
+atp220
+Rp221
+(dp222
+g11
+S'start: 2'
+p223
+sbatp224
+Rp225
+(dp226
+g11
+S'sent: 7'
+p227
+sbag0
+(g1
+g2
+(lp228
+g0
+(g1
+g2
+(lp229
+Vtwo
+p230
+atp231
+Rp232
+(dp233
+g11
+S'start: 2'
+p234
+sbatp235
+Rp236
+(dp237
+g11
+S'sent: 7'
+p238
+sbatp239
+Rp240
+(dp241
+g11
+S'id: 18'
+p242
+sbag0
+(g1
+g2
+(lp243
+g0
+(g1
+g2
+(lp244
+g0
+(g1
+g2
+(lp245
+VFather and a daughter gether
+p246
+atp247
+Rp248
+(dp249
+g11
+S'start: 1'
+p250
+sbatp251
+Rp252
+(dp253
+g11
+S'sent: 6'
+p254
+sbag0
+(g1
+g2
+(lp255
+g0
+(g1
+g2
+(lp256
+Va mother and two kids
+p257
+atp258
+Rp259
+(dp260
+g11
+S'start: 8'
+p261
+sbatp262
+Rp263
+(dp264
+g11
+S'sent: 6'
+p265
+sbag0
+(g1
+g2
+(lp266
+g0
+(g1
+g2
+(lp267
+Va mother
+p268
+atp269
+Rp270
+(dp271
+g11
+S'start: 8'
+p272
+sbatp273
+Rp274
+(dp275
+g11
+S'sent: 6'
+p276
+sbag0
+(g1
+g2
+(lp277
+g0
+(g1
+g2
+(lp278
+Vher
+p279
+atp280
+Rp281
+(dp282
+g11
+S'start: 3'
+p283
+sbatp284
+Rp285
+(dp286
+g11
+S'sent: 8'
+p287
+sbatp288
+Rp289
+(dp290
+g11
+S'id: 20'
+p291
+sbatp292
+Rp293
+(dp294
+g11
+S'coreferences'
+p295
+sb.

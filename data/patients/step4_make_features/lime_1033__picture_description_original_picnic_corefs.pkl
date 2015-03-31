@@ -1,0 +1,354 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Va girl sitting on the beach
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 6'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 3'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vshe
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 10'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 4'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vshe
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 20'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 4'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 6'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Va boy holding a kite
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 3'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 5'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vhe
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 10'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 5'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vhim
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 15'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 5'
+p76
+sbatp77
+Rp78
+(dp79
+g11
+S'id: 14'
+p80
+sbag0
+(g1
+g2
+(lp81
+g0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Va flag
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 19'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 6'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Va flag
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 7'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 7'
+p103
+sbatp104
+Rp105
+(dp106
+g11
+S'id: 25'
+p107
+sbag0
+(g1
+g2
+(lp108
+g0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+Va boy holding a flag
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 4'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 7'
+p119
+sbag0
+(g1
+g2
+(lp120
+g0
+(g1
+g2
+(lp121
+Vhe
+p122
+atp123
+Rp124
+(dp125
+g11
+S'start: 11'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'sent: 7'
+p130
+sbag0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+Vhim
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 19'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 7'
+p141
+sbatp142
+Rp143
+(dp144
+g11
+S'id: 26'
+p145
+sbag0
+(g1
+g2
+(lp146
+g0
+(g1
+g2
+(lp147
+g0
+(g1
+g2
+(lp148
+Vthe number four seventy
+p149
+atp150
+Rp151
+(dp152
+g11
+S'start: 5'
+p153
+sbatp154
+Rp155
+(dp156
+g11
+S'sent: 10'
+p157
+sbag0
+(g1
+g2
+(lp158
+g0
+(g1
+g2
+(lp159
+Vit
+p160
+atp161
+Rp162
+(dp163
+g11
+S'start: 10'
+p164
+sbatp165
+Rp166
+(dp167
+g11
+S'sent: 10'
+p168
+sbatp169
+Rp170
+(dp171
+g11
+S'id: 40'
+p172
+sbatp173
+Rp174
+(dp175
+g11
+S'coreferences'
+p176
+sb.

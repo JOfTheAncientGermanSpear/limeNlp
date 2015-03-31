@@ -1,0 +1,290 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VWe
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vwe
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 3'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+VWe
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 1'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 2'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+Vwe
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 6'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 2'
+p49
+sbatp50
+Rp51
+(dp52
+g11
+S'id: 1'
+p53
+sbag0
+(g1
+g2
+(lp54
+g0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+VThis I member anything , this
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 1'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 3'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vgood , and this
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 8'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 3'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vgood
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 8'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 3'
+p87
+sbatp88
+Rp89
+(dp90
+g11
+S'id: 6'
+p91
+sbag0
+(g1
+g2
+(lp92
+g0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vmember anything , this
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 3'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 3'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vmember anything
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 3'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 3'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Vthis
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 6'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 3'
+p125
+sbag0
+(g1
+g2
+(lp126
+g0
+(g1
+g2
+(lp127
+Vthis
+p128
+atp129
+Rp130
+(dp131
+g11
+S'start: 11'
+p132
+sbatp133
+Rp134
+(dp135
+g11
+S'sent: 3'
+p136
+sbatp137
+Rp138
+(dp139
+g11
+S'id: 8'
+p140
+sbatp141
+Rp142
+(dp143
+g11
+S'coreferences'
+p144
+sb.
