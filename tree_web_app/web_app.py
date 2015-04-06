@@ -10,7 +10,7 @@ import web
         
 import sentence_form
 sys.path.insert(0, '../step3_parse_txt/')
-sys.path.insert(0, '../step4_make_features/')
+sys.path.insert(0, '../step4_make_trees/')
 import text_parser
 import tree_generator
 
