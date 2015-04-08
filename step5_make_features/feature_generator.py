@@ -23,6 +23,47 @@ def is_sentence_label(l):
 	return l_lower == "sentences" or 'id: ' in l_lower
 
 
+def avg_vals_fn(d):
+	"""
+	>>> d = {'a': [1, 2, 3], 'b': [4, 5]}
+	>>> fn = avg_vals_fn(d)
+	>>> fn('a')
+	2.0
+	>>> fn('b')
+	4.5
+	"""
+	def fn(k):
+		vals = d[k]
+		return np.average([v for v in vals], axis = 0)
+
+	return fn
+
+
+def avg_metric_by_label(t, metric_fn, label_attachment):
+	"""
+	>>> from nltk.tree import Tree
+	>>> t_0 = Tree.fromstring("(A (B b))")
+	>>> t_1 = Tree.fromstring("(A a)")
+	>>> fn = lambda t: t.height()
+	>>> t = Tree("sentences", [Tree("id: 0", [t_0]), Tree("id: 1", [t_1])])
+	>>> avg_heights = avg_metric_by_label(t, fn, '_avg_height')
+	>>> sorted(avg_heights.keys())
+	['A_avg_height', 'B_avg_height']
+	>>> [avg_heights[l] for l in sorted(avg_heights.keys())]
+	[2.5, 2.0]
+	"""
+	metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
+
+	avg_metric = avg_vals_fn(metric_by_label)
+
+	def set_metric(fd, label):
+		a = avg_metric(label)
+		fd[label+label_attachment] = a
+		return fd
+
+	return reduce(set_metric, metric_by_label, nltk.FreqDist())
+
+
 def phrase_shapes(t):
 	"""
 	>>> from nltk.tree import Tree
@@ -40,19 +81,15 @@ def phrase_shapes(t):
 	>>> [shapes[k] for k in sorted(shapes.keys())]
 	[1.0, 2.0, 1.0, 2.0, 2.0, 3.0, 5.0, 5.0, 1.0, 2.0, 3.0, 4.0]
 	"""
-	shapes_by_label = nltk.ConditionalFreqDist((s.label(), tree_utils.shape(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
-
-	def avg_shape(label):
-		shapes = shapes_by_label[label]
-		return tuple(np.average([s for s in shapes], axis = 0))
+	avg_shape_by_label = avg_metric_by_label(t, tree_utils.shape, '')
 
 	def set_w_d(fd, label):
-		s = avg_shape(label)
+		s = avg_shape_by_label[label]
 		fd[label+'_avg_width'] = s[0]
 		fd[label+'_avg_depth'] = s[1]
 		return fd
 
-	return reduce(set_w_d, shapes_by_label, nltk.FreqDist())
+	return reduce(set_w_d, avg_shape_by_label, nltk.FreqDist())
 
 
 def phrase_counts(t):
@@ -134,6 +171,7 @@ def phrase_ratios(p):
 	
 	return ratios
 
+
 def phrase_hierarchies(t):
 	"""
 	>>> from nltk.tree import Tree
@@ -148,18 +186,7 @@ def phrase_hierarchies(t):
 	['DT_avg_hier', 'NN_avg_hier', 'NP_avg_hier', 'S_avg_hier', 'VBD_avg_hier', 'VP_avg_hier']
 	"""
 
-	hiers_by_label = nltk.ConditionalFreqDist((s.label(), tree_utils.hierarchy(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
-
-	def avg_hier(label):
-		hiers = hiers_by_label[label]
-		return np.average([s for s in hiers], axis = 0)
-
-	def set_h(fd, label):
-		h = avg_hier(label)
-		fd[label+'_avg_hier'] = h
-		return fd
-
-	return reduce(set_h, hiers_by_label, nltk.FreqDist())
+	return avg_metric_by_label(t, tree_utils.hierarchy, '_avg_hier')
 
 
 def phrase_iotas(t):
@@ -176,18 +203,8 @@ def phrase_iotas(t):
 	['DT_avg_iota', 'NN_avg_iota', 'NP_avg_iota', 'S_avg_iota', 'VBD_avg_iota', 'VP_avg_iota']
 	"""
 
-	iotas_by_label = nltk.ConditionalFreqDist((s.label(), tree_utils.iota(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
+	return avg_metric_by_label(t, tree_utils.iota, '_avg_iota')
 
-	def avg_iota(label):
-		iotas = iotas_by_label[label]
-		return np.average([s for s in iotas], axis = 0)
-
-	def set_h(fd, label):
-		h = avg_iota(label)
-		fd[label+'_avg_iota'] = h
-		return fd
-
-	return reduce(set_h, iotas_by_label, nltk.FreqDist())
 
 def phrase_feature_matrix(t):
 	def labeled_series(fd, l):
