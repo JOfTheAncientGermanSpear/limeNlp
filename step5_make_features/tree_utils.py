@@ -9,6 +9,40 @@ def is_tree(t):
 	return isinstance(t, nltk.Tree)
 
 
+def dist(pos1, pos2):
+	"""
+	>>> dist((0, 0), (0, 1))
+	2
+	>>> dist((1,), (1, 1))
+	1
+	>>> dist((), (1, 1))
+	2
+	>>> dist((1,2), (0, 0, 3))
+	5
+	>>> dist((1,2), (1, 0, 3))
+	3
+	>>> dist((0, 1), (1, 1))
+	4
+	"""
+	if pos1 == pos2:
+		return 0
+
+	pos1_level = len(pos1)
+	pos2_level = len(pos2)
+
+	(higher, lower) = (pos1, pos2) if pos1_level <= pos2_level \
+			else (pos2, pos1)
+
+	matches = [hl[0] == hl[1] for hl in zip(higher, lower)]
+	if all(matches):
+		num_shared = len(higher)
+	else:
+		diff_ix = (i for (i, m) in enumerate(matches) if not m)
+		num_shared = next(diff_ix)
+
+	return len(lower) + len(higher) - 2 * num_shared
+
+
 def shape(t):
 	"""
 	>>> from nltk.tree import Tree
