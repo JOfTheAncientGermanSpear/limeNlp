@@ -4,6 +4,9 @@ import nltk
 import numpy as np
 import pandas as pd
 
+def is_tree(t):
+	return isinstance(t, nltk.Tree)
+
 def shape(t):
 	"""
 	>>> from nltk.tree import Tree
@@ -12,6 +15,31 @@ def shape(t):
 	(4, 2)
 	"""
 	return (t.height(), len(t.leaves()))
+
+
+def iota(t, is_root = True):
+	"""
+	>>> from nltk.tree import Tree
+	>>> t = Tree.fromstring("(A (B b))")
+	>>> iota(t) #1 + 2*2 + 1
+	6
+	>>> t = Tree.fromstring("(A (B (C (D d) (D d))))")
+	>>> (a, b, c, d, d_l) = (1, 2*2, 2*3, 2*2*2, 2*1) 
+	>>> iota(t) == a + b + c + d + d_l
+	True
+	"""
+	if not is_tree(t):
+		return 1
+
+	num_children = len(t)
+	num_parents = 0 if is_root else 1
+	order = num_children + num_parents
+
+	weight = order if order < 2 else 2 * order
+	children_weight = reduce(lambda a, c: iota(c, False) + a, t, 0)
+	
+	return weight + children_weight
+
 
 def is_sentence_label(l):
 	"""
@@ -51,15 +79,13 @@ def phrase_shapes(t):
 		shapes = shapes_by_label[label]
 		return tuple(np.average([s for s in shapes], axis = 0))
 
-	def update_w_d(fd, label):
+	def set_w_d(fd, label):
 		s = avg_shape(label)
 		fd[label+'_avg_width'] = s[0]
 		fd[label+'_avg_depth'] = s[1]
 		return fd
 
-	return reduce(update_w_d, shapes_by_label, nltk.FreqDist())
-
-	return nltk.FreqDist({l:avg_shape(l) for l in shapes_by_label})
+	return reduce(set_w_d, shapes_by_label, nltk.FreqDist())
 
 
 def phrase_counts(t):
@@ -122,7 +148,7 @@ def phrase_sentence_cover(t, coeff = 1.0, covers = dict()):
 	>>> [c[k] for k in sorted(c.keys())]
 	[1.0, 0.75, 0.375, 0.375, 0.5]
 	"""
-	if not isinstance(t, nltk.Tree):
+	if not is_tree(t):
 		return covers
 
 	label = t.label()
@@ -153,7 +179,7 @@ def phrase_ratios(p):
 	>>> vals == [2.0/9, 2.0/9, 2.0/9, 1.0/9, 1.0/9, 1.0/9] 
 	True
 	"""
-	if isinstance(p, nltk.Tree):
+	if is_tree(p):
 		p = phrase_counts(p)
 	
 	ratios = nltk.FreqDist()
