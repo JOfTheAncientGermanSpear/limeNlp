@@ -89,16 +89,17 @@ def avg_dicts(ds):
 	>>> [d_avg[k] for k in sorted(d_avg.keys())]
 	[3.5, 4.5, 3.0]
 	"""
-	counts = dict()
-	for d in ds:
-		for k in d:
-			counts[k] = counts.get(k, 0) + 1
+	key_counts = dict()
 
-	def running_avg(acc, d):
+	def running_avg(avg, d):
 		for k in d:
-			num_k = counts[k]
-			acc[k] = acc.get(k, 0) + d[k]/num_k
-		return acc
+			prev_count = key_counts.get(k, 0)
+			curr_count = prev_count + 1
+			key_counts[k] = curr_count
+
+			prev_avg = avg.get(k, 0)
+			avg[k] = (prev_avg * prev_count + d[k])/curr_count
+		return avg
 
 	return reduce(running_avg, ds, dict())
 
