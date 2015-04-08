@@ -115,17 +115,14 @@ def iota(t, is_root = True):
 	>>> iota(t) == a + b + c + d + d_l
 	True
 	"""
-	if not is_tree(t):
-		return 1
 
-	num_children = len(t)
-	num_parents = 0 if is_root else 1
-	order = num_children + num_parents
+	os = orders(t, is_root)
 
-	weight = order if order < 2 else 2 * order
-	children_weight = reduce(lambda a, c: iota(c, False) + a, t, 0)
-	
-	return weight + children_weight
+	def iota_sum(acc, o):
+		w = o if o < 2 else o * 2
+		return acc + w
+
+	return reduce(iota_sum, os, 0)
 
 
 def phrase_shapes(t):
