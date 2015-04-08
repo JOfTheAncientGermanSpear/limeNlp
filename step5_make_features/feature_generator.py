@@ -52,7 +52,8 @@ def avg_metric_by_label(t, metric_fn, label_attachment):
 	>>> [avg_heights[l] for l in sorted(avg_heights.keys())]
 	[2.5, 2.0]
 	"""
-	metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
+	is_not_sentence_label = lambda t: not is_sentence_label(t.label())
+	metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s)) for s in t.subtrees(filter = is_not_sentence_label))
 
 	avg_metric = avg_vals_fn(metric_by_label)
 
