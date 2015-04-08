@@ -13,6 +13,20 @@ def shape(t):
 	"""
 	return (t.height(), len(t.leaves()))
 
+def is_sentence_label(l):
+	"""
+	>>> is_sentence_label('id: 0')
+	True
+	>>> is_sentence_label('id: 37')
+	True
+	>>> is_sentence_label('sentences')
+	True
+	>>> is_sentence_label('ab')
+	False
+	"""
+	l_lower = l.lower()
+	return l_lower == "sentences" or 'id: ' in l_lower
+
 
 def phrase_shapes(t):
 	"""
@@ -24,8 +38,14 @@ def phrase_shapes(t):
 	['DT_avg_depth', 'DT_avg_width', 'NN_avg_depth', 'NN_avg_width', 'NP_avg_depth', 'NP_avg_width', 'S_avg_depth', 'S_avg_width', 'VBD_avg_depth', 'VBD_avg_width', 'VP_avg_depth', 'VP_avg_width']
 	>>> [shapes[k] for k in sorted(shapes.keys())]
 	[1.0, 2.0, 1.0, 2.0, 2.0, 3.0, 5.0, 5.0, 1.0, 2.0, 3.0, 4.0]
+	>>> t = Tree("sentences", [Tree('id: 0', [t]), Tree('id: 1', [t])])
+	>>> shapes = phrase_shapes(t)
+	>>> sorted(shapes.keys())
+	['DT_avg_depth', 'DT_avg_width', 'NN_avg_depth', 'NN_avg_width', 'NP_avg_depth', 'NP_avg_width', 'S_avg_depth', 'S_avg_width', 'VBD_avg_depth', 'VBD_avg_width', 'VP_avg_depth', 'VP_avg_width']
+	>>> [shapes[k] for k in sorted(shapes.keys())]
+	[1.0, 2.0, 1.0, 2.0, 2.0, 3.0, 5.0, 5.0, 1.0, 2.0, 3.0, 4.0]
 	"""
-	shapes_by_label = nltk.ConditionalFreqDist((s.label(), shape(s)) for s in t.subtrees())
+	shapes_by_label = nltk.ConditionalFreqDist((s.label(), shape(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
 
 	def avg_shape(label):
 		shapes = shapes_by_label[label]
@@ -52,8 +72,72 @@ def phrase_counts(t):
 	['DT', 'NN', 'NP', 'S', 'VBD', 'VP']
 	>>> [p[k] for k in sorted(p.keys())]
 	[2, 2, 2, 1, 1, 1]
+	>>> t = Tree("sentences", [Tree('id: 0', [t]), Tree('id: 1', [t])])
+	>>> p = phrase_counts(t)
+	>>> sorted(p.keys())
+	['DT', 'NN', 'NP', 'S', 'VBD', 'VP']
+	>>> [p[k] for k in sorted(p.keys())]
+	[4, 4, 4, 2, 2, 2]
 	"""
-	return nltk.FreqDist(s.label() for s in t.subtrees())
+	return nltk.FreqDist(s.label() for s in t.subtrees() if not is_sentence_label(s.label()))
+
+def avg_dicts(ds):
+	"""
+	>>> d_a = {'a': 3, 'b': 4}
+	>>> d_b = {'a': 4, 'b': 5, 'c': 3}
+	>>> d_avg = avg_dicts([d_a, d_b]) 
+	>>> [d_avg[k] for k in sorted(d_avg.keys())]
+	[3.5, 4.5, 3.0]
+	"""
+	counts = dict()
+	for d in ds:
+		for k in d:
+			counts[k] = counts.get(k, 0) + 1
+
+	def running_avg(acc, d):
+		for k in d:
+			num_k = counts[k]
+			acc[k] = acc.get(k, 0) + d[k]/num_k
+		return acc
+
+	return reduce(running_avg, ds, dict())
+
+def phrase_sentence_cover(t, coeff = 1.0, covers = dict()):
+	"""
+	>>> from nltk.tree import Tree
+	>>> s = "(A (B (C c) (D d)) (E e))"
+	>>> t = Tree.fromstring(s)
+	>>> c = phrase_sentence_cover(t)
+	>>> sorted(c.keys())
+	['A', 'B', 'C', 'D', 'E']
+	>>> [c[k] for k in sorted(c.keys())]
+	[1.0, 0.5, 0.25, 0.25, 0.5]
+	>>> s_small = "(A (B (C c) (D d)))"
+	>>> t_small = Tree.fromstring(s_small)
+	>>> t = Tree("sentences", [Tree("id: 0", [t]), Tree("id: 1", [t_small])])
+	>>> c = phrase_sentence_cover(t)
+	>>> sorted(c.keys())
+	['A', 'B', 'C', 'D', 'E']
+	>>> [c[k] for k in sorted(c.keys())]
+	[1.0, 0.75, 0.375, 0.375, 0.5]
+	"""
+	if not isinstance(t, nltk.Tree):
+		return covers
+
+	label = t.label()
+
+	if is_sentence_label(label):
+		covers_per_sent = map(lambda s: phrase_sentence_cover(s, coeff, dict()), t)
+		return avg_dicts(covers_per_sent)
+
+	covers[label] = covers.get(label, 0) + coeff
+
+	num_children = len(t)
+
+	for c in t:
+		phrase_sentence_cover(c, coeff/num_children, covers)
+
+	return covers
 
 
 def phrase_ratios(p):
