@@ -134,6 +134,60 @@ def phrase_ratios(p):
 	
 	return ratios
 
+def phrase_hierarchies(t):
+	"""
+	>>> from nltk.tree import Tree
+	>>> s = "(S (NP (DT The) (NN cat)) (VP (VBD ate) (NP (DT the) (NN mouse))))"
+	>>> t = Tree.fromstring(s)
+	>>> hiers = phrase_hierarchies(t)
+	>>> sorted(hiers.keys())
+	['DT_avg_hier', 'NN_avg_hier', 'NP_avg_hier', 'S_avg_hier', 'VBD_avg_hier', 'VP_avg_hier']
+	>>> t = Tree("sentences", [Tree('id: 0', [t]), Tree('id: 1', [t])])
+	>>> hiers = phrase_hierarchies(t)
+	>>> sorted(hiers.keys())
+	['DT_avg_hier', 'NN_avg_hier', 'NP_avg_hier', 'S_avg_hier', 'VBD_avg_hier', 'VP_avg_hier']
+	"""
+
+	hiers_by_label = nltk.ConditionalFreqDist((s.label(), tree_utils.hierarchy(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
+
+	def avg_hier(label):
+		hiers = hiers_by_label[label]
+		return np.average([s for s in hiers], axis = 0)
+
+	def set_h(fd, label):
+		h = avg_hier(label)
+		fd[label+'_avg_hier'] = h
+		return fd
+
+	return reduce(set_h, hiers_by_label, nltk.FreqDist())
+
+
+def phrase_iotas(t):
+	"""
+	>>> from nltk.tree import Tree
+	>>> s = "(S (NP (DT The) (NN cat)) (VP (VBD ate) (NP (DT the) (NN mouse))))"
+	>>> t = Tree.fromstring(s)
+	>>> iotas = phrase_iotas(t)
+	>>> sorted(iotas.keys())
+	['DT_avg_iota', 'NN_avg_iota', 'NP_avg_iota', 'S_avg_iota', 'VBD_avg_iota', 'VP_avg_iota']
+	>>> t = Tree("sentences", [Tree('id: 0', [t]), Tree('id: 1', [t])])
+	>>> iotas = phrase_iotas(t)
+	>>> sorted(iotas.keys())
+	['DT_avg_iota', 'NN_avg_iota', 'NP_avg_iota', 'S_avg_iota', 'VBD_avg_iota', 'VP_avg_iota']
+	"""
+
+	iotas_by_label = nltk.ConditionalFreqDist((s.label(), tree_utils.iota(s)) for s in t.subtrees() if not is_sentence_label(s.label()))
+
+	def avg_iota(label):
+		iotas = iotas_by_label[label]
+		return np.average([s for s in iotas], axis = 0)
+
+	def set_h(fd, label):
+		h = avg_iota(label)
+		fd[label+'_avg_iota'] = h
+		return fd
+
+	return reduce(set_h, iotas_by_label, nltk.FreqDist())
 
 def phrase_feature_matrix(t):
 	def labeled_series(fd, l):
@@ -142,8 +196,10 @@ def phrase_feature_matrix(t):
 	counts = labeled_series(phrase_counts(t), 'count')
 	ratios = labeled_series(phrase_ratios(t), 'ratio')
 	shapes = pd.Series(phrase_shapes(t))
+	hierarchy = pd.Series(phrase_hierarchies(t))
+	iota = pd.Series(phrase_iotas(t))
 
-	return pd.concat([counts, ratios, shapes])
+	return pd.concat([counts, ratios, shapes, hierarchy, iota])
 
 
 if __name__ == "__main__":
