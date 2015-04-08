@@ -2,10 +2,28 @@ from __future__ import division
 
 import nltk
 import numpy as np
+from scipy import stats
 import pandas as pd
+
 
 def is_tree(t):
 	return isinstance(t, nltk.Tree)
+
+
+def is_sentence_label(l):
+	"""
+	>>> is_sentence_label('id: 0')
+	True
+	>>> is_sentence_label('id: 37')
+	True
+	>>> is_sentence_label('sentences')
+	True
+	>>> is_sentence_label('ab')
+	False
+	"""
+	l_lower = l.lower()
+	return l_lower == "sentences" or 'id: ' in l_lower
+
 
 def shape(t):
 	"""
@@ -15,6 +33,75 @@ def shape(t):
 	(4, 2)
 	"""
 	return (t.height(), len(t.leaves()))
+
+
+def order(t, is_root = True):
+	"""
+	>>> from nltk.tree import Tree
+	>>> t = Tree.fromstring("(A (B b))")
+	>>> order(t)
+	1
+	>>> order(t[0], False) #B subtree
+	2
+	"""
+	num_parents = 0 if is_root else 1
+
+	if not is_tree(t):
+		return num_parents
+
+	num_children = len(t)
+	return num_children + num_parents
+	
+
+def orders(t, is_root = True):
+	"""
+	>>> from nltk.tree import Tree
+	>>> t = Tree.fromstring("(A a)")
+	>>> orders(t)
+	array([1, 1])
+	>>> t = Tree.fromstring("(A (B b))")
+	>>> orders(t)
+	array([1, 2, 1])
+	"""
+	
+	o = np.array([order(t, is_root)])
+
+	if not is_tree(t):
+		return o
+
+	def app_child_order(acc, c):
+		c_orders = orders(c, is_root = False)
+		return np.concatenate([acc, c_orders])
+
+	return reduce(app_child_order, t, o)
+
+
+def hierarchy(t):
+	"""
+	>>> from nltk.tree import Tree
+	>>> o_1 = Tree.fromstring("(1)")
+	>>> o_11 = Tree(11, [o_1] * 10)
+	>>> r = Tree(10, [o_11] * 10)
+	>>> actual = hierarchy(r)
+	>>> from scipy import stats
+	>>> import numpy as np
+	>>> degrees = [1, 10, 11]
+	>>> cnts = [100, 1, 10]
+	>>> s = stats.linregress(np.log10(degrees), np.log10(cnts))[0]
+	>>> s == actual
+	True
+	"""
+
+	os = orders(t)
+	o_counts = dict()
+	for o in os:
+		o_counts[o] = o_counts.get(o, 0) + 1
+	
+	degrees = sorted(o_counts.keys())
+	cnts = [o_counts[d] for d in degrees]
+
+	slope = stats.linregress(np.log10(degrees), np.log10(cnts))[0]
+	return slope
 
 
 def iota(t, is_root = True):
@@ -39,21 +126,6 @@ def iota(t, is_root = True):
 	children_weight = reduce(lambda a, c: iota(c, False) + a, t, 0)
 	
 	return weight + children_weight
-
-
-def is_sentence_label(l):
-	"""
-	>>> is_sentence_label('id: 0')
-	True
-	>>> is_sentence_label('id: 37')
-	True
-	>>> is_sentence_label('sentences')
-	True
-	>>> is_sentence_label('ab')
-	False
-	"""
-	l_lower = l.lower()
-	return l_lower == "sentences" or 'id: ' in l_lower
 
 
 def phrase_shapes(t):
