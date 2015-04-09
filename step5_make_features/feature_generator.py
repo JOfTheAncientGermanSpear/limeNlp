@@ -53,7 +53,8 @@ def avg_metric_by_label(t, metric_fn, label_attachment):
 	[2.5, 2.0]
 	"""
 	is_not_sentence_label = lambda t: not is_sentence_label(t.label())
-	metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s)) for s in t.subtrees(filter = is_not_sentence_label))
+	metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s))\
+			for s in t.subtrees(filter = is_not_sentence_label))
 
 	avg_metric = avg_vals_fn(metric_by_label)
 
@@ -206,6 +207,50 @@ def phrase_iotas(t):
 
 	return avg_metric_by_label(t, tree_utils.iota, '_avg_iota')
 
+def phrase_dists(t):
+	"""
+	>>> from nltk.tree import Tree
+	>>> s = "(A (B b) (C c))"
+	>>> t = Tree.fromstring(s)
+	>>> dists = phrase_dists(t)
+	>>> sorted(dists.keys())
+	['A_B_avg_dist', 'A_C_avg_dist', 'B_C_avg_dist']
+	>>> [dists[k] for k in sorted(dists.keys())]
+	[1.0, 1.0, 2.0]
+	>>> t2 = Tree.fromstring("(A (D (B b)))")
+	>>> t_sents = Tree("sentences", [Tree('id: 0', [t]), Tree('id: 1', [t2])])
+	>>> dists = phrase_dists(t_sents)
+	>>> sorted(dists.keys())
+	['A_B_avg_dist', 'A_C_avg_dist', 'A_D_avg_dist', 'B_C_avg_dist', 'B_D_avg_dist']
+	>>> [dists[k] for k in sorted(dists.keys())]
+	[1.5, 1.0, 1.0, 2.0, 1.0]
+	"""
+
+	if t.label().lower() == "sentences":
+		sentence_roots = (c[0] for c in t.subtrees() if 'id: ' in c.label())
+	else:
+		sentence_roots = [t]
+
+	distances_by_connection = dict()
+
+	for s in sentence_roots:
+		label = lambda p: s[p].label()
+		is_tree_at_pos = lambda p: tree_utils.is_tree(s[p])
+		posits = filter(is_tree_at_pos, s.treepositions())
+		for (i, p) in enumerate(posits):
+			for p2 in posits[i + 1:]:
+				(start, stop) = sorted([label(p), label(p2)])
+				connection = start + '_' + stop
+				dists = distances_by_connection.get(connection, [])
+				dists.append(tree_utils.dist(p, p2))
+				distances_by_connection[connection] = dists
+
+	def avg(acc, k):
+		dists = distances_by_connection[k]
+		acc[k + '_avg_dist'] = np.average(dists)
+		return acc
+
+	return reduce(avg, distances_by_connection, dict())
 
 def phrase_feature_matrix(t):
 	def labeled_series(fd, l):
