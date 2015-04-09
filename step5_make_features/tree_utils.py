@@ -23,9 +23,9 @@ def dist(pos1, pos2):
 	3
 	>>> dist((0, 1), (1, 1))
 	4
+	>>> dist((0, 1), (0, 1))
+	0
 	"""
-	if pos1 == pos2:
-		return 0
 
 	pos1_level = len(pos1)
 	pos2_level = len(pos2)
