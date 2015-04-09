@@ -33,12 +33,8 @@ def dist(pos1, pos2):
 	(higher, lower) = (pos1, pos2) if pos1_level <= pos2_level \
 			else (pos2, pos1)
 
-	matches = [hl[0] == hl[1] for hl in zip(higher, lower)]
-	if all(matches):
-		num_shared = len(higher)
-	else:
-		diff_ix = (i for (i, m) in enumerate(matches) if not m)
-		num_shared = next(diff_ix)
+	diff_ix = (i for (i, h) in enumerate(higher) if not h == lower[i])
+	num_shared = next(diff_ix, len(higher))
 
 	return len(lower) + len(higher) - 2 * num_shared
 
