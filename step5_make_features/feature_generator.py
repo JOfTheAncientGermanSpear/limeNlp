@@ -224,6 +224,13 @@ def phrase_dists(t):
 	['A_B_avg_dist', 'A_C_avg_dist', 'A_D_avg_dist', 'B_C_avg_dist', 'B_D_avg_dist']
 	>>> [dists[k] for k in sorted(dists.keys())]
 	[1.5, 1.0, 1.0, 2.0, 1.0]
+	>>> s = "(A (B b) (A a))"
+	>>> t = Tree.fromstring(s)
+	>>> dists = phrase_dists(t)
+	>>> sorted(dists.keys())
+	['A_A_avg_dist', 'A_B_avg_dist']
+	>>> [dists[k] for k in sorted(dists.keys())]
+	[1.0, 1.5]
 	"""
 
 	if t.label().lower() == "sentences":
