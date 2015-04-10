@@ -1,5 +1,8 @@
 from __future__ import division
 
+import os
+import pickle
+
 import nltk
 import numpy as np
 from scipy import stats
@@ -25,16 +28,20 @@ def is_sentence_label(l):
 
 def avg_vals_fn(d):
 	"""
-	>>> d = {'a': [1, 2, 3], 'b': [4, 5]}
+	>>> import numpy as np
+	>>> d = {'a': [1, 2, 3], 'b': [4, 5], 'c': [3, np.nan, 5]}
 	>>> fn = avg_vals_fn(d)
 	>>> fn('a')
 	2.0
 	>>> fn('b')
 	4.5
+	>>> fn('c')
+	4.0
 	"""
 	def fn(k):
-		vals = d[k]
-		return np.average([v for v in vals], axis = 0)
+		vals = filter(lambda v: not np.any(np.isnan(v)), d[k])
+		if len(vals) > 0:
+			return np.average(vals, axis = 0)
 
 	return fn
 
@@ -60,7 +67,8 @@ def avg_metric_by_label(t, metric_fn, label_attachment):
 
 	def set_metric(fd, label):
 		a = avg_metric(label)
-		fd[label+label_attachment] = a
+		if a is not None:
+			fd[label+label_attachment] = a
 		return fd
 
 	return reduce(set_metric, metric_by_label, nltk.FreqDist())
@@ -86,9 +94,10 @@ def phrase_shapes(t):
 	avg_shape_by_label = avg_metric_by_label(t, tree_utils.shape, '')
 
 	def set_w_d(fd, label):
-		s = avg_shape_by_label[label]
-		fd[label+'_avg_width'] = s[0]
-		fd[label+'_avg_depth'] = s[1]
+		s = avg_shape_by_label.get(label, None)
+		if s is not None:
+			fd[label+'_avg_width'] = s[0]
+			fd[label+'_avg_depth'] = s[1]
 		return fd
 
 	return reduce(set_w_d, avg_shape_by_label, nltk.FreqDist())
@@ -259,7 +268,7 @@ def phrase_dists(t):
 
 	return reduce(avg, distances_by_connection, dict())
 
-def phrase_feature_matrix(t):
+def phrase_feature_row(t):
 	def labeled_series(fd, l):
 		return pd.Series({k + '_' + l: fd[k] for k in fd})
 
@@ -268,8 +277,25 @@ def phrase_feature_matrix(t):
 	shapes = pd.Series(phrase_shapes(t))
 	hierarchy = pd.Series(phrase_hierarchies(t))
 	iota = pd.Series(phrase_iotas(t))
+	dists = pd.Series(phrase_dists(t))
 
-	return pd.concat([counts, ratios, shapes, hierarchy, iota])
+	return pd.concat([counts, ratios, shapes, hierarchy, iota, dists])
+
+def load_tree(tree_path):
+	with open(tree_path, 'rb') as f:
+		t = pickle.load(f)
+	return t
+
+def dir_to_matrix(src_dir, output_file = None, src_filter = lambda f: 'picnic_phrase' in f and f.endswith('.pkl')):
+	src_files =[os.path.join(src_dir, f) for f in os.listdir(src_dir) if src_filter(f)]
+	trees =[load_tree(f) for f in src_files]
+	feature_rows =[phrase_feature_row(t) for t in trees]
+	ids =[os.path.basename(f).replace('.pkl','') for f in src_files]
+	mat = pd.DataFrame(dict(zip(ids, feature_rows)))
+	mat = mat.T
+	if output_file:
+		mat.to_csv(output_file)
+	return mat
 
 
 if __name__ == "__main__":
