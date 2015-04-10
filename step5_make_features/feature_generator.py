@@ -303,14 +303,45 @@ def lime_num(s):
 
 
 def sanitize_feature_matrix(mat):
+	"""
+	>>> import pandas as pd
+	>>> import numpy as np
+	>>> rand10 = lambda: np.random.randn(10)
+	>>> no_var = ('no_var', np.ones(10))
+	>>> high_nan_vals = rand10()
+	>>> high_nan_vals[::5] = np.nan
+	>>> high_nan = ('high_nan', high_nan_vals)
+	>>> punct = (',_dist', rand10())
+	>>> count_vals = np.ones(10)
+	>>> count_vals[::2] = np.nan
+	>>> count = ('x_count', count_vals)
+	>>> ratio_vals = np.ones(10)
+	>>> ratio_vals[::2] = np.nan
+	>>> ratio = ('x_ratio', ratio_vals)
+	>>> ok = ('x_y_avg_dist', rand10())
+	>>> mat = pd.DataFrame(dict([no_var, high_nan, punct, count, ratio, ok]))
+	>>> mat_f = sanitize_feature_matrix(mat)
+	>>> sorted(mat_f.columns)
+	['x_count', 'x_ratio', 'x_y_avg_dist']
+	>>> mat_f['x_count'].values
+	array([ 0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.])
+	>>> mat_f['x_ratio'].values
+	array([ 0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.])
+	"""
 	(num_samples, num_features) = mat.shape
 
+	count_based = lambda c: '_count' in c or '_ratio' in c
 	high_nan = lambda c: sum(np.isnan(mat[c])) > num_samples * .1
 	has_punct = lambda c: ',' in c or '.' in c
 	no_var = lambda c: np.var(mat[c]) == 0 
-	drop = lambda c: high_nan(c) or has_punct(c) or no_var(c)
+	drop = lambda c: (high_nan(c) or has_punct(c) or no_var(c)) \
+			and not count_based(c)
 
-	return mat.drop(filter(drop, mat.columns), axis = 1)
+	mat_f = mat.drop(filter(drop, mat.columns), axis = 1)
+	for l in filter(count_based, mat_f.columns):
+		mat_f.loc[np.isnan(mat_f[l]), l] = 0
+	
+	return mat_f
 
 
 def dir_to_matrix(src_dir, output_file = None, src_filter = lambda f: 'phrase' in f and f.endswith('.pkl')):
