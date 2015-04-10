@@ -1,6 +1,7 @@
 from __future__ import division
 
 import nltk
+from nltk.tree import Tree
 import numpy as np
 from scipy import stats
 
@@ -160,6 +161,30 @@ def avg_dicts(ds):
 		return avg
 
 	return reduce(running_avg, ds, dict())
+
+def merge_trees(trees, label, replace_roots = False):
+	"""
+	>>> from nltk.tree import Tree
+	>>> a1 = Tree("a", [Tree('B', ['b']), Tree('C', ['c'])])
+	>>> a2 = Tree("a", [Tree('D', ['d']), Tree('E', ['e'])])
+	>>> t = merge_trees([a1, a2], label='r', replace_roots = True)
+	>>> t.pprint()
+	u'(r (B b) (C c) (D d) (E e))'
+	>>> t = merge_trees([a1, a2], label='r', replace_roots = False)
+	>>> t.pprint()
+	u'(r (a (B b) (C c)) (a (D d) (E e)))'
+	>>> t = merge_trees([a1, Tree('b', ['e'])], label='r', replace_roots = True)
+	>>> t.pprint()
+	u'(r (B b) (C c) e)'
+	"""
+
+	def all_children():
+		def append_children(acc, t):
+			return acc + [c for c in t]
+		return reduce(append_children, trees, [])
+
+	children = all_children() if replace_roots else trees
+	return Tree(label, children)
 
 
 if __name__ == "__main__":

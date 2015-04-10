@@ -2,6 +2,7 @@ from __future__ import division
 
 import os
 import pickle
+import re
 
 import nltk
 import numpy as np
@@ -190,11 +191,11 @@ def phrase_hierarchies(t):
 	>>> t = Tree.fromstring(s)
 	>>> hiers = phrase_hierarchies(t)
 	>>> sorted(hiers.keys())
-	['DT_avg_hier', 'NN_avg_hier', 'NP_avg_hier', 'S_avg_hier', 'VBD_avg_hier', 'VP_avg_hier']
+	['NP_avg_hier', 'S_avg_hier', 'VP_avg_hier']
 	>>> t = Tree("sentences", [Tree('id: 0', [t]), Tree('id: 1', [t])])
 	>>> hiers = phrase_hierarchies(t)
 	>>> sorted(hiers.keys())
-	['DT_avg_hier', 'NN_avg_hier', 'NP_avg_hier', 'S_avg_hier', 'VBD_avg_hier', 'VP_avg_hier']
+	['NP_avg_hier', 'S_avg_hier', 'VP_avg_hier']
 	"""
 
 	return avg_metric_by_label(t, tree_utils.hierarchy, '_avg_hier')
@@ -281,17 +282,57 @@ def phrase_feature_row(t):
 
 	return pd.concat([counts, ratios, shapes, hierarchy, iota, dists])
 
+
 def load_tree(tree_path):
 	with open(tree_path, 'rb') as f:
 		t = pickle.load(f)
 	return t
 
-def dir_to_matrix(src_dir, output_file = None, src_filter = lambda f: 'picnic_phrase' in f and f.endswith('.pkl')):
-	src_files =[os.path.join(src_dir, f) for f in os.listdir(src_dir) if src_filter(f)]
-	trees =[load_tree(f) for f in src_files]
-	feature_rows =[phrase_feature_row(t) for t in trees]
-	ids =[os.path.basename(f).replace('.pkl','') for f in src_files]
-	mat = pd.DataFrame(dict(zip(ids, feature_rows)))
+
+def lime_num(s):
+	"""
+	>>> lime_num('def/aoub1234_ax.txt')
+	'1234'
+	>>> lime_num('eu12/eu567_eu.txt')
+	'567'
+	>>> lime_num('eu12/eueu.txt')
+
+	"""
+	res = re.findall(r'[0-9]{3,}', s)
+	return res[0] if len(res) > 0 else None
+
+
+def sanitize_feature_matrix(mat):
+	(num_samples, num_features) = mat.shape
+
+	high_nan = lambda c: sum(np.isnan(mat[c])) > num_samples * .1
+	has_punct = lambda c: ',' in c or '.' in c
+	no_var = lambda c: np.var(mat[c]) == 0 
+	drop = lambda c: high_nan(c) or has_punct(c) or no_var(c)
+
+	return mat.drop(filter(drop, mat.columns), axis = 1)
+
+
+def dir_to_matrix(src_dir, output_file = None, src_filter = lambda f: 'phrase' in f and f.endswith('.pkl')):
+	def add_tree_to_map(d, f):
+		lm = lime_num(f)
+		if lm is not None:
+			full_f = os.path.join(src_dir, f)
+			t = load_tree(full_f)
+			curr = d.get(lm, [])
+			curr.append(t)
+			d[lm] = curr
+		return d
+
+	id_trees_map = reduce(add_tree_to_map, filter(src_filter, os.listdir(src_dir)), dict())
+
+	merge_sentence_sub_nodes = lambda ts: tree_utils.merge_trees(ts, 'sentences', replace_roots = True)
+
+	id_tree_mappings = map(lambda i_ts: (i_ts[0], merge_sentence_sub_nodes(i_ts[1])), id_trees_map.items())
+
+	id_rows_map = dict(map(lambda it: (it[0], phrase_feature_row(it[1])), id_tree_mappings))
+
+	mat = pd.DataFrame(id_rows_map)
 	mat = mat.T
 	if output_file:
 		mat.to_csv(output_file)
