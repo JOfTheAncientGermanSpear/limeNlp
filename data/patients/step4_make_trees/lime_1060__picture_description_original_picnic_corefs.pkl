@@ -1,0 +1,756 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vme
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 3'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 2'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VI
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 13'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+VI
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 1'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 17'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 4'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VThe son
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 1'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 4'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vhis
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 6'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 4'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vthe son
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 5'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 5'
+p76
+sbatp77
+Rp78
+(dp79
+g11
+S'id: 9'
+p80
+sbag0
+(g1
+g2
+(lp81
+g0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vthe mother
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 8'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 5'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vshe
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 12'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 5'
+p103
+sbatp104
+Rp105
+(dp106
+g11
+S'id: 14'
+p107
+sbag0
+(g1
+g2
+(lp108
+g0
+(g1
+g2
+(lp109
+g0
+(g1
+g2
+(lp110
+Va glass of wine
+p111
+atp112
+Rp113
+(dp114
+g11
+S'start: 15'
+p115
+sbatp116
+Rp117
+(dp118
+g11
+S'sent: 5'
+p119
+sbag0
+(g1
+g2
+(lp120
+g0
+(g1
+g2
+(lp121
+Vthat glass of wine
+p122
+atp123
+Rp124
+(dp125
+g11
+S'start: 11'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'sent: 17'
+p130
+sbatp131
+Rp132
+(dp133
+g11
+S'id: 16'
+p134
+sbag0
+(g1
+g2
+(lp135
+g0
+(g1
+g2
+(lp136
+g0
+(g1
+g2
+(lp137
+Vthe father
+p138
+atp139
+Rp140
+(dp141
+g11
+S'start: 21'
+p142
+sbatp143
+Rp144
+(dp145
+g11
+S'sent: 5'
+p146
+sbag0
+(g1
+g2
+(lp147
+g0
+(g1
+g2
+(lp148
+Vhis
+p149
+atp150
+Rp151
+(dp152
+g11
+S'start: 25'
+p153
+sbatp154
+Rp155
+(dp156
+g11
+S'sent: 5'
+p157
+sbag0
+(g1
+g2
+(lp158
+g0
+(g1
+g2
+(lp159
+Vthe father , the grandfather
+p160
+atp161
+Rp162
+(dp163
+g11
+S'start: 2'
+p164
+sbatp165
+Rp166
+(dp167
+g11
+S'sent: 8'
+p168
+sbag0
+(g1
+g2
+(lp169
+g0
+(g1
+g2
+(lp170
+Vthe father
+p171
+atp172
+Rp173
+(dp174
+g11
+S'start: 2'
+p175
+sbatp176
+Rp177
+(dp178
+g11
+S'sent: 8'
+p179
+sbag0
+(g1
+g2
+(lp180
+g0
+(g1
+g2
+(lp181
+Vthe grandfather
+p182
+atp183
+Rp184
+(dp185
+g11
+S'start: 5'
+p186
+sbatp187
+Rp188
+(dp189
+g11
+S'sent: 8'
+p190
+sbag0
+(g1
+g2
+(lp191
+g0
+(g1
+g2
+(lp192
+Vthe father 's now
+p193
+atp194
+Rp195
+(dp196
+g11
+S'start: 4'
+p197
+sbatp198
+Rp199
+(dp200
+g11
+S'sent: 10'
+p201
+sbag0
+(g1
+g2
+(lp202
+g0
+(g1
+g2
+(lp203
+VHe
+p204
+atp205
+Rp206
+(dp207
+g11
+S'start: 1'
+p208
+sbatp209
+Rp210
+(dp211
+g11
+S'sent: 11'
+p212
+sbatp213
+Rp214
+(dp215
+g11
+S'id: 17'
+p216
+sbag0
+(g1
+g2
+(lp217
+g0
+(g1
+g2
+(lp218
+g0
+(g1
+g2
+(lp219
+VThe sailboat
+p220
+atp221
+Rp222
+(dp223
+g11
+S'start: 1'
+p224
+sbatp225
+Rp226
+(dp227
+g11
+S'sent: 6'
+p228
+sbag0
+(g1
+g2
+(lp229
+g0
+(g1
+g2
+(lp230
+Vthe sailboat
+p231
+atp232
+Rp233
+(dp234
+g11
+S'start: 23'
+p235
+sbatp236
+Rp237
+(dp238
+g11
+S'sent: 6'
+p239
+sbatp240
+Rp241
+(dp242
+g11
+S'id: 21'
+p243
+sbag0
+(g1
+g2
+(lp244
+g0
+(g1
+g2
+(lp245
+g0
+(g1
+g2
+(lp246
+Va couple of people
+p247
+atp248
+Rp249
+(dp250
+g11
+S'start: 12'
+p251
+sbatp252
+Rp253
+(dp254
+g11
+S'sent: 6'
+p255
+sbag0
+(g1
+g2
+(lp256
+g0
+(g1
+g2
+(lp257
+Vthe couple
+p258
+atp259
+Rp260
+(dp261
+g11
+S'start: 3'
+p262
+sbatp263
+Rp264
+(dp265
+g11
+S'sent: 9'
+p266
+sbag0
+(g1
+g2
+(lp267
+g0
+(g1
+g2
+(lp268
+Vshe
+p269
+atp270
+Rp271
+(dp272
+g11
+S'start: 15'
+p273
+sbatp274
+Rp275
+(dp276
+g11
+S'sent: 9'
+p277
+sbag0
+(g1
+g2
+(lp278
+g0
+(g1
+g2
+(lp279
+Vshe
+p280
+atp281
+Rp282
+(dp283
+g11
+S'start: 22'
+p284
+sbatp285
+Rp286
+(dp287
+g11
+S'sent: 9'
+p288
+sbatp289
+Rp290
+(dp291
+g11
+S'id: 24'
+p292
+sbag0
+(g1
+g2
+(lp293
+g0
+(g1
+g2
+(lp294
+g0
+(g1
+g2
+(lp295
+VThe car
+p296
+atp297
+Rp298
+(dp299
+g11
+S'start: 1'
+p300
+sbatp301
+Rp302
+(dp303
+g11
+S'sent: 12'
+p304
+sbag0
+(g1
+g2
+(lp305
+g0
+(g1
+g2
+(lp306
+Vit
+p307
+atp308
+Rp309
+(dp310
+g11
+S'start: 7'
+p311
+sbatp312
+Rp313
+(dp314
+g11
+S'sent: 13'
+p315
+sbatp316
+Rp317
+(dp318
+g11
+S'id: 47'
+p319
+sbag0
+(g1
+g2
+(lp320
+g0
+(g1
+g2
+(lp321
+g0
+(g1
+g2
+(lp322
+Vthe daughter
+p323
+atp324
+Rp325
+(dp326
+g11
+S'start: 2'
+p327
+sbatp328
+Rp329
+(dp330
+g11
+S'sent: 15'
+p331
+sbag0
+(g1
+g2
+(lp332
+g0
+(g1
+g2
+(lp333
+Vshe
+p334
+atp335
+Rp336
+(dp337
+g11
+S'start: 19'
+p338
+sbatp339
+Rp340
+(dp341
+g11
+S'sent: 17'
+p342
+sbatp343
+Rp344
+(dp345
+g11
+S'id: 52'
+p346
+sbag0
+(g1
+g2
+(lp347
+g0
+(g1
+g2
+(lp348
+g0
+(g1
+g2
+(lp349
+Va sand dune
+p350
+atp351
+Rp352
+(dp353
+g11
+S'start: 9'
+p354
+sbatp355
+Rp356
+(dp357
+g11
+S'sent: 15'
+p358
+sbag0
+(g1
+g2
+(lp359
+g0
+(g1
+g2
+(lp360
+VIt
+p361
+atp362
+Rp363
+(dp364
+g11
+S'start: 1'
+p365
+sbatp366
+Rp367
+(dp368
+g11
+S'sent: 16'
+p369
+sbatp370
+Rp371
+(dp372
+g11
+S'id: 54'
+p373
+sbatp374
+Rp375
+(dp376
+g11
+S'coreferences'
+p377
+sb.

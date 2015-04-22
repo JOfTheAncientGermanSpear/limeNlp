@@ -1,0 +1,354 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VI
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VI
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 7'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+VI
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 6'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 10'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+Vmy
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 5'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 11'
+p49
+sbag0
+(g1
+g2
+(lp50
+g0
+(g1
+g2
+(lp51
+VI
+p52
+atp53
+Rp54
+(dp55
+g11
+S'start: 1'
+p56
+sbatp57
+Rp58
+(dp59
+g11
+S'sent: 15'
+p60
+sbatp61
+Rp62
+(dp63
+g11
+S'id: 1'
+p64
+sbag0
+(g1
+g2
+(lp65
+g0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+VThe child
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 1'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 2'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+V's
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 2'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 3'
+p87
+sbatp88
+Rp89
+(dp90
+g11
+S'id: 4'
+p91
+sbag0
+(g1
+g2
+(lp92
+g0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+VThe daughter
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 1'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 8'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vthe daughter
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 4'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 15'
+p114
+sbatp115
+Rp116
+(dp117
+g11
+S'id: 21'
+p118
+sbag0
+(g1
+g2
+(lp119
+g0
+(g1
+g2
+(lp120
+g0
+(g1
+g2
+(lp121
+Vthe counter
+p122
+atp123
+Rp124
+(dp125
+g11
+S'start: 13'
+p126
+sbatp127
+Rp128
+(dp129
+g11
+S'sent: 12'
+p130
+sbag0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+Vthe counter
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 17'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 12'
+p141
+sbatp142
+Rp143
+(dp144
+g11
+S'id: 36'
+p145
+sbag0
+(g1
+g2
+(lp146
+g0
+(g1
+g2
+(lp147
+g0
+(g1
+g2
+(lp148
+VThe son 's
+p149
+atp150
+Rp151
+(dp152
+g11
+S'start: 1'
+p153
+sbatp154
+Rp155
+(dp156
+g11
+S'sent: 14'
+p157
+sbag0
+(g1
+g2
+(lp158
+g0
+(g1
+g2
+(lp159
+VThe son
+p160
+atp161
+Rp162
+(dp163
+g11
+S'start: 1'
+p164
+sbatp165
+Rp166
+(dp167
+g11
+S'sent: 16'
+p168
+sbatp169
+Rp170
+(dp171
+g11
+S'id: 38'
+p172
+sbatp173
+Rp174
+(dp175
+g11
+S'coreferences'
+p176
+sb.

@@ -1,0 +1,214 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VDog cat , no .
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VDog cat
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 1'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vno
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 4'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 1'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+VA cat , no .
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 1'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 6'
+p49
+sbag0
+(g1
+g2
+(lp50
+g0
+(g1
+g2
+(lp51
+VA cat
+p52
+atp53
+Rp54
+(dp55
+g11
+S'start: 1'
+p56
+sbatp57
+Rp58
+(dp59
+g11
+S'sent: 6'
+p60
+sbag0
+(g1
+g2
+(lp61
+g0
+(g1
+g2
+(lp62
+Vno
+p63
+atp64
+Rp65
+(dp66
+g11
+S'start: 4'
+p67
+sbatp68
+Rp69
+(dp70
+g11
+S'sent: 6'
+p71
+sbatp72
+Rp73
+(dp74
+g11
+S'id: 1'
+p75
+sbag0
+(g1
+g2
+(lp76
+g0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+VIon , ion , a dog .
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 1'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 2'
+p87
+sbag0
+(g1
+g2
+(lp88
+g0
+(g1
+g2
+(lp89
+Vit
+p90
+atp91
+Rp92
+(dp93
+g11
+S'start: 3'
+p94
+sbatp95
+Rp96
+(dp97
+g11
+S'sent: 4'
+p98
+sbatp99
+Rp100
+(dp101
+g11
+S'id: 4'
+p102
+sbatp103
+Rp104
+(dp105
+g11
+S'coreferences'
+p106
+sb.

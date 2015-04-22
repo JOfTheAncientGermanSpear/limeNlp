@@ -1,0 +1,582 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VBoy this one .
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vhis
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 10'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 3'
+p27
+sbatp28
+Rp29
+(dp30
+g11
+S'id: 1'
+p31
+sbag0
+(g1
+g2
+(lp32
+g0
+(g1
+g2
+(lp33
+g0
+(g1
+g2
+(lp34
+VWe
+p35
+atp36
+Rp37
+(dp38
+g11
+S'start: 1'
+p39
+sbatp40
+Rp41
+(dp42
+g11
+S'sent: 2'
+p43
+sbag0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+Vwe
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 3'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 2'
+p54
+sbatp55
+Rp56
+(dp57
+g11
+S'id: 3'
+p58
+sbag0
+(g1
+g2
+(lp59
+g0
+(g1
+g2
+(lp60
+g0
+(g1
+g2
+(lp61
+VI
+p62
+atp63
+Rp64
+(dp65
+g11
+S'start: 3'
+p66
+sbatp67
+Rp68
+(dp69
+g11
+S'sent: 3'
+p70
+sbag0
+(g1
+g2
+(lp71
+g0
+(g1
+g2
+(lp72
+VI
+p73
+atp74
+Rp75
+(dp76
+g11
+S'start: 2'
+p77
+sbatp78
+Rp79
+(dp80
+g11
+S'sent: 10'
+p81
+sbatp82
+Rp83
+(dp84
+g11
+S'id: 7'
+p85
+sbag0
+(g1
+g2
+(lp86
+g0
+(g1
+g2
+(lp87
+g0
+(g1
+g2
+(lp88
+Vhis hand in the cookie jar
+p89
+atp90
+Rp91
+(dp92
+g11
+S'start: 10'
+p93
+sbatp94
+Rp95
+(dp96
+g11
+S'sent: 3'
+p97
+sbag0
+(g1
+g2
+(lp98
+g0
+(g1
+g2
+(lp99
+Vhis hand
+p100
+atp101
+Rp102
+(dp103
+g11
+S'start: 5'
+p104
+sbatp105
+Rp106
+(dp107
+g11
+S'sent: 9'
+p108
+sbatp109
+Rp110
+(dp111
+g11
+S'id: 11'
+p112
+sbag0
+(g1
+g2
+(lp113
+g0
+(g1
+g2
+(lp114
+g0
+(g1
+g2
+(lp115
+Vthe cookie jar
+p116
+atp117
+Rp118
+(dp119
+g11
+S'start: 13'
+p120
+sbatp121
+Rp122
+(dp123
+g11
+S'sent: 3'
+p124
+sbag0
+(g1
+g2
+(lp125
+g0
+(g1
+g2
+(lp126
+Vthe cookie jar
+p127
+atp128
+Rp129
+(dp130
+g11
+S'start: 8'
+p131
+sbatp132
+Rp133
+(dp134
+g11
+S'sent: 9'
+p135
+sbatp136
+Rp137
+(dp138
+g11
+S'id: 13'
+p139
+sbag0
+(g1
+g2
+(lp140
+g0
+(g1
+g2
+(lp141
+g0
+(g1
+g2
+(lp142
+VStool
+p143
+atp144
+Rp145
+(dp146
+g11
+S'start: 1'
+p147
+sbatp148
+Rp149
+(dp150
+g11
+S'sent: 5'
+p151
+sbag0
+(g1
+g2
+(lp152
+g0
+(g1
+g2
+(lp153
+Vthat stool
+p154
+atp155
+Rp156
+(dp157
+g11
+S'start: 4'
+p158
+sbatp159
+Rp160
+(dp161
+g11
+S'sent: 10'
+p162
+sbag0
+(g1
+g2
+(lp163
+g0
+(g1
+g2
+(lp164
+Vit
+p165
+atp166
+Rp167
+(dp168
+g11
+S'start: 8'
+p169
+sbatp170
+Rp171
+(dp172
+g11
+S'sent: 10'
+p173
+sbag0
+(g1
+g2
+(lp174
+g0
+(g1
+g2
+(lp175
+Vjust about to fall in
+p176
+atp177
+Rp178
+(dp179
+g11
+S'start: 10'
+p180
+sbatp181
+Rp182
+(dp183
+g11
+S'sent: 10'
+p184
+sbag0
+(g1
+g2
+(lp185
+g0
+(g1
+g2
+(lp186
+Vit
+p187
+atp188
+Rp189
+(dp190
+g11
+S'start: 23'
+p191
+sbatp192
+Rp193
+(dp194
+g11
+S'sent: 10'
+p195
+sbatp196
+Rp197
+(dp198
+g11
+S'id: 20'
+p199
+sbag0
+(g1
+g2
+(lp200
+g0
+(g1
+g2
+(lp201
+g0
+(g1
+g2
+(lp202
+Vthe little girl
+p203
+atp204
+Rp205
+(dp206
+g11
+S'start: 4'
+p207
+sbatp208
+Rp209
+(dp210
+g11
+S'sent: 8'
+p211
+sbag0
+(g1
+g2
+(lp212
+g0
+(g1
+g2
+(lp213
+Vher
+p214
+atp215
+Rp216
+(dp217
+g11
+S'start: 11'
+p218
+sbatp219
+Rp220
+(dp221
+g11
+S'sent: 8'
+p222
+sbag0
+(g1
+g2
+(lp223
+g0
+(g1
+g2
+(lp224
+Vher
+p225
+atp226
+Rp227
+(dp228
+g11
+S'start: 17'
+p229
+sbatp230
+Rp231
+(dp232
+g11
+S'sent: 9'
+p233
+sbatp234
+Rp235
+(dp236
+g11
+S'id: 28'
+p237
+sbag0
+(g1
+g2
+(lp238
+g0
+(g1
+g2
+(lp239
+g0
+(g1
+g2
+(lp240
+Vher brother to hurry up with those cookies
+p241
+atp242
+Rp243
+(dp244
+g11
+S'start: 11'
+p245
+sbatp246
+Rp247
+(dp248
+g11
+S'sent: 8'
+p249
+sbag0
+(g1
+g2
+(lp250
+g0
+(g1
+g2
+(lp251
+Vhe
+p252
+atp253
+Rp254
+(dp255
+g11
+S'start: 2'
+p256
+sbatp257
+Rp258
+(dp259
+g11
+S'sent: 9'
+p260
+sbag0
+(g1
+g2
+(lp261
+g0
+(g1
+g2
+(lp262
+Vhis
+p263
+atp264
+Rp265
+(dp266
+g11
+S'start: 5'
+p267
+sbatp268
+Rp269
+(dp270
+g11
+S'sent: 9'
+p271
+sbag0
+(g1
+g2
+(lp272
+g0
+(g1
+g2
+(lp273
+Vhe
+p274
+atp275
+Rp276
+(dp277
+g11
+S'start: 17'
+p278
+sbatp279
+Rp280
+(dp281
+g11
+S'sent: 10'
+p282
+sbatp283
+Rp284
+(dp285
+g11
+S'id: 29'
+p286
+sbatp287
+Rp288
+(dp289
+g11
+S'coreferences'
+p290
+sb.

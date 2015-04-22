@@ -1,0 +1,734 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+VCircus
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 1'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 1'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+VIt
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 1'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 4'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vthe circus
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 6'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 5'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 1'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VI
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 2'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 3'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+Vmy
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 18'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 16'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+VI
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 6'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 18'
+p76
+sbatp77
+Rp78
+(dp79
+g11
+S'id: 4'
+p80
+sbag0
+(g1
+g2
+(lp81
+g0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vthe horse
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 14'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 5'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Vthe horse
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 11'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 10'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vthe horse
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 4'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 13'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Vthe horse , who is a criminal in my opinion
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 10'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 16'
+p125
+sbag0
+(g1
+g2
+(lp126
+g0
+(g1
+g2
+(lp127
+Vthe horse
+p128
+atp129
+Rp130
+(dp131
+g11
+S'start: 10'
+p132
+sbatp133
+Rp134
+(dp135
+g11
+S'sent: 16'
+p136
+sbatp137
+Rp138
+(dp139
+g11
+S'id: 14'
+p140
+sbag0
+(g1
+g2
+(lp141
+g0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Va trapeze guy
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 4'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 6'
+p152
+sbag0
+(g1
+g2
+(lp153
+g0
+(g1
+g2
+(lp154
+Vhis
+p155
+atp156
+Rp157
+(dp158
+g11
+S'start: 9'
+p159
+sbatp160
+Rp161
+(dp162
+g11
+S'sent: 6'
+p163
+sbatp164
+Rp165
+(dp166
+g11
+S'id: 15'
+p167
+sbag0
+(g1
+g2
+(lp168
+g0
+(g1
+g2
+(lp169
+g0
+(g1
+g2
+(lp170
+Vthey
+p171
+atp172
+Rp173
+(dp174
+g11
+S'start: 12'
+p175
+sbatp176
+Rp177
+(dp178
+g11
+S'sent: 7'
+p179
+sbag0
+(g1
+g2
+(lp180
+g0
+(g1
+g2
+(lp181
+Vtheir
+p182
+atp183
+Rp184
+(dp185
+g11
+S'start: 5'
+p186
+sbatp187
+Rp188
+(dp189
+g11
+S'sent: 8'
+p190
+sbag0
+(g1
+g2
+(lp191
+g0
+(g1
+g2
+(lp192
+Vtheir
+p193
+atp194
+Rp195
+(dp196
+g11
+S'start: 10'
+p197
+sbatp198
+Rp199
+(dp200
+g11
+S'sent: 8'
+p201
+sbatp202
+Rp203
+(dp204
+g11
+S'id: 20'
+p205
+sbag0
+(g1
+g2
+(lp206
+g0
+(g1
+g2
+(lp207
+g0
+(g1
+g2
+(lp208
+Vthe children with their mother , or probably their grandmother , 'cause nobody 's mother
+p209
+atp210
+Rp211
+(dp212
+g11
+S'start: 2'
+p213
+sbatp214
+Rp215
+(dp216
+g11
+S'sent: 8'
+p217
+sbag0
+(g1
+g2
+(lp218
+g0
+(g1
+g2
+(lp219
+Vthem
+p220
+atp221
+Rp222
+(dp223
+g11
+S'start: 21'
+p224
+sbatp225
+Rp226
+(dp227
+g11
+S'sent: 8'
+p228
+sbag0
+(g1
+g2
+(lp229
+g0
+(g1
+g2
+(lp230
+Vthe children
+p231
+atp232
+Rp233
+(dp234
+g11
+S'start: 11'
+p235
+sbatp236
+Rp237
+(dp238
+g11
+S'sent: 15'
+p239
+sbatp240
+Rp241
+(dp242
+g11
+S'id: 21'
+p243
+sbag0
+(g1
+g2
+(lp244
+g0
+(g1
+g2
+(lp245
+g0
+(g1
+g2
+(lp246
+Vnobody 's
+p247
+atp248
+Rp249
+(dp250
+g11
+S'start: 14'
+p251
+sbatp252
+Rp253
+(dp254
+g11
+S'sent: 8'
+p255
+sbag0
+(g1
+g2
+(lp256
+g0
+(g1
+g2
+(lp257
+Vhis
+p258
+atp259
+Rp260
+(dp261
+g11
+S'start: 13'
+p262
+sbatp263
+Rp264
+(dp265
+g11
+S'sent: 9'
+p266
+sbatp267
+Rp268
+(dp269
+g11
+S'id: 28'
+p270
+sbag0
+(g1
+g2
+(lp271
+g0
+(g1
+g2
+(lp272
+g0
+(g1
+g2
+(lp273
+Vtime to take them anywhere
+p274
+atp275
+Rp276
+(dp277
+g11
+S'start: 18'
+p278
+sbatp279
+Rp280
+(dp281
+g11
+S'sent: 8'
+p282
+sbag0
+(g1
+g2
+(lp283
+g0
+(g1
+g2
+(lp284
+VIt
+p285
+atp286
+Rp287
+(dp288
+g11
+S'start: 1'
+p289
+sbatp290
+Rp291
+(dp292
+g11
+S'sent: 11'
+p293
+sbag0
+(g1
+g2
+(lp294
+g0
+(g1
+g2
+(lp295
+Vthere in silhouette
+p296
+atp297
+Rp298
+(dp299
+g11
+S'start: 4'
+p300
+sbatp301
+Rp302
+(dp303
+g11
+S'sent: 11'
+p304
+sbatp305
+Rp306
+(dp307
+g11
+S'id: 29'
+p308
+sbag0
+(g1
+g2
+(lp309
+g0
+(g1
+g2
+(lp310
+g0
+(g1
+g2
+(lp311
+Vcircles
+p312
+atp313
+Rp314
+(dp315
+g11
+S'start: 10'
+p316
+sbatp317
+Rp318
+(dp319
+g11
+S'sent: 12'
+p320
+sbag0
+(g1
+g2
+(lp321
+g0
+(g1
+g2
+(lp322
+Vthat
+p323
+atp324
+Rp325
+(dp326
+g11
+S'start: 16'
+p327
+sbatp328
+Rp329
+(dp330
+g11
+S'sent: 12'
+p331
+sbatp332
+Rp333
+(dp334
+g11
+S'id: 41'
+p335
+sbag0
+(g1
+g2
+(lp336
+g0
+(g1
+g2
+(lp337
+g0
+(g1
+g2
+(lp338
+VThe little girl
+p339
+atp340
+Rp341
+(dp342
+g11
+S'start: 1'
+p343
+sbatp344
+Rp345
+(dp346
+g11
+S'sent: 16'
+p347
+sbag0
+(g1
+g2
+(lp348
+g0
+(g1
+g2
+(lp349
+V's
+p350
+atp351
+Rp352
+(dp353
+g11
+S'start: 2'
+p354
+sbatp355
+Rp356
+(dp357
+g11
+S'sent: 17'
+p358
+sbatp359
+Rp360
+(dp361
+g11
+S'id: 50'
+p362
+sbatp363
+Rp364
+(dp365
+g11
+S'coreferences'
+p366
+sb.

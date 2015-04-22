@@ -1,0 +1,376 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Va boy flying a kite
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 31'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 2'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vhim
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 41'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 2'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vhim
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 6'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 3'
+p38
+sbag0
+(g1
+g2
+(lp39
+g0
+(g1
+g2
+(lp40
+Vhe
+p41
+atp42
+Rp43
+(dp44
+g11
+S'start: 23'
+p45
+sbatp46
+Rp47
+(dp48
+g11
+S'sent: 3'
+p49
+sbag0
+(g1
+g2
+(lp50
+g0
+(g1
+g2
+(lp51
+Vthe boy
+p52
+atp53
+Rp54
+(dp55
+g11
+S'start: 18'
+p56
+sbatp57
+Rp58
+(dp59
+g11
+S'sent: 8'
+p60
+sbatp61
+Rp62
+(dp63
+g11
+S'id: 16'
+p64
+sbag0
+(g1
+g2
+(lp65
+g0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Va dog chasing him
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 38'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 2'
+p76
+sbag0
+(g1
+g2
+(lp77
+g0
+(g1
+g2
+(lp78
+Vthe dog
+p79
+atp80
+Rp81
+(dp82
+g11
+S'start: 14'
+p83
+sbatp84
+Rp85
+(dp86
+g11
+S'sent: 8'
+p87
+sbatp88
+Rp89
+(dp90
+g11
+S'id: 18'
+p91
+sbag0
+(g1
+g2
+(lp92
+g0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Va little girl
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 4'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 4'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vshe
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 13'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 4'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Vher
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 21'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 4'
+p125
+sbatp126
+Rp127
+(dp128
+g11
+S'id: 27'
+p129
+sbag0
+(g1
+g2
+(lp130
+g0
+(g1
+g2
+(lp131
+g0
+(g1
+g2
+(lp132
+Va old lady in the wine hole
+p133
+atp134
+Rp135
+(dp136
+g11
+S'start: 4'
+p137
+sbatp138
+Rp139
+(dp140
+g11
+S'sent: 5'
+p141
+sbag0
+(g1
+g2
+(lp142
+g0
+(g1
+g2
+(lp143
+Vher
+p144
+atp145
+Rp146
+(dp147
+g11
+S'start: 6'
+p148
+sbatp149
+Rp150
+(dp151
+g11
+S'sent: 6'
+p152
+sbatp153
+Rp154
+(dp155
+g11
+S'id: 34'
+p156
+sbag0
+(g1
+g2
+(lp157
+g0
+(g1
+g2
+(lp158
+g0
+(g1
+g2
+(lp159
+Va picnic
+p160
+atp161
+Rp162
+(dp163
+g11
+S'start: 3'
+p164
+sbatp165
+Rp166
+(dp167
+g11
+S'sent: 6'
+p168
+sbag0
+(g1
+g2
+(lp169
+g0
+(g1
+g2
+(lp170
+Va picnic
+p171
+atp172
+Rp173
+(dp174
+g11
+S'start: 12'
+p175
+sbatp176
+Rp177
+(dp178
+g11
+S'sent: 6'
+p179
+sbatp180
+Rp181
+(dp182
+g11
+S'id: 36'
+p183
+sbatp184
+Rp185
+(dp186
+g11
+S'coreferences'
+p187
+sb.

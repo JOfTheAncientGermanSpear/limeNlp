@@ -1,0 +1,954 @@
+ccopy_reg
+_reconstructor
+p0
+(cnltk.tree
+Tree
+p1
+c__builtin__
+list
+p2
+(lp3
+g0
+(g1
+g2
+(lp4
+g0
+(g1
+g2
+(lp5
+g0
+(g1
+g2
+(lp6
+Vthey
+p7
+atp8
+Rp9
+(dp10
+S'_label'
+p11
+S'start: 2'
+p12
+sbatp13
+Rp14
+(dp15
+g11
+S'sent: 2'
+p16
+sbag0
+(g1
+g2
+(lp17
+g0
+(g1
+g2
+(lp18
+Vthey
+p19
+atp20
+Rp21
+(dp22
+g11
+S'start: 3'
+p23
+sbatp24
+Rp25
+(dp26
+g11
+S'sent: 3'
+p27
+sbag0
+(g1
+g2
+(lp28
+g0
+(g1
+g2
+(lp29
+Vthey
+p30
+atp31
+Rp32
+(dp33
+g11
+S'start: 19'
+p34
+sbatp35
+Rp36
+(dp37
+g11
+S'sent: 4'
+p38
+sbatp39
+Rp40
+(dp41
+g11
+S'id: 1'
+p42
+sbag0
+(g1
+g2
+(lp43
+g0
+(g1
+g2
+(lp44
+g0
+(g1
+g2
+(lp45
+VS-I , alright S-U-D
+p46
+atp47
+Rp48
+(dp49
+g11
+S'start: 11'
+p50
+sbatp51
+Rp52
+(dp53
+g11
+S'sent: 2'
+p54
+sbag0
+(g1
+g2
+(lp55
+g0
+(g1
+g2
+(lp56
+VHe
+p57
+atp58
+Rp59
+(dp60
+g11
+S'start: 1'
+p61
+sbatp62
+Rp63
+(dp64
+g11
+S'sent: 3'
+p65
+sbag0
+(g1
+g2
+(lp66
+g0
+(g1
+g2
+(lp67
+Vhe
+p68
+atp69
+Rp70
+(dp71
+g11
+S'start: 11'
+p72
+sbatp73
+Rp74
+(dp75
+g11
+S'sent: 3'
+p76
+sbatp77
+Rp78
+(dp79
+g11
+S'id: 4'
+p80
+sbag0
+(g1
+g2
+(lp81
+g0
+(g1
+g2
+(lp82
+g0
+(g1
+g2
+(lp83
+Vthis
+p84
+atp85
+Rp86
+(dp87
+g11
+S'start: 13'
+p88
+sbatp89
+Rp90
+(dp91
+g11
+S'sent: 3'
+p92
+sbag0
+(g1
+g2
+(lp93
+g0
+(g1
+g2
+(lp94
+Va place W-A-T-E-R
+p95
+atp96
+Rp97
+(dp98
+g11
+S'start: 16'
+p99
+sbatp100
+Rp101
+(dp102
+g11
+S'sent: 3'
+p103
+sbag0
+(g1
+g2
+(lp104
+g0
+(g1
+g2
+(lp105
+Vit
+p106
+atp107
+Rp108
+(dp109
+g11
+S'start: 3'
+p110
+sbatp111
+Rp112
+(dp113
+g11
+S'sent: 4'
+p114
+sbag0
+(g1
+g2
+(lp115
+g0
+(g1
+g2
+(lp116
+Va real
+p117
+atp118
+Rp119
+(dp120
+g11
+S'start: 5'
+p121
+sbatp122
+Rp123
+(dp124
+g11
+S'sent: 4'
+p125
+sbag0
+(g1
+g2
+(lp126
+g0
+(g1
+g2
+(lp127
+Vit
+p128
+atp129
+Rp130
+(dp131
+g11
+S'start: 11'
+p132
+sbatp133
+Rp134
+(dp135
+g11
+S'sent: 4'
+p136
+sbag0
+(g1
+g2
+(lp137
+g0
+(g1
+g2
+(lp138
+Vno problem
+p139
+atp140
+Rp141
+(dp142
+g11
+S'start: 13'
+p143
+sbatp144
+Rp145
+(dp146
+g11
+S'sent: 4'
+p147
+sbatp148
+Rp149
+(dp150
+g11
+S'id: 9'
+p151
+sbag0
+(g1
+g2
+(lp152
+g0
+(g1
+g2
+(lp153
+g0
+(g1
+g2
+(lp154
+VThe different people who are you know
+p155
+atp156
+Rp157
+(dp158
+g11
+S'start: 1'
+p159
+sbatp160
+Rp161
+(dp162
+g11
+S'sent: 5'
+p163
+sbag0
+(g1
+g2
+(lp164
+g0
+(g1
+g2
+(lp165
+Vthem
+p166
+atp167
+Rp168
+(dp169
+g11
+S'start: 11'
+p170
+sbatp171
+Rp172
+(dp173
+g11
+S'sent: 5'
+p174
+sbag0
+(g1
+g2
+(lp175
+g0
+(g1
+g2
+(lp176
+Vthese people
+p177
+atp178
+Rp179
+(dp180
+g11
+S'start: 7'
+p181
+sbatp182
+Rp183
+(dp184
+g11
+S'sent: 7'
+p185
+sbag0
+(g1
+g2
+(lp186
+g0
+(g1
+g2
+(lp187
+Vthey
+p188
+atp189
+Rp190
+(dp191
+g11
+S'start: 14'
+p192
+sbatp193
+Rp194
+(dp195
+g11
+S'sent: 7'
+p196
+sbatp197
+Rp198
+(dp199
+g11
+S'id: 20'
+p200
+sbag0
+(g1
+g2
+(lp201
+g0
+(g1
+g2
+(lp202
+g0
+(g1
+g2
+(lp203
+Va
+p204
+atp205
+Rp206
+(dp207
+g11
+S'start: 5'
+p208
+sbatp209
+Rp210
+(dp211
+g11
+S'sent: 6'
+p212
+sbag0
+(g1
+g2
+(lp213
+g0
+(g1
+g2
+(lp214
+Vthey
+p215
+atp216
+Rp217
+(dp218
+g11
+S'start: 17'
+p219
+sbatp220
+Rp221
+(dp222
+g11
+S'sent: 6'
+p223
+sbag0
+(g1
+g2
+(lp224
+g0
+(g1
+g2
+(lp225
+Va
+p226
+atp227
+Rp228
+(dp229
+g11
+S'start: 7'
+p230
+sbatp231
+Rp232
+(dp233
+g11
+S'sent: 8'
+p234
+sbatp235
+Rp236
+(dp237
+g11
+S'id: 24'
+p238
+sbag0
+(g1
+g2
+(lp239
+g0
+(g1
+g2
+(lp240
+g0
+(g1
+g2
+(lp241
+V15
+p242
+atp243
+Rp244
+(dp245
+g11
+S'start: 17'
+p246
+sbatp247
+Rp248
+(dp249
+g11
+S'sent: 7'
+p250
+sbag0
+(g1
+g2
+(lp251
+g0
+(g1
+g2
+(lp252
+Vit
+p253
+atp254
+Rp255
+(dp256
+g11
+S'start: 5'
+p257
+sbatp258
+Rp259
+(dp260
+g11
+S'sent: 8'
+p261
+sbag0
+(g1
+g2
+(lp262
+g0
+(g1
+g2
+(lp263
+Vit
+p264
+atp265
+Rp266
+(dp267
+g11
+S'start: 9'
+p268
+sbatp269
+Rp270
+(dp271
+g11
+S'sent: 8'
+p272
+sbag0
+(g1
+g2
+(lp273
+g0
+(g1
+g2
+(lp274
+Va good one
+p275
+atp276
+Rp277
+(dp278
+g11
+S'start: 11'
+p279
+sbatp280
+Rp281
+(dp282
+g11
+S'sent: 8'
+p283
+sbag0
+(g1
+g2
+(lp284
+g0
+(g1
+g2
+(lp285
+VIt
+p286
+atp287
+Rp288
+(dp289
+g11
+S'start: 1'
+p290
+sbatp291
+Rp292
+(dp293
+g11
+S'sent: 9'
+p294
+sbag0
+(g1
+g2
+(lp295
+g0
+(g1
+g2
+(lp296
+Vit
+p297
+atp298
+Rp299
+(dp300
+g11
+S'start: 2'
+p301
+sbatp302
+Rp303
+(dp304
+g11
+S'sent: 10'
+p305
+sbatp306
+Rp307
+(dp308
+g11
+S'id: 30'
+p309
+sbag0
+(g1
+g2
+(lp310
+g0
+(g1
+g2
+(lp311
+g0
+(g1
+g2
+(lp312
+Vthe people up doors
+p313
+atp314
+Rp315
+(dp316
+g11
+S'start: 4'
+p317
+sbatp318
+Rp319
+(dp320
+g11
+S'sent: 9'
+p321
+sbag0
+(g1
+g2
+(lp322
+g0
+(g1
+g2
+(lp323
+Vthey
+p324
+atp325
+Rp326
+(dp327
+g11
+S'start: 9'
+p328
+sbatp329
+Rp330
+(dp331
+g11
+S'sent: 9'
+p332
+sbag0
+(g1
+g2
+(lp333
+g0
+(g1
+g2
+(lp334
+Vthey
+p335
+atp336
+Rp337
+(dp338
+g11
+S'start: 11'
+p339
+sbatp340
+Rp341
+(dp342
+g11
+S'sent: 9'
+p343
+sbag0
+(g1
+g2
+(lp344
+g0
+(g1
+g2
+(lp345
+Vthey
+p346
+atp347
+Rp348
+(dp349
+g11
+S'start: 13'
+p350
+sbatp351
+Rp352
+(dp353
+g11
+S'sent: 9'
+p354
+sbatp355
+Rp356
+(dp357
+g11
+S'id: 43'
+p358
+sbag0
+(g1
+g2
+(lp359
+g0
+(g1
+g2
+(lp360
+g0
+(g1
+g2
+(lp361
+Vdoors
+p362
+atp363
+Rp364
+(dp365
+g11
+S'start: 7'
+p366
+sbatp367
+Rp368
+(dp369
+g11
+S'sent: 9'
+p370
+sbag0
+(g1
+g2
+(lp371
+g0
+(g1
+g2
+(lp372
+VThe doors
+p373
+atp374
+Rp375
+(dp376
+g11
+S'start: 1'
+p377
+sbatp378
+Rp379
+(dp380
+g11
+S'sent: 11'
+p381
+sbag0
+(g1
+g2
+(lp382
+g0
+(g1
+g2
+(lp383
+Vthat
+p384
+atp385
+Rp386
+(dp387
+g11
+S'start: 5'
+p388
+sbatp389
+Rp390
+(dp391
+g11
+S'sent: 11'
+p392
+sbag0
+(g1
+g2
+(lp393
+g0
+(g1
+g2
+(lp394
+Vokay outdoors
+p395
+atp396
+Rp397
+(dp398
+g11
+S'start: 7'
+p399
+sbatp400
+Rp401
+(dp402
+g11
+S'sent: 11'
+p403
+sbatp404
+Rp405
+(dp406
+g11
+S'id: 44'
+p407
+sbag0
+(g1
+g2
+(lp408
+g0
+(g1
+g2
+(lp409
+g0
+(g1
+g2
+(lp410
+Veach other
+p411
+atp412
+Rp413
+(dp414
+g11
+S'start: 15'
+p415
+sbatp416
+Rp417
+(dp418
+g11
+S'sent: 9'
+p419
+sbag0
+(g1
+g2
+(lp420
+g0
+(g1
+g2
+(lp421
+Vit
+p422
+atp423
+Rp424
+(dp425
+g11
+S'start: 20'
+p426
+sbatp427
+Rp428
+(dp429
+g11
+S'sent: 9'
+p430
+sbatp431
+Rp432
+(dp433
+g11
+S'id: 48'
+p434
+sbag0
+(g1
+g2
+(lp435
+g0
+(g1
+g2
+(lp436
+g0
+(g1
+g2
+(lp437
+VIt
+p438
+atp439
+Rp440
+(dp441
+g11
+S'start: 1'
+p442
+sbatp443
+Rp444
+(dp445
+g11
+S'sent: 14'
+p446
+sbag0
+(g1
+g2
+(lp447
+g0
+(g1
+g2
+(lp448
+Vit
+p449
+atp450
+Rp451
+(dp452
+g11
+S'start: 5'
+p453
+sbatp454
+Rp455
+(dp456
+g11
+S'sent: 14'
+p457
+sbag0
+(g1
+g2
+(lp458
+g0
+(g1
+g2
+(lp459
+Vit
+p460
+atp461
+Rp462
+(dp463
+g11
+S'start: 4'
+p464
+sbatp465
+Rp466
+(dp467
+g11
+S'sent: 15'
+p468
+sbatp469
+Rp470
+(dp471
+g11
+S'id: 55'
+p472
+sbatp473
+Rp474
+(dp475
+g11
+S'coreferences'
+p476
+sb.
