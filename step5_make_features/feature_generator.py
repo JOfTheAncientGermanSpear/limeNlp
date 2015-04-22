@@ -347,8 +347,10 @@ def sanitize_feature_matrix(mat):
 	
 	return mat_f
 
+_phrase_file_filter = lambda f: 'phrase' in f and f.endswith('.pkl')
 
-def dir_to_matrix(src_dir, output_file = None, src_filter = lambda f: 'phrase' in f and f.endswith('.pkl')):
+
+def dir_to_matrix(src_dir, output_file = None, src_filter = _phrase_file_filter):
 	def add_tree_to_map(d, f):
 		lm = lime_num(f)
 		if lm is not None:
@@ -370,6 +372,25 @@ def dir_to_matrix(src_dir, output_file = None, src_filter = lambda f: 'phrase' i
 	mat = pd.DataFrame(id_rows_map)
 	mat = mat.T
 	if output_file:
+		mat.to_csv(output_file)
+	return mat
+
+
+def dirs_to_csv(controls_src_dir, patients_src_dir, output_file = None):
+	print("calculating patients matrix")
+	patients_mat = dir_to_matrix(patients_src_dir)
+	print("calculating controls matrix")
+	controls_mat = dir_to_matrix(controls_src_dir)
+
+	print("combining controls & patients")
+
+	controls_mat['has_aphasia'] = 0
+	patients_mat['has_aphasia'] = 1
+
+	mat = pd.concat([patients_mat, controls_mat])
+	mat = sanitize_feature_matrix(mat)
+
+	if output_file is not None:
 		mat.to_csv(output_file)
 	return mat
 
