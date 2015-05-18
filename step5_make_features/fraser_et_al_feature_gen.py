@@ -4,6 +4,8 @@ import os
 import re
 import zipfile
 
+import pandas as pd
+
 import feature_generator
 
 
@@ -69,6 +71,47 @@ def cat_pats(src_dir, dst_dir):
 
             if _num_spaces(content) > 49:
                 zf.write(dst_name)
+
+
+def make_feature_matrices(pats_src_dir, cons_src_dir, dst_dir=None):
+    is_csv_of_type = lambda f, t: t in f and f.endswith('.csv')
+
+    type_files = lambda d, t: [os.path.join(d, f_name) for f_name in
+                               os.listdir(d) if is_csv_of_type(f_name, t)]
+
+    def add_file_to_df(df, f_name):
+        d = pd.read_csv(f_name)
+        return pd.concat([df, d])
+
+    make_df_of_type = lambda d, t: \
+        reduce(add_file_to_df, type_files(d, t), pd.DataFrame())
+
+    pats_lex = make_df_of_type(pats_src_dir, 'lexical')
+    pats_lex['has_aphasia'] = 1
+
+    cons_lex = make_df_of_type(cons_src_dir, 'lexical')
+    cons_lex['has_aphasia'] = 0
+
+    pats_syn = make_df_of_type(pats_src_dir, 'syntax')
+    pats_syn['has_aphasia'] = 1
+
+    cons_syn = make_df_of_type(cons_src_dir, 'syntax')
+    cons_syn['has_aphasia'] = 0
+
+    lex = pd.concat([pats_lex, cons_lex])
+    syn = pd.concat([pats_syn, cons_syn])
+
+    if dst_dir is None:
+        dst_dir = "."
+
+    def write_csv(df, n):
+        dst_csv = os.path.join(dst_dir, n + '.csv')
+        df.to_csv(dst_csv, index=False)
+
+    write_csv(lex, 'lexical')
+    write_csv(syn, 'syntax')
+
+    return lex, syn
 
 
 if __name__ == "__main__":
