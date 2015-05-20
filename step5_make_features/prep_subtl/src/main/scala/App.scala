@@ -67,7 +67,7 @@ object App {
     println("will now convert to Json")
     val countsJs = Json.toJson(counts)
     println("write json to file")
-    Files.write(Paths.get("counts.json"),
+    Files.write(Paths.get("subtlex_counts.json"),
       Json.stringify(countsJs).getBytes(StandardCharsets.ISO_8859_1))
   }
   
