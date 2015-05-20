@@ -71,15 +71,18 @@ def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, ou
     merged_norms = merge_norms(bristol_csv, g_l_csv)
 
     def calc_norms(src_dir):
-        def merge_sentences(acc, f):
-            js = _load_json(os.path.join(src_dir, f))
-            num = pfg.lime_num(f)
+        def merge_sentences(acc, f_name):
+            js = _load_json(f_name)
+            num = pfg.lime_num(f_name)
             acc[num] = acc.get(num, [])
             acc[num] = acc[num] + js.get('sentences', [])
             return acc
 
-        sentences_by_limenum = reduce(merge_sentences, [f for f in os.listdir(src_dir) if f.endswith('json')], dict())
-        norms_by_limenum_dict = {num: _norm_means(sentences, merged_norms) for (num, sentences) in sentences_by_limenum.iteritems()}
+        sentences_by_limenum = reduce(merge_sentences,
+                                      [os.path.join(src_dir, f) for f in os.listdir(src_dir) if f.endswith('json')],
+                                      dict())
+        norms_by_limenum_dict = {num: _norm_means(sentences, merged_norms)
+                                 for (num, sentences) in sentences_by_limenum.iteritems()}
         norms_by_limenum_df = pd.DataFrame(norms_by_limenum_dict)
         return norms_by_limenum_df.T
 
