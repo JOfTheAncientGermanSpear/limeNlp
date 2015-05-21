@@ -3,6 +3,7 @@ from __future__ import division
 import json
 import os
 
+from nltk.corpus import stopwords
 import pandas as pd
 
 import phrase_feature_generator as pfg
@@ -35,6 +36,30 @@ class MonadLite():
 
     def filter(self, fn):
         return MonadLite([d for d in self.values() if fn(d)])
+
+
+def subtlex_counts(f_name="../data/subtlex_counts.json"):
+    with open(f_name) as f:
+        counts = json.load(f)
+
+    def merge_into_lower(word_to_merge):
+        word_lower = word_to_merge.lower()
+        counts[word_lower] = counts.get(word_lower, 0) + counts[word_to_merge]
+
+    stopwords_en = set(stopwords.words('english'))
+
+    upper_words = {w for w in counts if w.istitle() or w.isupper()}
+
+    for word in counts:
+        if word in upper_words:
+            merge_into_lower(word)
+
+    stop_words = {w for w in counts if w in stopwords_en}
+
+    for w in upper_words.union(stop_words):
+        del counts[w]
+
+    return counts
 
 
 def merge_norms(bristol_csv, g_l_csv):
