@@ -6,7 +6,7 @@ import zipfile
 
 import pandas as pd
 
-import feature_generator
+import phrase_feature_generator
 
 
 def _cat_pat(src_dir, lime_num, dst_file):
@@ -20,23 +20,6 @@ def _cat_pat(src_dir, lime_num, dst_file):
         [write(f) for f in files]
 
 
-"http://pymotw.com/2/zipfile/"
-def _create_empty_zip(f_name):
-
-    try:
-        import zlib
-        compression = zipfile.ZIP_DEFLATED
-    except:
-        compression = zipfile.ZIP_STORED
-
-    modes = {
-        zipfile.ZIP_DEFLATED: 'deflated',
-        zipfile.ZIP_STORED: 'stored'
-    }
-
-    return zipfile.ZipFile(f_name, mode='w'), modes[compression]
-
-
 def _num_spaces(txt):
     """
     >>> x = 'hello there how are you'
@@ -47,8 +30,8 @@ def _num_spaces(txt):
 
 
 def cat_pats(src_dir, dst_dir):
-    lime_nums = {feature_generator.lime_num(f) for f in os.listdir(src_dir)
-                 if feature_generator.lime_num(f)}
+    lime_nums = {phrase_feature_generator.lime_num(f) for f in os.listdir(src_dir)
+                 if phrase_feature_generator.lime_num(f)}
 
     def write_lime_num(num):
         dst_file = os.path.join(dst_dir, 'concat_{0}.txt'.format(num))

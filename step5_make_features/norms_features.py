@@ -9,7 +9,7 @@ import pandas as pd
 import phrase_feature_generator as pfg
 
 
-class MonadLite():
+class MonadLite:
 
     def __init__(self, dicts_list):
         self._values = dicts_list
@@ -46,17 +46,16 @@ def subtlex_counts(f_name="../data/subtlex_counts.json"):
         word_lower = word_to_merge.lower()
         counts[word_lower] = counts.get(word_lower, 0) + counts[word_to_merge]
 
-    stopwords_en = set(stopwords.words('english'))
-
-    upper_words = {w for w in counts if w.istitle() or w.isupper()}
+    counts_upper_words = {w for w in counts if w.istitle() or w.isupper()}
 
     for word in counts:
-        if word in upper_words:
+        if word in counts_upper_words:
             merge_into_lower(word)
 
-    stop_words = {w for w in counts if w in stopwords_en}
+    stopwords_en = set(stopwords.words('english'))
+    counts_stopwords = {w for w in counts if w in stopwords_en}
 
-    for w in upper_words.union(stop_words):
+    for w in counts_upper_words.union(counts_stopwords):
         del counts[w]
 
     return counts

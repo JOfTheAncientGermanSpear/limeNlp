@@ -41,7 +41,7 @@ def avg_vals_fn(d):
     def fn(k):
         vals = filter(lambda v: not np.any(np.isnan(v)), d[k])
         if len(vals) > 0:
-            return np.average(vals, axis = 0)
+            return np.average(vals, axis=0)
 
     return fn
 
@@ -60,15 +60,15 @@ def avg_metric_by_label(t, metric_fn, label_attachment):
     [2.5, 2.0]
     """
     is_not_sentence_label = lambda t: not is_sentence_label(t.label())
-    metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s))\
-            for s in t.subtrees(filter = is_not_sentence_label))
+    metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s))
+                                               for s in t.subtrees(filter=is_not_sentence_label))
 
     avg_metric = avg_vals_fn(metric_by_label)
 
     def set_metric(fd, label):
         a = avg_metric(label)
         if a is not None:
-            fd[label+label_attachment] = a
+            fd[label + label_attachment] = a
         return fd
 
     return reduce(set_metric, metric_by_label, nltk.FreqDist())
@@ -123,7 +123,7 @@ def phrase_counts(t):
     return nltk.FreqDist(s.label() for s in t.subtrees() if not is_sentence_label(s.label()))
 
 
-def phrase_sentence_cover(t, coeff = 1.0, covers = dict()):
+def phrase_sentence_cover(t, coeff=1.0, covers=dict()):
     """
     >>> from nltk.tree import Tree
     >>> s = "(A (B (C c) (D d)) (E e))"
@@ -156,7 +156,7 @@ def phrase_sentence_cover(t, coeff = 1.0, covers = dict()):
     num_children = len(t)
 
     for c in t:
-        phrase_sentence_cover(c, coeff/num_children, covers)
+        phrase_sentence_cover(c, coeff / num_children, covers)
 
     return covers
 
@@ -216,6 +216,7 @@ def phrase_iotas(t):
 
     return avg_metric_by_label(t, tree_utils.iota, '_avg_iota')
 
+
 def phrase_dists(t):
     """
     >>> from nltk.tree import Tree
@@ -267,6 +268,7 @@ def phrase_dists(t):
         return acc
 
     return reduce(avg, distances_by_connection, dict())
+
 
 def phrase_feature_row(t):
     def labeled_series(fd, l):
@@ -342,14 +344,14 @@ def sanitize_feature_matrix(mat):
     for l in filter(count_based, mat.columns):
         mat_f.loc[np.isnan(mat[l]), l] = 0
 
-    mat_f = mat_f.drop(filter(drop, mat.columns), axis = 1)
+    mat_f = mat_f.drop(filter(drop, mat.columns), axis=1)
     
     return mat_f
 
 _phrase_file_filter = lambda f: 'phrase' in f and f.endswith('.pkl')
 
 
-def dir_to_matrix(src_dir, output_file = None, src_filter = _phrase_file_filter):
+def dir_to_matrix(src_dir, output_file=None, src_filter=_phrase_file_filter):
     def add_tree_to_map(d, f):
         lm = lime_num(f)
         if lm is not None:
@@ -362,7 +364,7 @@ def dir_to_matrix(src_dir, output_file = None, src_filter = _phrase_file_filter)
 
     id_trees_map = reduce(add_tree_to_map, filter(src_filter, os.listdir(src_dir)), dict())
 
-    merge_sentence_sub_nodes = lambda ts: tree_utils.merge_trees(ts, 'sentences', replace_roots = True)
+    merge_sentence_sub_nodes = lambda ts: tree_utils.merge_trees(ts, 'sentences', replace_roots=True)
 
     id_tree_mappings = map(lambda i_ts: (i_ts[0], merge_sentence_sub_nodes(i_ts[1])), id_trees_map.items())
 
@@ -375,7 +377,7 @@ def dir_to_matrix(src_dir, output_file = None, src_filter = _phrase_file_filter)
     return mat
 
 
-def dirs_to_csv(controls_src_dir, patients_src_dir, output_file = None):
+def dirs_to_csv(controls_src_dir, patients_src_dir, output_file=None):
     print("calculating patients matrix")
     patients_mat = dir_to_matrix(patients_src_dir)
     print("calculating controls matrix")
