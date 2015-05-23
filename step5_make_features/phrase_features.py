@@ -317,51 +317,6 @@ def lime_num(s):
     return res[0] if len(res) > 0 else None
 
 
-def sanitize_feature_matrix(mat):
-    """
-    >>> import pandas as pd
-    >>> import numpy as np
-    >>> rand10 = lambda: np.random.randn(10)
-    >>> no_var = ('no_var', np.ones(10))
-    >>> high_nan_vals = rand10()
-    >>> high_nan_vals[::5] = np.nan
-    >>> high_nan = ('high_nan', high_nan_vals)
-    >>> punct = (',_dist', rand10())
-    >>> comma_count = (',_count', rand10())
-    >>> count_vals = np.ones(10)
-    >>> count_vals[::2] = np.nan
-    >>> count = ('x_count', count_vals)
-    >>> ratio_vals = np.ones(10)
-    >>> ratio_vals[::2] = np.nan
-    >>> ratio = ('x_ratio', ratio_vals)
-    >>> ok = ('x_y_avg_dist', rand10())
-    >>> mat = pd.DataFrame(dict([no_var, high_nan, punct, comma_count, count, ratio, ok]))
-    >>> mat_f = sanitize_feature_matrix(mat)
-    >>> sorted(mat_f.columns)
-    ['x_count', 'x_ratio', 'x_y_avg_dist']
-    >>> mat_f['x_count'].values
-    array([ 0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.])
-    >>> mat_f['x_ratio'].values
-    array([ 0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.,  0.,  1.])
-    """
-    (num_samples, num_features) = mat.shape
-
-    puncts = [',', '.', ';', ':']
-
-    count_based = lambda c: '_count' in c or '_ratio' in c
-    high_nan = lambda c: sum(np.isnan(mat[c])) > num_samples * .1
-    has_punct = lambda c: any([p in c for p in puncts])
-    no_var = lambda c: np.var(mat[c]) == 0 
-    drop = lambda c: has_punct(c) or high_nan(c) or no_var(c)
-
-    mat_f = mat
-    for l in filter(count_based, mat.columns):
-        mat_f.loc[np.isnan(mat[l]), l] = 0
-
-    mat_f = mat_f.drop(filter(drop, mat.columns), axis=1)
-    
-    return mat_f
-
 _phrase_file_filter = lambda f: 'phrase' in f and f.endswith('.pkl')
 
 
@@ -391,7 +346,7 @@ def dir_to_matrix(src_dir, output_file=None, src_filter=_phrase_file_filter):
     return mat
 
 
-def dirs_to_csv(controls_src_dir, patients_src_dir, output_file=None):
+def dirs_to_csv(patients_src_dir, controls_src_dir, output_file=None):
     print("calculating patients matrix")
     patients_mat = dir_to_matrix(patients_src_dir)
     print("calculating controls matrix")
@@ -403,7 +358,6 @@ def dirs_to_csv(controls_src_dir, patients_src_dir, output_file=None):
     patients_mat['has_aphasia'] = 1
 
     mat = pd.concat([patients_mat, controls_mat])
-    mat = sanitize_feature_matrix(mat)
 
     if output_file is not None:
         mat.to_csv(output_file, index_label='lime_num')
