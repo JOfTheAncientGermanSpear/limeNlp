@@ -270,6 +270,19 @@ def phrase_dists(t):
     return reduce(avg, distances_by_connection, dict())
 
 
+def phrase_yngve_depths(t):
+    """
+    >>> from nltk.tree import Tree
+    >>> t = Tree.fromstring('(A (B b) (C c (B b)))')
+    >>> d = phrase_yngve_depths(t)
+    >>> expected = {'A_avg_yngve_depth': 0, 'B_avg_yngve_depth': .5, 'C_avg_yngve_depth': 0}
+    >>> assert(expected == d)
+    """
+    d = tree_utils.yngve_depth(t)
+    avg = avg_vals_fn(d)
+    return {k + '_avg_yngve_depth': avg(k) for k in d}
+
+
 def phrase_feature_row(t):
     def labeled_series(fd, l):
         return pd.Series({k + '_' + l: fd[k] for k in fd})
@@ -280,8 +293,9 @@ def phrase_feature_row(t):
     hierarchy = pd.Series(phrase_hierarchies(t))
     iota = pd.Series(phrase_iotas(t))
     dists = pd.Series(phrase_dists(t))
+    yngve_depths = pd.Series(phrase_yngve_depths(t))
 
-    return pd.concat([counts, ratios, shapes, hierarchy, iota, dists])
+    return pd.concat([counts, ratios, shapes, hierarchy, iota, dists, yngve_depths])
 
 
 def load_tree(tree_path):

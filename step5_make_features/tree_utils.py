@@ -162,20 +162,21 @@ def avg_dicts(ds):
 
     return reduce(running_avg, ds, dict())
 
-def merge_trees(trees, label, replace_roots = False):
+
+def merge_trees(trees, label, replace_roots=False):
     """
     >>> from nltk.tree import Tree
     >>> a1 = Tree("a", [Tree('B', ['b']), Tree('C', ['c'])])
     >>> a2 = Tree("a", [Tree('D', ['d']), Tree('E', ['e'])])
     >>> t = merge_trees([a1, a2], label='r', replace_roots = True)
     >>> t.pprint()
-    u'(r (B b) (C c) (D d) (E e))'
+    (r (B b) (C c) (D d) (E e))
     >>> t = merge_trees([a1, a2], label='r', replace_roots = False)
     >>> t.pprint()
-    u'(r (a (B b) (C c)) (a (D d) (E e)))'
+    (r (a (B b) (C c)) (a (D d) (E e)))
     >>> t = merge_trees([a1, Tree('b', ['e'])], label='r', replace_roots = True)
     >>> t.pprint()
-    u'(r (B b) (C c) e)'
+    (r (B b) (C c) e)
     """
 
     def all_children():
@@ -185,6 +186,37 @@ def merge_trees(trees, label, replace_roots = False):
 
     children = all_children() if replace_roots else trees
     return Tree(label, children)
+
+
+def yngve_depth(tree, include_leaves=False, _current_depth=0, _ret=None):
+    """
+    >>> from nltk.tree import Tree
+    >>> t = Tree.fromstring('(A (B b) (C c (B b)))')
+    >>> d = yngve_depth(t, include_leaves=True)
+    >>> expected = {'A': [0], 'B': [1, 0], 'C': [0], 'b': [1, 0], 'c': [1]}
+    >>> assert(d == expected)
+    """
+    if _ret is None:
+        _ret = dict()
+
+    is_leaf = lambda t: not is_tree(t)
+
+    def append_label(l):
+        _ret[l] = _ret[l] + [_current_depth] if l in _ret else [_current_depth]
+
+    if is_leaf(tree):
+        append_label(tree)
+    else:
+        append_label(tree.label())
+        num_children = len(tree)
+        for i, child in enumerate(tree):
+            num_younger_sisters = num_children - 1 - i
+            keep_going = is_tree(child) or (is_leaf(child) and include_leaves)
+            if keep_going:
+                yngve_depth(child, include_leaves, _current_depth + num_younger_sisters, _ret)
+
+    return _ret
+
 
 
 if __name__ == "__main__":
