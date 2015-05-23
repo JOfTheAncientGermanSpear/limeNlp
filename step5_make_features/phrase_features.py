@@ -392,7 +392,7 @@ def dirs_to_csv(controls_src_dir, patients_src_dir, output_file=None):
     mat = sanitize_feature_matrix(mat)
 
     if output_file is not None:
-        mat.to_csv(output_file)
+        mat.to_csv(output_file, index_label='lime_num')
     return mat
 
 

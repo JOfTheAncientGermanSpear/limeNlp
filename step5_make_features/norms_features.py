@@ -86,7 +86,7 @@ def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, ou
     norms_series = pd.concat([patient_norms, control_norms])
 
     if output_csv is not None:
-        norms_series.to_csv(output_csv)
+        norms_series.to_csv(output_csv, index_label='lime_num')
     return norms_series
 
 
