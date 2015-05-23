@@ -6,7 +6,7 @@ import zipfile
 
 import pandas as pd
 
-import phrase_feature_generator
+import phrase_features
 
 
 def _cat_pat(src_dir, lime_num, dst_file):
@@ -30,8 +30,8 @@ def _num_spaces(txt):
 
 
 def cat_pats(src_dir, dst_dir):
-    lime_nums = {phrase_feature_generator.lime_num(f) for f in os.listdir(src_dir)
-                 if phrase_feature_generator.lime_num(f)}
+    lime_nums = {phrase_features.lime_num(f) for f in os.listdir(src_dir)
+                 if phrase_features.lime_num(f)}
 
     def write_lime_num(num):
         dst_file = os.path.join(dst_dir, 'concat_{0}.txt'.format(num))

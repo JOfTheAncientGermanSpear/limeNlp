@@ -1,64 +1,11 @@
 from __future__ import division
 
-import json
 import os
 
-from nltk.corpus import stopwords
 import pandas as pd
 
-import phrase_feature_generator as pfg
-
-
-class MonadLite:
-
-    def __init__(self, dicts_list):
-        self._values = dicts_list
-
-    def values(self):
-        return self._values
-
-    def take(self, field):
-        """
-        >>> m = MonadLite([{'a': 3},{'a':4}])
-        >>> m.take('a').values()
-        [3, 4]
-        """
-        new_values = [d[field] for d in self.values() if field in d]
-        return MonadLite(new_values)
-
-    def flat_take(self, field):
-        """
-        >>> m = MonadLite([{'a': range(3)}, {'a':range(4,7)}, {'b': [10]}])
-        >>> m.flat_take('a').values()
-        [0, 1, 2, 4, 5, 6]
-        """
-        return MonadLite([v for d in self.values() for v in d.get(field, [])])
-
-    def filter(self, fn):
-        return MonadLite([d for d in self.values() if fn(d)])
-
-
-def subtlex_counts(f_name="../data/subtlex_counts.json"):
-    with open(f_name) as f:
-        counts = json.load(f)
-
-    def merge_into_lower(word_to_merge):
-        word_lower = word_to_merge.lower()
-        counts[word_lower] = counts.get(word_lower, 0) + counts[word_to_merge]
-
-    counts_upper_words = {w for w in counts if w.istitle() or w.isupper()}
-
-    for word in counts:
-        if word in counts_upper_words:
-            merge_into_lower(word)
-
-    stopwords_en = set(stopwords.words('english'))
-    counts_stopwords = {w for w in counts if w in stopwords_en}
-
-    for w in counts_upper_words.union(counts_stopwords):
-        del counts[w]
-
-    return counts
+import parse_utils
+import phrase_features as pf
 
 
 def merge_norms(bristol_csv, g_l_csv):
@@ -79,25 +26,46 @@ def merge_norms(bristol_csv, g_l_csv):
 
 
 def _norm_means(sentences, norms):
-    lemmas = MonadLite(sentences).flat_take('tokens').\
-        take('lemma').\
-        filter(lambda l: l in norms.index).values()
-    return dict(norms.loc[lemmas].mean())
+
+    sentences = parse_utils.MonadLite(sentences)
+
+    def merge_lemmas(acc, token):
+        lemma = token['lemma'].lower()
+        if lemma in norms.index:
+            pos = token['pos']
+            acc[pos] = acc.get(pos, []) + [lemma]
+        return acc
+
+    tokens = sentences.flat_take('tokens')
+
+    pos_lemmas = tokens.group_by(merge_lemmas).values()
+
+    def get_mean(ls):
+        mn = norms.loc[ls].mean()
+        return [(norm_type, mn[norm_type]) for norm_type in mn.index]
+
+    ret = {pos + '_' + norm_type: v
+           for pos, ls in pos_lemmas.iteritems()
+           for norm_type, v in get_mean(ls)}
+
+    all_lemmas = tokens.take('lemma').\
+        map(lambda l: l.lower()).\
+        filter(lambda l: l in norms.index).\
+        values()
+
+    for norm_type, v in get_mean(all_lemmas):
+        ret['overall_' + norm_type] = v
+
+    return ret
 
 
-def _load_json(f_name):
-    with open(f_name) as f:
-        content = json.load(f)
-    return content
-
-
-def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, output_csv):
+def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, output_csv=None):
     merged_norms = merge_norms(bristol_csv, g_l_csv)
 
     def calc_norms(src_dir):
         def merge_sentences(acc, f_name):
-            js = _load_json(f_name)
-            num = pfg.lime_num(f_name)
+            js = parse_utils.load_parsed(f_name)
+            num = pf.lime_num(f_name)
             acc[num] = acc.get(num, [])
             acc[num] = acc[num] + js.get('sentences', [])
             return acc
@@ -116,7 +84,9 @@ def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, ou
     control_norms['has_aphasia'] = 0
 
     norms_series = pd.concat([patient_norms, control_norms])
-    norms_series.to_csv(output_csv)
+
+    if output_csv is not None:
+        norms_series.to_csv(output_csv)
     return norms_series
 
 
