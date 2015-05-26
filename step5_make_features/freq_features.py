@@ -63,9 +63,7 @@ def average_freq(f_names):
 
     ret['overall_subtlex_freq'] = _subtlex_freqs[all_lemmas].mean()
 
-    ret['word_count'] = len(tokens)
-
-    ret['sentence_count'] = len(sentences)
+    ret['word_count'] = len(tokens.take('lemma').filter(lambda l: l.isalnum()))
 
     return ret
 

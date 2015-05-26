@@ -93,9 +93,9 @@ def load():
     prep_lu_data(syntax_complexity)
 
     lexical = pd.concat([lexical_complexity, norms, freqs], axis=1)
-    syntax = pd.concat([syntax_complexity, deps, phrase], axis=1)
+    syntax = pd.concat([syntax_complexity, phrase], axis=1)
 
-    return lexical, syntax
+    return lexical, syntax, deps
 
 
 if __name__ == "__main__":
