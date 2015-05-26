@@ -59,7 +59,7 @@ def _norm_means(sentences, norms):
     return ret
 
 
-def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, output_csv=None):
+def dirs_to_mat(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv):
     merged_norms = merge_norms(bristol_csv, g_l_csv)
 
     def calc_norms(src_dir):
@@ -85,8 +85,6 @@ def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, ou
 
     all_norms = pd.concat([patient_norms, control_norms])
 
-    if output_csv is not None:
-        all_norms.to_csv(output_csv, index_label='lime_num')
     return all_norms
 
 
