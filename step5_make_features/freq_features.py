@@ -65,6 +65,8 @@ def average_freq(f_names):
 
     ret['word_count'] = len(tokens)
 
+    ret['sentence_count'] = len(sentences)
+
     return ret
 
 
