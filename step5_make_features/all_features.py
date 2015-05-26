@@ -74,11 +74,13 @@ def load():
     bristol_csv = '../data/norms/bristol_norms_30_08_05.csv'
     g_l_csv = '../data/norms/gl_rate.csv'
     norms = lexical_features.\
-        dirs_to_csv(parsed_patients_dir, parsed_controls_dir, bristol_csv, g_l_csv)
+        dirs_to_mat(parsed_patients_dir, parsed_controls_dir, bristol_csv, g_l_csv)
 
     print("about to calculate frequency")
+    patients_txt_dir = '../data/patients/step2_prep_txt/'
+    controls_txt_dir = '../data/controls/step2_prep_txt/'
     freqs = freq_features.\
-        dirs_to_csv(parsed_patients_dir, parsed_controls_dir)
+        dirs_to_mat(parsed_patients_dir, parsed_controls_dir, patients_txt_dir, controls_txt_dir)
 
     def prep_lu_data(df):
         df.index = [lime_utils.lime_num(id) for id in df.id]
