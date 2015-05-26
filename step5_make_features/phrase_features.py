@@ -123,7 +123,7 @@ def phrase_counts(t):
     return nltk.FreqDist(s.label() for s in t.subtrees() if not is_sentence_label(s.label()))
 
 
-def phrase_sentence_cover(t, coeff=1.0, covers=dict()):
+def phrase_sentence_cover(t, coeff=1.0, covers=None):
     """
     >>> from nltk.tree import Tree
     >>> s = "(A (B (C c) (D d)) (E e))"
@@ -142,6 +142,9 @@ def phrase_sentence_cover(t, coeff=1.0, covers=dict()):
     >>> [c[k] for k in sorted(c.keys())]
     [1.0, 0.75, 0.375, 0.375, 0.5]
     """
+    if covers is None:
+        covers = dict()
+
     if not tree_utils.is_tree(t):
         return covers
 
@@ -278,9 +281,16 @@ def phrase_yngve_depths(t):
     >>> expected = {'A_avg_yngve_depth': 0, 'B_avg_yngve_depth': .5, 'C_avg_yngve_depth': 0}
     >>> assert(expected == d)
     """
-    d = tree_utils.yngve_depth(t)
-    avg = avg_vals_fn(d)
-    return {k + '_avg_yngve_depth': avg(k) for k in d}
+
+    is_not_sentence_label = lambda tree: not is_sentence_label(tree.label())
+
+    concat = dict()
+    for sub_tree in tree_utils.below_condition(t, is_not_sentence_label):
+        sub_tree_yngve = tree_utils.yngve_depth(sub_tree)
+        for label in sub_tree_yngve:
+            concat[label] = concat.get(label, []) + sub_tree_yngve[label]
+
+    return {l+'_avg_yngve_depth': np.average(concat[l]) for l in concat}
 
 
 def phrase_feature_row(t):
