@@ -69,12 +69,10 @@ def load():
     g_l_csv = '../data/norms/gl_rate.csv'
     norms = norms_features.\
         dirs_to_csv(parsed_patients_dir, parsed_controls_dir, bristol_csv, g_l_csv)
-    norms = sanitize_feature_matrix(norms)
 
     print("about to calculate frequency")
     freqs = freq_features.\
         dirs_to_csv(parsed_patients_dir, parsed_controls_dir)
-    freqs = sanitize_feature_matrix(freqs)
 
     def prep_lu_data(df):
         df.index = [phrase_features.lime_num(id) for id in df.id]
