@@ -1,8 +1,11 @@
 from __future__ import division
 
+import os
+
 import nltk
 from nltk.tree import Tree
 import numpy as np
+import pickle
 from scipy import stats
 
 
@@ -238,6 +241,11 @@ def below_condition(tree, condition_fn):
             ret = ret + below_condition(c, condition_fn)
         return ret
 
+
+def load_tree(tree_path):
+    with open(tree_path, 'rb') as f:
+        t = pickle.load(f)
+    return t
 
 
 if __name__ == "__main__":

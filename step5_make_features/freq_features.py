@@ -7,8 +7,8 @@ from nltk.corpus import stopwords
 import numpy as np
 import pandas as pd
 
+import lime_utils
 import parse_utils
-import phrase_features as pf
 
 
 def subtlex_freqs():
@@ -62,12 +62,15 @@ def average_freq(f_names):
         filter(lambda l: l in _subtlex_freqs).values()
 
     ret['overall_subtlex_freq'] = _subtlex_freqs[all_lemmas].mean()
+
+    ret['word_count'] = len(tokens)
+
     return ret
 
 
 def dirs_to_csv(patients_parsed_dir, controls_parsed_dir, output_csv=None):
     def merge_fs(acc, f):
-        l_num = pf.lime_num(f)
+        l_num = lime_utils.lime_num(f)
         acc[l_num] = acc.get(l_num, []) + [f]
         return acc
 

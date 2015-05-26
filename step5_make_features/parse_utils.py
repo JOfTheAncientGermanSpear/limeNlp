@@ -42,6 +42,9 @@ class MonadLite:
     def map(self, fn):
         return MonadLite([fn(d) for d in self.values()])
 
+    def __len__(self):
+        return len(self.values())
+
 
 def load_parsed(f_name):
     with open(f_name) as f:

@@ -4,8 +4,8 @@ import os
 
 import pandas as pd
 
+import lime_utils
 import parse_utils
-import phrase_features as pf
 
 
 def merge_norms(bristol_csv, g_l_csv):
@@ -65,7 +65,7 @@ def dirs_to_csv(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv, ou
     def calc_norms(src_dir):
         def merge_sentences(acc, f_name):
             js = parse_utils.load_parsed(f_name)
-            num = pf.lime_num(f_name)
+            num = lime_utils.lime_num(f_name)
             acc[num] = acc.get(num, [])
             acc[num] = acc[num] + js.get('sentences', [])
             return acc

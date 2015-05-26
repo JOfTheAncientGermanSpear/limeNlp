@@ -1,13 +1,12 @@
 from __future__ import division
 
 import os
-import pickle
-import re
 
 import nltk
 import numpy as np
 import pandas as pd
 
+import lime_utils
 import tree_utils
 
 
@@ -103,18 +102,18 @@ def phrase_shapes(t):
     return reduce(set_w_d, avg_shape_by_label, nltk.FreqDist())
 
 
-def phrase_counts(t):
+def tag_counts(t):
     """
     >>> from nltk.tree import Tree
     >>> s = "(S (NP (DT The) (NN cat)) (VP (VBD ate) (NP (DT the) (NN mouse))))"
     >>> t = Tree.fromstring(s)
-    >>> p = phrase_counts(t)
+    >>> p = tag_counts(t)
     >>> sorted(p.keys())
     ['DT', 'NN', 'NP', 'S', 'VBD', 'VP']
     >>> [p[k] for k in sorted(p.keys())]
     [2, 2, 2, 1, 1, 1]
     >>> t = Tree("sentences", [Tree('id: 0', [t]), Tree('id: 1', [t])])
-    >>> p = phrase_counts(t)
+    >>> p = tag_counts(t)
     >>> sorted(p.keys())
     ['DT', 'NN', 'NP', 'S', 'VBD', 'VP']
     >>> [p[k] for k in sorted(p.keys())]
@@ -164,12 +163,32 @@ def phrase_sentence_cover(t, coeff=1.0, covers=None):
     return covers
 
 
-def phrase_ratios(p):
+def number_clauses(p):
+    """
+    >>> from nltk.tree import Tree
+    >>> s = "(S (NP (DT The) (NN cat)) (SBAR (VBD ate) (NP (DT the) (NN mouse))))"
+    >>> t = Tree.fromstring(s)
+    >>> p = number_clauses(t)
+    >>> p
+    2
+    >>> tags = tag_counts(t)
+    >>> number_clauses(tags)
+    2
+    """
+    if tree_utils.is_tree(p):
+        p = tag_counts(p)
+
+    clause_level = {'S', 'SBAR', 'SBARQ', 'SINV', 'SQ'}
+
+    return sum([p[c] for c in p if c in clause_level])
+
+
+def tag_ratios(p):
     """
     >>> from nltk.tree import Tree
     >>> s = "(S (NP (DT The) (NN cat)) (VP (VBD ate) (NP (DT the) (NN mouse))))"
     >>> t = Tree.fromstring(s)
-    >>> p = phrase_ratios(t)
+    >>> p = tag_ratios(t)
     >>> sorted(p.keys())
     ['DT', 'NN', 'NP', 'S', 'VBD', 'VP']
     >>> vals = [p[k] for k in sorted(p.keys())]
@@ -177,7 +196,7 @@ def phrase_ratios(p):
     True
     """
     if tree_utils.is_tree(p):
-        p = phrase_counts(p)
+        p = tag_counts(p)
     
     ratios = nltk.FreqDist()
     for l in p:
@@ -293,85 +312,40 @@ def phrase_yngve_depths(t):
     return {l+'_avg_yngve_depth': np.average(concat[l]) for l in concat}
 
 
-def phrase_feature_row(t):
-    def labeled_series(fd, l):
-        return pd.Series({k + '_' + l: fd[k] for k in fd})
+def number_sentences(t):
+    """
+    >>> from nltk.tree import Tree
+    >>> t = Tree("sentences", [Tree("id: 0", ['a']), Tree("id: 1", ['b'])])
+    >>> number_sentences(t)
+    2
+    """
+    return len(t)
 
-    counts = labeled_series(phrase_counts(t), 'count')
-    ratios = labeled_series(phrase_ratios(t), 'ratio')
+
+def phrase_feature_row(t):
+    def labeled_series(fd, l=None):
+        return pd.Series({(k + '_' + l) if l else k: fd[k] for k in fd})
+
+    counts = labeled_series(tag_counts(t), 'count')
+    ratios = labeled_series(tag_ratios(t), 'ratio')
+    clause_count = labeled_series({'clause_count': number_clauses(counts)})
+    sentence_count = labeled_series({'sentence_count': number_sentences(t)})
     shapes = pd.Series(phrase_shapes(t))
     hierarchy = pd.Series(phrase_hierarchies(t))
     iota = pd.Series(phrase_iotas(t))
     dists = pd.Series(phrase_dists(t))
     yngve_depths = pd.Series(phrase_yngve_depths(t))
 
-    return pd.concat([counts, ratios, shapes, hierarchy, iota, dists, yngve_depths])
-
-
-def load_tree(tree_path):
-    with open(tree_path, 'rb') as f:
-        t = pickle.load(f)
-    return t
-
-
-def lime_num(s):
-    """
-    >>> lime_num('def/aoub1234_ax.txt')
-    '1234'
-    >>> lime_num('eu12/eu567_eu.txt')
-    '567'
-    >>> lime_num('eu12/eueu.txt')
-
-    """
-    res = re.findall(r'[0-9]{3,}', s)
-    return res[0] if len(res) > 0 else None
+    return pd.concat([counts, ratios, clause_count, sentence_count,
+                      shapes, hierarchy, iota, dists, yngve_depths])
 
 
 _phrase_file_filter = lambda f: 'phrase' in f and f.endswith('.pkl')
 
 
-def dir_to_matrix(src_dir, output_file=None, src_filter=_phrase_file_filter):
-    def add_tree_to_map(d, f):
-        lm = lime_num(f)
-        if lm is not None:
-            full_f = os.path.join(src_dir, f)
-            t = load_tree(full_f)
-            curr = d.get(lm, [])
-            curr.append(t)
-            d[lm] = curr
-        return d
+def dirs_to_mat(patients_src_dir, controls_src_dir, src_filter=_phrase_file_filter):
 
-    id_trees_map = reduce(add_tree_to_map, filter(src_filter, os.listdir(src_dir)), dict())
-
-    merge_sentence_sub_nodes = lambda ts: tree_utils.merge_trees(ts, 'sentences', replace_roots=True)
-
-    id_tree_mappings = map(lambda i_ts: (i_ts[0], merge_sentence_sub_nodes(i_ts[1])), id_trees_map.items())
-
-    id_rows_map = dict(map(lambda it: (it[0], phrase_feature_row(it[1])), id_tree_mappings))
-
-    mat = pd.DataFrame(id_rows_map)
-    mat = mat.T
-    if output_file:
-        mat.to_csv(output_file)
-    return mat
-
-
-def dirs_to_csv(patients_src_dir, controls_src_dir, output_file=None):
-    print("calculating patients matrix")
-    patients_mat = dir_to_matrix(patients_src_dir)
-    print("calculating controls matrix")
-    controls_mat = dir_to_matrix(controls_src_dir)
-
-    print("combining controls & patients")
-
-    controls_mat['has_aphasia'] = 0
-    patients_mat['has_aphasia'] = 1
-
-    mat = pd.concat([patients_mat, controls_mat])
-
-    if output_file is not None:
-        mat.to_csv(output_file, index_label='lime_num')
-    return mat
+    return lime_utils.lime_nums_to_mat(patients_src_dir, controls_src_dir, src_filter, phrase_feature_row)
 
 
 if __name__ == "__main__":

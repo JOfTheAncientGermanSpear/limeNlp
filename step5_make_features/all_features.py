@@ -3,8 +3,10 @@ from __future__ import division
 import numpy as np
 import pandas as pd
 
-import norms_features
+import dependency_features
 import freq_features
+import lime_utils
+import lexical_features
 import phrase_features
 
 
@@ -59,15 +61,19 @@ def load():
     phrase_controls_dir = '../data/controls/step4_make_trees'
     phrase_patients_dir = '../data/patients/step4_make_trees'
     phrase = phrase_features.\
-        dirs_to_csv(phrase_patients_dir, phrase_controls_dir)
+        dirs_to_mat(phrase_patients_dir, phrase_controls_dir)
     phrase = sanitize_feature_matrix(phrase)
+
+    print("about to calculate deps")
+    deps = dependency_features.\
+        dirs_to_mat(phrase_patients_dir, phrase_controls_dir)
 
     print("about to calculate norms")
     parsed_controls_dir = '../data/controls/step3_parse_txt/'
     parsed_patients_dir = '../data/patients/step3_parse_txt/'
     bristol_csv = '../data/norms/bristol_norms_30_08_05.csv'
     g_l_csv = '../data/norms/gl_rate.csv'
-    norms = norms_features.\
+    norms = lexical_features.\
         dirs_to_csv(parsed_patients_dir, parsed_controls_dir, bristol_csv, g_l_csv)
 
     print("about to calculate frequency")
@@ -75,7 +81,7 @@ def load():
         dirs_to_csv(parsed_patients_dir, parsed_controls_dir)
 
     def prep_lu_data(df):
-        df.index = [phrase_features.lime_num(id) for id in df.id]
+        df.index = [lime_utils.lime_num(id) for id in df.id]
         del df['id']
 
     print("about to calculate lexical complexity")
@@ -87,7 +93,7 @@ def load():
     prep_lu_data(syntax_complexity)
 
     lexical = pd.concat([lexical_complexity, norms, freqs], axis=1)
-    syntax = pd.concat([syntax_complexity, phrase], axis=1)
+    syntax = pd.concat([syntax_complexity, deps, phrase], axis=1)
 
     return lexical, syntax
 
