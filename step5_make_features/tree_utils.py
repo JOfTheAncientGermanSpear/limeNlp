@@ -169,14 +169,14 @@ def merge_trees(trees, label, replace_roots=False):
     >>> a1 = Tree("a", [Tree('B', ['b']), Tree('C', ['c'])])
     >>> a2 = Tree("a", [Tree('D', ['d']), Tree('E', ['e'])])
     >>> t = merge_trees([a1, a2], label='r', replace_roots = True)
-    >>> t.pprint()
-    (r (B b) (C c) (D d) (E e))
+    >>> str(t.pprint())
+    '(r (B b) (C c) (D d) (E e))'
     >>> t = merge_trees([a1, a2], label='r', replace_roots = False)
-    >>> t.pprint()
-    (r (a (B b) (C c)) (a (D d) (E e)))
+    >>> str(t.pprint())
+    '(r (a (B b) (C c)) (a (D d) (E e)))'
     >>> t = merge_trees([a1, Tree('b', ['e'])], label='r', replace_roots = True)
-    >>> t.pprint()
-    (r (B b) (C c) e)
+    >>> str(t.pprint())
+    '(r (B b) (C c) e)'
     """
 
     def all_children():
@@ -216,6 +216,27 @@ def yngve_depth(tree, include_leaves=False, _current_depth=0, _ret=None):
                 yngve_depth(child, include_leaves, _current_depth + num_younger_sisters, _ret)
 
     return _ret
+
+
+def below_condition(tree, condition_fn):
+    """
+    >>> from nltk.tree import Tree
+    >>> sents = Tree.fromstring('(sents ("id: 0" (A a))("id: 1" (B b)))')
+    >>> not_sent = lambda s: 'sents' not in s.label() and 'id:' not in s.label()
+    >>> trees = below_condition(sents, not_sent)
+    >>> trees
+    [Tree('A', ['a']), Tree('B', ['b'])]
+    """
+    if not is_tree(tree):
+        return []
+
+    if condition_fn(tree):
+        return [tree]
+    else:
+        ret = []
+        for c in tree:
+            ret = ret + below_condition(c, condition_fn)
+        return ret
 
 
 
