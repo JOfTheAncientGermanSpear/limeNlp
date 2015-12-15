@@ -74,7 +74,7 @@ def parse_to_files(text):
         for i in range(3):
             f_name = '{}/{}.TEX'.format(res_dir, files[i])
             with open(f_name, 'w') as f:
-                f.write(latex_wrap(cpd[i].pprint_latex_qtree()))
+                f.write(latex_wrap(cpd[i].pformat_latex_qtree()))
 
             os.system("pdflatex " + f_name)
             os.system("mv *.aux *.pdf *.log {}".format(res_dir))
