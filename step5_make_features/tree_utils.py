@@ -1,7 +1,5 @@
 from __future__ import division
 
-import os
-
 import nltk
 from nltk.tree import Tree
 import numpy as np
@@ -15,6 +13,8 @@ def is_tree(t):
 
 def dist(pos1, pos2):
     """
+    :param pos1
+    :param pos2
     >>> dist((0, 0), (0, 1))
     2
     >>> dist((1,), (1, 1))
@@ -35,7 +35,7 @@ def dist(pos1, pos2):
     pos2_level = len(pos2)
 
     (higher, lower) = (pos1, pos2) if pos1_level <= pos2_level \
-            else (pos2, pos1)
+        else (pos2, pos1)
 
     diff_ix = (i for (i, h) in enumerate(higher) if not h == lower[i])
     num_shared = next(diff_ix, len(higher))
@@ -45,16 +45,19 @@ def dist(pos1, pos2):
 
 def shape(t):
     """
+    :param t
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring("(S (NP (NNP Bob)) (VP sleeps))")
     >>> shape(t)
     (4, 2)
     """
-    return (t.height(), len(t.leaves()))
+    return t.height(), len(t.leaves())
 
 
-def order(t, is_root = True):
+def order(t, is_root=True):
     """
+    :param t
+    :param is_root
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring("(A (B b))")
     >>> order(t)
@@ -71,8 +74,10 @@ def order(t, is_root = True):
     return num_children + num_parents
     
 
-def orders(t, is_root = True):
+def orders(t, is_root=True):
     """
+    :param t
+    :param is_root
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring("(A a)")
     >>> orders(t)
@@ -88,7 +93,7 @@ def orders(t, is_root = True):
         return o
 
     def app_child_order(acc, c):
-        c_orders = orders(c, is_root = False)
+        c_orders = orders(c, is_root=False)
         return np.concatenate([acc, c_orders])
 
     return reduce(app_child_order, t, o)
@@ -96,6 +101,7 @@ def orders(t, is_root = True):
 
 def hierarchy(t):
     """
+    :param t
     >>> from nltk.tree import Tree
     >>> o_1 = Tree.fromstring("(1)")
     >>> o_11 = Tree(11, [o_1] * 10)
@@ -104,8 +110,8 @@ def hierarchy(t):
     >>> from scipy import stats
     >>> import numpy as np
     >>> degrees = [1, 10, 11]
-    >>> cnts = [100, 1, 10]
-    >>> s = stats.linregress(np.log10(degrees), np.log10(cnts))[0]
+    >>> counts = [100, 1, 10]
+    >>> s = stats.linregress(np.log10(degrees), np.log10(counts))[0]
     >>> s == actual
     True
     """
@@ -122,8 +128,10 @@ def hierarchy(t):
     return slope
 
 
-def iota(t, is_root = True):
+def iota(t, is_root=True):
     """
+    :param t
+    :param is_root
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring("(A (B b))")
     >>> iota(t) #1 + 2*2 + 1
@@ -145,6 +153,7 @@ def iota(t, is_root = True):
 
 def avg_dicts(ds):
     """
+    :param ds
     >>> d_a = {'a': 3, 'b': 4}
     >>> d_b = {'a': 4, 'b': 5, 'c': 3}
     >>> d_avg = avg_dicts([d_a, d_b]) 
@@ -168,18 +177,21 @@ def avg_dicts(ds):
 
 def merge_trees(trees, label, replace_roots=False):
     """
+    :param trees
+    :param label
+    :param replace_roots
     >>> from nltk.tree import Tree
     >>> a1 = Tree("a", [Tree('B', ['b']), Tree('C', ['c'])])
     >>> a2 = Tree("a", [Tree('D', ['d']), Tree('E', ['e'])])
     >>> t = merge_trees([a1, a2], label='r', replace_roots = True)
-    >>> str(t.pprint())
-    '(r (B b) (C c) (D d) (E e))'
+    >>> t.pprint()
+    (r (B b) (C c) (D d) (E e))
     >>> t = merge_trees([a1, a2], label='r', replace_roots = False)
-    >>> str(t.pprint())
-    '(r (a (B b) (C c)) (a (D d) (E e)))'
+    >>> t.pprint()
+    (r (a (B b) (C c)) (a (D d) (E e)))
     >>> t = merge_trees([a1, Tree('b', ['e'])], label='r', replace_roots = True)
-    >>> str(t.pprint())
-    '(r (B b) (C c) e)'
+    >>> t.pprint()
+    (r (B b) (C c) e)
     """
 
     def all_children():
@@ -193,6 +205,10 @@ def merge_trees(trees, label, replace_roots=False):
 
 def yngve_depth(tree, include_leaves=False, _current_depth=0, _ret=None):
     """
+    :param tree
+    :param include_leaves
+    :param _current_depth
+    :param _ret
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring('(A (B b) (C c (B b)))')
     >>> d = yngve_depth(t, include_leaves=True)
@@ -202,7 +218,7 @@ def yngve_depth(tree, include_leaves=False, _current_depth=0, _ret=None):
     if _ret is None:
         _ret = dict()
 
-    is_leaf = lambda t: not is_tree(t)
+    def is_leaf(t): return not is_tree(t)
 
     def append_label(l):
         _ret[l] = _ret[l] + [_current_depth] if l in _ret else [_current_depth]
@@ -223,6 +239,8 @@ def yngve_depth(tree, include_leaves=False, _current_depth=0, _ret=None):
 
 def below_condition(tree, condition_fn):
     """
+    :param tree
+    :param condition_fn
     >>> from nltk.tree import Tree
     >>> sents = Tree.fromstring('(sents ("id: 0" (A a))("id: 1" (B b)))')
     >>> not_sent = lambda s: 'sents' not in s.label() and 'id:' not in s.label()
