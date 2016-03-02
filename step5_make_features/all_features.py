@@ -12,6 +12,7 @@ import phrase_features
 
 def sanitize_feature_matrix(mat):
     """
+    :param mat
     >>> import pandas as pd
     >>> import numpy as np
     >>> rand10 = lambda: np.random.randn(10)
@@ -83,7 +84,7 @@ def load():
         dirs_to_mat(parsed_patients_dir, parsed_controls_dir, patients_txt_dir, controls_txt_dir)
 
     def prep_lu_data(df):
-        df.index = [lime_utils.lime_num(id) for id in df.id]
+        df.index = [lime_utils.lime_num(i) for i in df.id]
         del df['id']
 
     print("about to calculate lexical complexity")
