@@ -1,15 +1,16 @@
 from __future__ import division
 
-import os
-
 import numpy as np
-import pandas as pd
 
 import lime_utils
 import tree_utils
 
+
 def dobj_metrics(t, fn_map, acc=None):
     """
+    :param t
+    :param fn_map
+    :param acc
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring('(A (dobj b) (dobj (C c) (D d)))')
     >>> width_fn = lambda t: len(t.leaves())
