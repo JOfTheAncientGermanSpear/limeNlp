@@ -59,7 +59,10 @@ def _norm_means(sentences, norms):
     return ret
 
 
-def dirs_to_mat(patients_parse_dir, controls_parse_dir, bristol_csv, g_l_csv):
+def dirs_to_mat(patients_parse_dir="../data/patients/step3_parse_txt/",
+                controls_parse_dir="../data/controls/step3_parse_txt/",
+                bristol_csv="../data/norms/bristol_norms_30_08_05.csv",
+                g_l_csv="../data/norms/gl_rate.csv"):
     merged_norms = merge_norms(bristol_csv, g_l_csv)
 
     def calc_norms(src_dir):
