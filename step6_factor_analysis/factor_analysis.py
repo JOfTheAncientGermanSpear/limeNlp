@@ -11,7 +11,15 @@ def _remove_aphasia_dupe_cols(df):
     :param df:
     :return:
     >>> import pandas as pd
-    >>> x = pd.DataFrame
+    >>> df = pd.DataFrame(dict(has_aphasia=[1, 2], has_aphasia_1=[1, 2]))
+    >>> _remove_aphasia_dupe_cols(df)
+    >>> assert set(df.columns) == {'has_aphasia'}
+    >>> assert df.shape == (2, 1)
+    >>> df_diff = pd.DataFrame(dict(has_aphasia=[1, 2], has_aphasia_1=[4, 3]))
+    >>> _remove_aphasia_dupe_cols(df_diff)
+    Traceback (most recent call last):
+    ...
+    AssertionError
     """
     for c in df.columns:
         if c.startswith('has_aphasia') and c != 'has_aphasia':
