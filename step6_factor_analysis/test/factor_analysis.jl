@@ -1,6 +1,6 @@
 using Base.Test
 using DataFrames
-include("factor_analysis.jl")
+include("../src/factor_analysis.jl")
 
 df = DataFrame(has_aphasia=[1, 2], has_aphasia_1=[1, 2])
 _remove_aphasia_dupe_cols(df)

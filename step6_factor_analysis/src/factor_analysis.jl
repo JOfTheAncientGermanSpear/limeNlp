@@ -3,9 +3,9 @@ using Gadfly
 using MultivariateStats
 
 
-function _data_path(f)
-  "../data/step5/$f.csv"
-end
+_data_dir = "../../data/"
+
+_step5_data(f) = "$_data_dir/step5/$f.csv"
 
 
 function _remove_aphasia_dupe_cols(df::DataFrame)
@@ -59,7 +59,7 @@ end
 
 
 function _is_aphasia_type_gen(aphasia_type::AbstractString)
-  pat_class = readtable("../data/patient_classifications.csv")
+  pat_class = readtable("$_data_dir/patient_classifications.csv")
   type_rows = pat_class[:aphasia_type] .== aphasia_type
   pat_ids = Set(pat_class[type_rows, :id])
 
@@ -70,9 +70,9 @@ end
 
 
 function load_continuous(id_filter=df -> df[:id] .> 1000,
-                         dep_path=_data_path("dependencies"),
-                         lex_path=_data_path("lexical"),
-                         syn_path=_data_path("syntax"),
+                         dep_path=_step5_data("dependencies"),
+                         lex_path=_step5_data("lexical"),
+                         syn_path=_step5_data("syntax"),
                          col_thresh=Dict(:dep=>.7, :lex=>.7, :syn=>.7),
                          row_thresh=Dict(:dep=>.7, :lex=>.7, :syn=>.7),
                          fill_na_fn=mean)
@@ -125,7 +125,7 @@ end
 
 
 function add_aphasia_classifications(df::DataFrame)
-  pat_class = readtable("../data/patient_classifications.csv")
+  pat_class = readtable("$_data_dir/patient_classifications.csv")
   join(df, pat_class, on=:id, kind=:inner)
 end
 
