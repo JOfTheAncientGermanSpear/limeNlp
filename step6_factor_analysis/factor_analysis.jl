@@ -109,17 +109,18 @@ end
 
 function pca(dfs::Dict{Symbol, DataFrame},
              lname::Symbol, rname::Symbol)
-  ldf_pca, rdf_pca = map([lname, rname]) do sym
+  ((llower_dim, lmodel), (rlower_dim, rmodel)) = map([lname, rname]) do sym
     df = dfs[sym]
     mat::Matrix{Float64} = Matrix(df[:, 2:end])'
-    pca = fit(PCA, mat; maxoutdim=1)
-    recon_data::Vector{Float64} = transform(pca, mat)[:]
-    DataFrame(recon=recon_data, id=df[:id])
+    pca_model = fit(PCA, mat; maxoutdim=1)
+    recon_data::Vector{Float64} = transform(pca_model, mat)[:]
+    (DataFrame(recon=recon_data, id=df[:id]), pca_model)
   end
-  rename!(ldf_pca, :recon, lname)
-  rename!(rdf_pca, :recon, rname)
+  rename!(llower_dim, :recon, lname)
+  rename!(rlower_dim, :recon, rname)
 
-  join(ldf_pca, rdf_pca, kind=:inner, on=:id)
+  (join(llower_dim, rlower_dim, kind=:inner, on=:id),
+   (lmodel, rmodel))
 end
 
 
