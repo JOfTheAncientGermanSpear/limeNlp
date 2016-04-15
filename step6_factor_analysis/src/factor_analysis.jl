@@ -5,8 +5,14 @@ using MultivariateStats
 
 _data_dir = "../../data/"
 
-_step5_data(f) = "$_data_dir/step5/$f.csv"
+_step5_data(f::AbstractString) = "$_data_dir/step5/$f.csv"
 
+@enum Step5Data dependency lexical syntax
+
+_step5_data(d::Step5Data) = begin
+    f::AbstractString = d == dependency ? "dependencies" : "$d"
+    _step5_data(f)
+end
 
 function _remove_aphasia_dupe_cols(df::DataFrame)
   for c in names(df)
@@ -69,15 +75,13 @@ function _is_aphasia_type_gen(aphasia_type::AbstractString)
 end
 
 
-function load_continuous(id_filter=df -> df[:id] .> 1000,
-                         dep_path=_step5_data("dependencies"),
-                         lex_path=_step5_data("lexical"),
-                         syn_path=_step5_data("syntax"),
-                         col_thresh=Dict(:dep=>.7, :lex=>.7, :syn=>.7),
-                         row_thresh=Dict(:dep=>.7, :lex=>.7, :syn=>.7),
-                         fill_na_fn=mean)
+function load_continuous(d::Step5Data;
+                        col_thresh::Float64=.7,
+                        row_thresh::Float64=.7,
+                        id_filter::Function=df -> df[:id] .> 1000,
+                        fill_na_fn::Function=mean)
 
-  function rd(f, cr_threshes)
+    f::AbstractString = _step5_data(d)
     ret = readtable(f)
     rename!(ret, :x, :id)
 
@@ -88,36 +92,59 @@ function load_continuous(id_filter=df -> df[:id] .> 1000,
 
     _remove_aphasia_dupe_cols(ret)
 
-    c_thresh, r_thresh = cr_threshes
-
-    ret = _remove_na_cols(ret, c_thresh)
-    ret = _remove_na_rows(ret, r_thresh)
+    ret = _remove_na_cols(ret, col_thresh)
+    ret = _remove_na_rows(ret, row_thresh)
     ret = _fillna(ret, fill_na_fn)
 
     ret
-  end
-
-  function threshes(key)
-    (col_thresh[key], row_thresh[key])
-  end
-
-  Dict(:dep => rd(dep_path, threshes(:dep)),
-       :lex => rd(lex_path, threshes(:lex)),
-       :syn => rd(syn_path, threshes(:syn)))
 end
 
 
-function pca(dfs::Dict{Symbol, DataFrame},
-             lname::Symbol, rname::Symbol)
-  ((llower_dim, lmodel), (rlower_dim, rmodel)) = map([lname, rname]) do sym
-    df = dfs[sym]
-    mat::Matrix{Float64} = Matrix(df[:, 2:end])'
-    pca_model = fit(PCA, mat; maxoutdim=1)
+typealias ThreshMap Dict{Step5Data, Float64}
+ThreshMap(f::Float64) = Dict{Step5Data, Float64}(dependency=>f, lexical=>f, syntax=>f)
+
+function load_continuous(id_filter=df -> df[:id] .> 1000,
+                         col_thresh::ThreshMap=ThreshMap(.7),
+                         row_thresh::ThreshMap=ThreshMap(.7),
+                         fill_na_fn=mean)
+
+  typealias ColRowThreshes Tuple{Float64, Float64}
+
+  rd(d::Step5Data, cr_threshes::ColRowThreshes) = begin
+      c_thresh::Float64, r_thresh::Float64 = cr_threshes
+      load_continous(d, col_thresh=c_thresh, row_thresh=r_thresh,
+            id_filter=id_filter, fill_na_fn=fill_na_fn)
+  end
+
+  threshes(d::Step5Data) = (col_thresh[d], row_thresh[d])
+
+  Dict{Step5Data,DataFrame}([d => rd(d, threshes(d)) for d in (dependency, lexical, syntax)])
+end
+
+
+function pca(df::DataFrame, maxoutdim=1)
+    valid_cols::AbstractVector{Symbol} = begin
+	invalid_cols = Set{Symbol}([:has_aphasia, :id])
+	valid_col_fn(c::Symbol) = !in(c, invalid_cols)
+	filter(valid_col_fn, names(df))
+    end
+
+    mat::Matrix{Float64} = Matrix(df[:, valid_cols])'
+    pca_model = fit(PCA, mat; maxoutdim=maxoutdim)
     recon_data::Vector{Float64} = transform(pca_model, mat)[:]
     (DataFrame(recon=recon_data, id=df[:id]), pca_model)
+end
+
+
+function pca(dfs::Dict{Step5Data, DataFrame},
+             lname::Step5Data, rname::Step5Data)
+
+  ((llower_dim, lmodel), (rlower_dim, rmodel)) = map([lname, rname]) do s
+      df::DataFrame = dfs[s]
+      data, model = pca(df)
+      rename!(data, :recon, Symbol("$s"))
+      data, model
   end
-  rename!(llower_dim, :recon, lname)
-  rename!(rlower_dim, :recon, rname)
 
   (join(llower_dim, rlower_dim, kind=:inner, on=:id),
    (lmodel, rmodel))
