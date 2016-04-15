@@ -112,7 +112,7 @@ function load_continuous(id_filter=df -> df[:id] .> 1000,
 
   rd(d::Step5Data, cr_threshes::ColRowThreshes) = begin
       c_thresh::Float64, r_thresh::Float64 = cr_threshes
-      load_continous(d, col_thresh=c_thresh, row_thresh=r_thresh,
+      load_continuous(d, col_thresh=c_thresh, row_thresh=r_thresh,
             id_filter=id_filter, fill_na_fn=fill_na_fn)
   end
 
