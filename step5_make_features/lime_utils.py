@@ -20,6 +20,21 @@ def lime_num(s):
     return res[0] if len(res) > 0 else None
 
 
+def is_sentence_label(l):
+    """
+    >>> is_sentence_label('id: 0')
+    True
+    >>> is_sentence_label('id: 37')
+    True
+    >>> is_sentence_label('sentences')
+    True
+    >>> is_sentence_label('ab')
+    False
+    """
+    l_lower = l.lower()
+    return l_lower == "sentences" or 'id: ' in l_lower
+
+
 def lime_nums_to_mat(patients_dir, controls_dir, src_filter, row_fn):
 
     def calc_features(src_dir):

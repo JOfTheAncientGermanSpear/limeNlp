@@ -10,21 +10,6 @@ import lime_utils
 import tree_utils
 
 
-def is_sentence_label(l):
-    """
-    >>> is_sentence_label('id: 0')
-    True
-    >>> is_sentence_label('id: 37')
-    True
-    >>> is_sentence_label('sentences')
-    True
-    >>> is_sentence_label('ab')
-    False
-    """
-    l_lower = l.lower()
-    return l_lower == "sentences" or 'id: ' in l_lower
-
-
 def avg_vals_fn(d):
     """
     >>> import numpy as np
@@ -58,7 +43,7 @@ def avg_metric_by_label(t, metric_fn, label_attachment):
     >>> [avg_heights[l] for l in sorted(avg_heights.keys())]
     [2.5, 2.0]
     """
-    is_not_sentence_label = lambda t: not is_sentence_label(t.label())
+    is_not_sentence_label = lambda t: not lime_utils.is_sentence_label(t.label())
     metric_by_label = nltk.ConditionalFreqDist((s.label(), metric_fn(s))
                                                for s in t.subtrees(filter=is_not_sentence_label))
 
@@ -119,7 +104,7 @@ def tag_counts(t):
     >>> [p[k] for k in sorted(p.keys())]
     [4, 4, 4, 2, 2, 2]
     """
-    return nltk.FreqDist(s.label() for s in t.subtrees() if not is_sentence_label(s.label()))
+    return nltk.FreqDist(s.label() for s in t.subtrees() if not lime_utils.is_sentence_label(s.label()))
 
 
 def phrase_sentence_cover(t, coeff=1.0, covers=None):
@@ -149,7 +134,7 @@ def phrase_sentence_cover(t, coeff=1.0, covers=None):
 
     label = t.label()
 
-    if is_sentence_label(label):
+    if lime_utils.is_sentence_label(label):
         covers_per_sent = map(lambda s: phrase_sentence_cover(s, coeff, dict()), t)
         return tree_utils.avg_dicts(covers_per_sent)
 
@@ -301,7 +286,7 @@ def phrase_yngve_depths(t):
     >>> assert(expected == d)
     """
 
-    is_not_sentence_label = lambda tree: not is_sentence_label(tree.label())
+    is_not_sentence_label = lambda tree: not lime_utils.is_sentence_label(tree.label())
 
     concat = dict()
     for sub_tree in tree_utils.below_condition(t, is_not_sentence_label):

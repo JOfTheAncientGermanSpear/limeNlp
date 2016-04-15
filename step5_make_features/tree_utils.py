@@ -11,6 +11,9 @@ def is_tree(t):
     return isinstance(t, nltk.Tree)
 
 
+def is_leaf(t): return not is_tree(t)
+
+
 def dist(pos1, pos2):
     """
     :param pos1
@@ -99,6 +102,20 @@ def orders(t, is_root=True):
     return reduce(app_child_order, t, o)
 
 
+def num_edges(t):
+    """
+    :param t
+    :param is_root
+    >>> from nltk.tree import Tree
+    >>> t = Tree.fromstring("(A (B (C c c) (C c c)))")
+    >>> num_edges(t)
+    7
+    """
+    if is_leaf(t):
+        return 0
+    return len(t) + sum([num_edges(c) for c in t])
+
+
 def hierarchy(t):
     """
     :param t
@@ -134,12 +151,12 @@ def iota(t, is_root=True):
     :param is_root
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring("(A (B b))")
-    >>> iota(t) #1 + 2*2 + 1
-    6
+    >>> assert 2/(1 + 2*2 + 1) == iota(t)
     >>> t = Tree.fromstring("(A (B (C (D d) (D d))))")
-    >>> (a, b, c, d, d_l) = (1, 2*2, 2*3, 2*2*2, 2*1) 
-    >>> iota(t) == a + b + c + d + d_l
-    True
+    >>> (A, B, C, D, d) = (1, 2*2, 2*3, 2*2, 1) 
+    >>> denom = A + B + C + 2*D + 2*d
+    >>> num = num_edges(t)
+    >>> assert iota(t) == (num/denom)
     """
 
     os = orders(t, is_root)
@@ -148,7 +165,7 @@ def iota(t, is_root=True):
         w = o if o < 2 else o * 2
         return acc + w
 
-    return reduce(iota_sum, os, 0)
+    return num_edges(t)/reduce(iota_sum, os, 0)
 
 
 def avg_dicts(ds):
@@ -218,10 +235,9 @@ def yngve_depth(tree, include_leaves=False, _current_depth=0, _ret=None):
     if _ret is None:
         _ret = dict()
 
-    def is_leaf(t): return not is_tree(t)
-
     def append_label(l):
         _ret[l] = _ret[l] + [_current_depth] if l in _ret else [_current_depth]
+
 
     if is_leaf(tree):
         append_label(tree)

@@ -6,17 +6,22 @@ import lime_utils
 import tree_utils
 
 
-def dobj_metrics(t, fn_map, acc=None):
+def dep_metrics(t, fn_map, acc=None):
     """
     :param t
     :param fn_map
     :param acc
     >>> from nltk.tree import Tree
-    >>> t = Tree.fromstring('(A (dobj b) (dobj (C c) (D d)))')
+    >>> word = lambda w, i: 'word: %s, index: %s' % (w, i)
+    >>> sent_tree = lambda i, t: Tree('id: %s' % i, [t])
+    >>> sent_1 = sent_tree(1, Tree('dobj', [word('b', 1)])) 
+    >>> sent_2 = sent_tree(2, Tree('dobj', 
+    ...    [Tree('nsubj', [word('c', 1)]), word('d', 2)])) 
+    >>> t = Tree('sentences', [sent_1, sent_2])
     >>> width_fn = lambda t: len(t.leaves())
     >>> height_fn = lambda t: t.height()
-    >>> dobj_metrics(t, {'width': width_fn, 'height': height_fn})
-    {'width': [1, 2], 'height': [2, 3]}
+    >>> dep_metrics(t, {'width': width_fn, 'height': height_fn})
+    {'dobj_width': [1, 2], 'dobj_height': [2, 3], 'nsubj_height': [2], 'nsubj_width': [1]}
     """
     if acc is None:
         acc = dict()
@@ -24,27 +29,30 @@ def dobj_metrics(t, fn_map, acc=None):
     if not tree_utils.is_tree(t):
         return acc
 
-    is_dobj = t.label() == 'dobj'
-    if is_dobj:
+    label = t.label()
+    is_word_label = "word: " in label
+    is_tag = not (lime_utils.is_sentence_label(label) or is_word_label)
+    if is_tag:
         for m in fn_map:
-            acc[m] = acc.get(m, []) + [fn_map[m](t)]
-    else:
-        for s in t:
-            dobj_metrics(s, fn_map, acc)
+            k = label + "_" + m
+            acc[k] = acc.get(k, []) + [fn_map[m](t)]
+
+    for s in t:
+        dep_metrics(s, fn_map, acc)
 
     return acc
 
 
 def dep_feature_row(tr):
-    dobj_fn_map = {
-        'dobj_iota': tree_utils.iota,
-        'dobj_hierarchy': tree_utils.hierarchy,
-        'dobj_depth': lambda t: t.height(),
-        'dobj_width': lambda t: len(t.leaves()),
-        'dobj_shape': tree_utils.shape
+    fn_map = {
+        'iota': tree_utils.iota,
+        'hierarchy': tree_utils.hierarchy,
+        'depth': lambda t: t.height(),
+        'width': lambda t: len(t.leaves()),
+        'shape': tree_utils.shape
     }
 
-    metrics = dobj_metrics(tr, dobj_fn_map)
+    metrics = dep_metrics(tr, fn_map)
 
     return {'dep_' + m: np.nanmean(metrics[m]) for m in metrics}
 
