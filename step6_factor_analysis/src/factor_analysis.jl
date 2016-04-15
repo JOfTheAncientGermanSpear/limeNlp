@@ -122,17 +122,28 @@ function load_continuous(id_filter=df -> df[:id] .> 1000,
 end
 
 
-function pca(df::DataFrame, maxoutdim=1)
+function get_pca_input(df::DataFrame)
     valid_cols::AbstractVector{Symbol} = begin
 	invalid_cols = Set{Symbol}([:has_aphasia, :id])
 	valid_col_fn(c::Symbol) = !in(c, invalid_cols)
 	filter(valid_col_fn, names(df))
     end
 
-    mat::Matrix{Float64} = Matrix(df[:, valid_cols])'
+    Matrix(df[:, valid_cols])', valid_cols
+end
+
+
+function pca(df::DataFrame, maxoutdim=1)
+    mat::Matrix{Float64}, _ = get_pca_input(df)
     pca_model = fit(PCA, mat; maxoutdim=maxoutdim)
-    recon_data::Vector{Float64} = transform(pca_model, mat)[:]
-    (DataFrame(recon=recon_data, id=df[:id]), pca_model)
+    recon_data::Matrix{Float64} = transform(pca_model, mat)
+
+    ret = DataFrame(id=df[:id])
+    for i in 1:maxoutdim
+	ret[symbol("recon_$i")] = recon_data[i, :][:]::Vector{Float64}
+    end
+
+    (ret, pca_model)
 end
 
 
@@ -142,7 +153,7 @@ function pca(dfs::Dict{Step5Data, DataFrame},
   ((llower_dim, lmodel), (rlower_dim, rmodel)) = map([lname, rname]) do s
       df::DataFrame = dfs[s]
       data, model = pca(df)
-      rename!(data, :recon, Symbol("$s"))
+      rename!(data, :recon_1, Symbol("$s"))
       data, model
   end
 
