@@ -145,18 +145,16 @@ def hierarchy(t):
     return slope
 
 
-def iota(t, is_root=True):
+def iota_denom(t, is_root=True):
     """
     :param t
     :param is_root
     >>> from nltk.tree import Tree
     >>> t = Tree.fromstring("(A (B b))")
-    >>> assert 2/(1 + 2*2 + 1) == iota(t)
+    >>> assert (1 + 2*2 + 1) == iota_denom(t)
     >>> t = Tree.fromstring("(A (B (C (D d) (D d))))")
     >>> (A, B, C, D, d) = (1, 2*2, 2*3, 2*2, 1) 
-    >>> denom = A + B + C + 2*D + 2*d
-    >>> num = num_edges(t)
-    >>> assert iota(t) == (num/denom)
+    >>> assert iota_denom(t) == A + B + C + 2*D + 2*d
     """
 
     os = orders(t, is_root)
@@ -165,7 +163,23 @@ def iota(t, is_root=True):
         w = o if o < 2 else o * 2
         return acc + w
 
-    return num_edges(t)/reduce(iota_sum, os, 0)
+    return reduce(iota_sum, os, 0)
+
+
+def iota(t, is_root=True):
+    """
+    :param t
+    :param is_root
+    >>> from nltk.tree import Tree
+    >>> t = Tree.fromstring("(A (B b))")
+    >>> assert 2/iota_denom(t) == iota(t)
+    >>> t = Tree.fromstring("(A (B (C (D d) (D d))))")
+    >>> denom = iota_denom(t)
+    >>> num = num_edges(t)
+    >>> assert iota(t) == (num/denom)
+    """
+
+    return num_edges(t)/iota_denom(t, is_root)
 
 
 def avg_dicts(ds):
