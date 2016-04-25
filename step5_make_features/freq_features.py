@@ -103,8 +103,8 @@ def dirs_to_mat(patients_parsed_dir, controls_parsed_dir, patients_txt_dir, cont
     patients = get_freqs(patients_parsed_dir)
     controls = get_freqs(controls_parsed_dir)
 
-    patients['has_aphasia'] = 1
-    controls['has_aphasia'] = 0
+    patients['had_stroke'] = 1
+    controls['had_stroke'] = 0
 
     def get_fillers(src_dir):
         is_txt = lambda f: f.endswith('txt')

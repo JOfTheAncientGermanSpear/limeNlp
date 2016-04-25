@@ -62,8 +62,8 @@ def lime_nums_to_mat(patients_dir, controls_dir, src_filter, row_fn):
 
     patient_features = calc_features(patients_dir)
     control_features = calc_features(controls_dir)
-    patient_features['has_aphasia'] = 1
-    control_features['has_aphasia'] = 0
+    patient_features['had_stroke'] = 1
+    control_features['had_stroke'] = 0
 
     all_features = pd.concat([patient_features, control_features])
 

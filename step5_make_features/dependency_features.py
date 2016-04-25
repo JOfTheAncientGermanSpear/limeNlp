@@ -46,7 +46,7 @@ def dep_metrics(t, fn_map, acc=None):
 def dep_feature_row(tr):
     fn_map = {
         'iota': tree_utils.iota,
-	'iota_denom': tree_utils.iota_denom,
+        'iota_denom': tree_utils.iota_denom,
         'hierarchy': tree_utils.hierarchy,
         'depth': lambda t: t.height(),
         'width': lambda t: len(t.leaves()),

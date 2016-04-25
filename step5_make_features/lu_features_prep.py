@@ -70,16 +70,16 @@ def make_feature_matrices(pats_src_dir, cons_src_dir, dst_dir=None):
         reduce(add_file_to_df, type_files(d, t), pd.DataFrame())
 
     pats_lex = make_df_of_type(pats_src_dir, 'lexical')
-    pats_lex['has_aphasia'] = 1
+    pats_lex['had_stroke'] = 1
 
     cons_lex = make_df_of_type(cons_src_dir, 'lexical')
-    cons_lex['has_aphasia'] = 0
+    cons_lex['had_stroke'] = 0
 
     pats_syn = make_df_of_type(pats_src_dir, 'syntax')
-    pats_syn['has_aphasia'] = 1
+    pats_syn['had_stroke'] = 1
 
     cons_syn = make_df_of_type(cons_src_dir, 'syntax')
-    cons_syn['has_aphasia'] = 0
+    cons_syn['had_stroke'] = 0
 
     lex = pd.concat([pats_lex, cons_lex])
     syn = pd.concat([pats_syn, cons_syn])
@@ -88,7 +88,7 @@ def make_feature_matrices(pats_src_dir, cons_src_dir, dst_dir=None):
         dst_dir = "."
 
     def write_csv(df, n):
-        dst_csv = os.path.join(dst_dir, n + '.csv')
+        dst_csv = os.path.join(dst_dir, 'lu_' + n + '.csv')
         df.to_csv(dst_csv, index=False)
 
     write_csv(lex, 'lexical')

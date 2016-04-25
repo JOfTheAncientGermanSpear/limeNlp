@@ -14,12 +14,12 @@ _step5_data(d::Step5Data) = begin
   _step5_data(f)
 end
 
-function _remove_aphasia_dupe_cols(df::DataFrame)
+function _remove_stroke_dupe_cols(df::DataFrame)
   for c in names(df)
     c_str = string(c)
 
-    if(startswith(c_str, "has_aphasia") & (c != :has_aphasia))
-      @assert df[:has_aphasia] == df[c]
+    if(startswith(c_str, "had_stroke") & (c != :had_stroke))
+      @assert df[:had_stroke] == df[c]
       delete!(df, c)
     end
   end
@@ -114,10 +114,10 @@ function load_continuous(d::Step5Data,
   ret = readtable(f)
   rename!(ret, :x, :id)
 
-  valid_rows = !(isna(ret[:has_aphasia]))
+  valid_rows = !(isna(ret[:had_stroke]))
   ret = ret[valid_rows, :]
 
-  _remove_aphasia_dupe_cols(ret)
+  _remove_stroke_dupe_cols(ret)
 
   ret = _remove_na_cols(ret, col_thresh)
   ret = _remove_na_rows(ret, row_thresh)
@@ -143,7 +143,7 @@ function load_continuous(col_thresh::ThreshMap=ThreshMap(.7),
                          fill_na_fn=mean;
 			 post_thresh_filter::Function = combine_fxns(
 			   AbstractVector{Bool},
-			   df -> (df[:has_aphasia] .== 1)::AbstractVector{Bool},
+			   df -> (df[:had_stroke] .== 1)::AbstractVector{Bool},
 			   aphasia_count_filter_gen(4),
 			   &)
 			 )
@@ -164,7 +164,7 @@ end
 
 function get_pca_input(df::DataFrame)
   valid_cols::AbstractVector{Symbol} = begin
-    invalid_cols = Set{Symbol}([:has_aphasia, :id, :aphasia_type])
+    invalid_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type])
     valid_col_fn(c::Symbol) = !in(c, invalid_cols)
     filter(valid_col_fn, names(df))
   end

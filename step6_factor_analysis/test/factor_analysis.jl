@@ -2,12 +2,12 @@ using Base.Test
 using DataFrames
 include("../src/factor_analysis.jl")
 
-df = DataFrame(has_aphasia=[1, 2], has_aphasia_1=[1, 2])
-_remove_aphasia_dupe_cols(df)
-@test names(df) == [:has_aphasia]
+df = DataFrame(has_stroke=[1, 2], has_stroke_1=[1, 2])
+_remove_stroke_dupe_cols(df)
+@test names(df) == [:has_stroke]
 @test size(df) == (2, 1)
-df_diff = DataFrame(has_aphasia=[1, 2], has_aphasia_1=[4, 3])
-@test_throws AssertionError _remove_aphasia_dupe_cols(df_diff)
+df_diff = DataFrame(has_stroke=[1, 2], has_stroke_1=[4, 3])
+@test_throws AssertionError _remove_stroke_dupe_cols(df_diff)
 
 
 df = DataFrame(one_four=@data([1, 2, 3, NA]), pure=@data([1, 2, 3, 4]))

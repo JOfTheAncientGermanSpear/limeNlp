@@ -83,8 +83,8 @@ def dirs_to_mat(patients_parse_dir="../data/patients/step3_parse_txt/",
 
     patient_norms = calc_norms(patients_parse_dir)
     control_norms = calc_norms(controls_parse_dir)
-    patient_norms['has_aphasia'] = 1
-    control_norms['has_aphasia'] = 0
+    patient_norms['had_stroke'] = 1
+    control_norms['had_stroke'] = 0
 
     all_norms = pd.concat([patient_norms, control_norms])
 
