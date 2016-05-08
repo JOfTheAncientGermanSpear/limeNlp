@@ -106,7 +106,7 @@ end
 
 function load_continuous(d::Step5Data,
                         post_thresh_filter::Function;
-			col_thresh::Float64=.7,
+			                  col_thresh::Float64=.7,
                         row_thresh::Float64=.7,
                         fill_na_fn::Function=mean)
 
@@ -197,7 +197,9 @@ function add_aphasia_classifications(df::DataFrame,
 end
 
 
-function pca(dfs::Dict{Step5Data, DataFrame},
+typealias Continuous Dict{Step5Data, DataFrame}
+
+function pca(dfs::Continuous,
              lname::Step5Data, rname::Step5Data)
 
   ((llower_dim, lmodel), (rlower_dim, rmodel)) = map([lname, rname]) do s::Step5Data
@@ -212,11 +214,24 @@ function pca(dfs::Dict{Step5Data, DataFrame},
 end
 
 
-function plot_(df::DataFrame, x_col::Symbol, y_col::Symbol)
-  df_plot::DataFrame = add_aphasia_classifications(df)
+typealias Step5s Tuple{Step5Data, Step5Data}
+function plot_(pca_df::DataFrame, 
+               leftright::Nullable{Step5s}=Nullable{Step5s}())
+               
+  left, right = isnull(leftright) ? names(pca_df)[2:3] : map(symbol, get(leftright))  
 
-  plot(df_plot, x=x_col, y=y_col, color=:aphasia_type,
-       Guide.Title("$y_col vs $x_col"))
+  df_plot::DataFrame = add_aphasia_classifications(pca_df)
+
+  plot(df_plot, y=left, x=right, color=:aphasia_type,
+       Guide.Title("$left vs $right"))
 end
 
-plot_(df::DataFrame, x::Step5Data, y::Step5Data) = plot_(df, symbol(x), symbol(y))
+plot_(pca_df::DataFrame, left::Step5Data, right::Step5Data) = plot_(pca_df, 
+                                                                    Nullable((left, right)))
+
+
+ 
+function plot_(continuous::Continuous, left::Step5Data, right::Step5Data)
+  pca_df::DataFrame, _ = pca(continuous, left, right)
+  plot_(pca_df, left, right)
+end
