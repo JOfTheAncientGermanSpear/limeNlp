@@ -40,11 +40,11 @@ sentence_count
 MLS
 S_count
 MLC
-C/S
+C_S
 S_avg_depth
 S_avg_yngve_depth
 S_avg_width
-DC/C
+DC_C
 NP_count
 NP_avg_depth
 NP_avg_yngve_depth
