@@ -5,16 +5,17 @@ using MultivariateStats
 
 _data_dir = "../../data/"
 
-_step5_data(f::AbstractString) = "$_data_dir/step5/$f.csv"
+_step5Data(f::AbstractString) = "$_data_dir/step5/$f.csv"
 
 @enum Step5Data dependency lexical syntax
 
-_step5_data(d::Step5Data) = begin
+_step5Data(d::Step5Data) = begin
   f::AbstractString = d == dependency ? "dependencies" : "$d"
-  _step5_data(f)
+  _step5Data(f)
 end
 
-function _remove_stroke_dupe_cols(df::DataFrame)
+
+function _removeStrokeDupeCols(df::DataFrame)
   for c in names(df)
     c_str = string(c)
 
@@ -27,7 +28,7 @@ function _remove_stroke_dupe_cols(df::DataFrame)
 end
 
 
-function _remove_na_cols(df::DataFrame, thresh::Float64=.7)
+function _removeNaCols(df::DataFrame, thresh::Float64=.7)
   num_rows = size(df, 1)
   max_nas = (1 - thresh) * num_rows
 
@@ -42,7 +43,7 @@ function _remove_na_cols(df::DataFrame, thresh::Float64=.7)
 end
 
 
-function _remove_na_rows(df::DataFrame, thresh::Float64=.7)
+function _removeNaRows(df::DataFrame, thresh::Float64=.7)
   num_cols = size(df, 2)
   max_nas = (1 - thresh) * num_cols
 
@@ -104,26 +105,26 @@ function combine_fxns(T::Type, fn1::Function, fn2::Function, joinfn::Function)
 end
 
 
-function load_continuous(d::Step5Data,
+function loadContinuous(d::Step5Data,
                         post_thresh_filter::Function;
-			                  col_thresh::Float64=.7,
+                        col_thresh::Float64=.7,
                         row_thresh::Float64=.7,
                         fill_na_fn::Function=mean)
 
-  f::AbstractString = _step5_data(d)
+  f::AbstractString = _step5Data(d)
   ret = readtable(f)
   rename!(ret, :x, :id)
 
   valid_rows = !(isna(ret[:had_stroke]))
   ret = ret[valid_rows, :]
 
-  _remove_stroke_dupe_cols(ret)
+  _removeStrokeDupeCols(ret)
 
-  ret = _remove_na_cols(ret, col_thresh)
-  ret = _remove_na_rows(ret, row_thresh)
+  ret = _removeNaCols(ret, col_thresh)
+  ret = _removeNaRows(ret, row_thresh)
   ret = _fillna(ret, fill_na_fn)
 
-  ret = add_aphasia_classifications(ret)
+  ret = addAphasiaClassifications(ret)
 
   ret[post_thresh_filter(ret), :]
 
@@ -138,20 +139,20 @@ end
 
 ThreshMap(f::Float64) = ThreshMap(f, f, f)
 
-function load_continuous(col_thresh::ThreshMap=ThreshMap(.7),
-                         row_thresh::ThreshMap=ThreshMap(.7),
-                         fill_na_fn=mean;
-			 post_thresh_filter::Function = combine_fxns(
-			   AbstractVector{Bool},
-			   df -> (df[:had_stroke] .== 1)::AbstractVector{Bool},
-			   aphasia_count_filter_gen(4),
-			   &)
-			 )
+function loadContinuous(col_thresh::ThreshMap=ThreshMap(.7),
+                        row_thresh::ThreshMap=ThreshMap(.7),
+                        fill_na_fn=mean;
+                        post_thresh_filter::Function = combine_fxns(
+                            AbstractVector{Bool},
+                            df -> (df[:had_stroke] .== 1)::AbstractVector{Bool},
+                            aphasia_count_filter_gen(4),
+                         &)
+                       )
   typealias ColRowThreshes Tuple{Float64, Float64}
 
   rd(d::Step5Data, cr_threshes::ColRowThreshes) = begin
     c_thresh::Float64, r_thresh::Float64 = cr_threshes
-    load_continuous(d, post_thresh_filter,
+    loadContinuous(d, post_thresh_filter,
                     col_thresh=c_thresh, row_thresh=r_thresh,
                     fill_na_fn=fill_na_fn)
   end
@@ -162,7 +163,7 @@ function load_continuous(col_thresh::ThreshMap=ThreshMap(.7),
 end
 
 
-function get_pca_input(df::DataFrame)
+function getPcaInput(df::DataFrame)
   valid_cols::AbstractVector{Symbol} = begin
     invalid_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type])
     valid_col_fn(c::Symbol) = !in(c, invalid_cols)
@@ -174,7 +175,7 @@ end
 
 
 function pca(df::DataFrame, maxoutdim=1)
-  mat::Matrix{Float64}, _ = get_pca_input(df)
+  mat::Matrix{Float64}, _ = getPcaInput(df)
   pca_model = fit(PCA, mat; maxoutdim=maxoutdim)
   recon_data::Matrix{Float64} = transform(pca_model, mat)
 
@@ -187,7 +188,7 @@ function pca(df::DataFrame, maxoutdim=1)
 end
 
 
-function add_aphasia_classifications(df::DataFrame,
+function addAphasiaClassifications(df::DataFrame,
                                      ignore_cols::Set{Symbol} = Set([:severity]))
   pat_class = readtable("$_data_dir/patient_classifications.csv")
 
@@ -215,23 +216,56 @@ end
 
 
 typealias Step5s Tuple{Step5Data, Step5Data}
-function plot_(pca_df::DataFrame, 
+function plot_(pca_df::DataFrame,
                leftright::Nullable{Step5s}=Nullable{Step5s}())
-               
-  left, right = isnull(leftright) ? names(pca_df)[2:3] : map(symbol, get(leftright))  
 
-  df_plot::DataFrame = add_aphasia_classifications(pca_df)
+  left, right = isnull(leftright) ? names(pca_df)[2:3] : map(symbol, get(leftright))
+
+  df_plot::DataFrame = addAphasiaClassifications(pca_df)
 
   plot(df_plot, y=left, x=right, color=:aphasia_type,
        Guide.Title("$left vs $right"))
 end
 
-plot_(pca_df::DataFrame, left::Step5Data, right::Step5Data) = plot_(pca_df, 
-                                                                    Nullable((left, right)))
+plot_(pca_df::DataFrame, left::Step5Data, right::Step5Data) = plot_(pca_df,
+  Nullable((left, right)))
 
 
- 
+
 function plot_(continuous::Continuous, left::Step5Data, right::Step5Data)
   pca_df::DataFrame, _ = pca(continuous, left, right)
   plot_(pca_df, left, right)
+end
+
+
+function filterForRecCols(dfs::Continuous)
+  ret = Continuous()
+
+  rec_cols::Vector{Symbol} = begin
+    cols = readtable("../../data/step5/rec_cols.csv")[:col_name]
+    Symbol[symbol(n) for n in cols]
+  end
+  
+  for step5_data::Step5Data in keys(dfs)
+    df::DataFrame = dfs[step5_data]
+    valid_cols::Vector{Symbol} = intersect(rec_cols, names(df))
+    ret[step5_data] = df[[:id; :aphasia_type; valid_cols]]
+  end
+  
+  ret[lexical][:speech_rate] = dfs[lexical][:word_count]/6
+  
+  ret
+end
+
+
+function filterOutAphasiaType(dfs::Continuous, aphasia_type::AbstractString="none")
+  ret = Continuous()
+
+  for step5_data::Step5Data in keys(dfs)
+    df::DataFrame = dfs[step5_data]
+    valid_rows::Vector{Bool} = df[:aphasia_type] .!= aphasia_type
+    ret[step5_data] = df[valid_rows, :]
+  end
+  
+  ret
 end
