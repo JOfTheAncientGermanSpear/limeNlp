@@ -1,7 +1,4 @@
 using DataFrames
-using Gadfly
-using MultivariateStats
-
 
 _data_dir = "../../data/"
 
@@ -9,10 +6,8 @@ _step5Data(f::AbstractString) = "$_data_dir/step5/$f.csv"
 
 @enum Step5Data dependency lexical syntax
 
-_step5Data(d::Step5Data) = begin
-  f::AbstractString = d == dependency ? "dependencies" : "$d"
-  _step5Data(f)
-end
+
+_step5Data(d::Step5Data) = _step5Data(d == dependency ? "dependencies" : "$d")
 
 
 function _removeStrokeDupeCols(df::DataFrame)
@@ -32,13 +27,13 @@ function _removeNaCols(df::DataFrame, thresh::Float64=.7)
   num_rows = size(df, 1)
   max_nas = (1 - thresh) * num_rows
 
-  function within_limit(col::Symbol)
+  function withinLimit(col::Symbol)
     num_nas = sum(isna(df[col]))
     ret::Bool = num_nas < max_nas
     ret
   end
 
-  cols_to_keep = filter(within_limit, names(df))
+  cols_to_keep = filter(withinLimit, names(df))
   df[cols_to_keep]
 end
 
@@ -78,7 +73,7 @@ function _is_aphasia_type_gen(aphasia_type::AbstractString)
 end
 
 
-function get_counts{T}(arr::AbstractArray{T})
+function getCounts{T}(arr::AbstractArray{T})
   typealias CountMap Dict{T, Int64}
   reduce(CountMap(), arr) do acc::CountMap, e::T
     curr::Int64 = get(acc, e, 0)
@@ -88,11 +83,11 @@ function get_counts{T}(arr::AbstractArray{T})
 end
 
 
-function aphasia_count_filter_gen(cutoff::Int64)
+function aphasiaCountFilterGen(cutoff::Int64)
   function filter_fn(df::DataFrame)
     counts::Dict{AbstractString, Int64} = filter(
       (k::AbstractString, v::Int64) -> v > cutoff,
-      get_counts(df[:aphasia_type])
+      getCounts(df[:aphasia_type])
     )
     passing_types::Set{AbstractString} = Set(keys(counts))
     Bool[in(t, passing_types) for t in df[:aphasia_type]]
@@ -100,7 +95,7 @@ function aphasia_count_filter_gen(cutoff::Int64)
 end
 
 
-function combine_fxns(T::Type, fn1::Function, fn2::Function, joinfn::Function)
+function combineFxns(T::Type, fn1::Function, fn2::Function, joinfn::Function)
   a -> joinfn(fn1(a), fn2(a))::T
 end
 
@@ -139,13 +134,15 @@ end
 
 ThreshMap(f::Float64) = ThreshMap(f, f, f)
 
+
+typealias Continuous Dict{Step5Data, DataFrame}
 function loadContinuous(col_thresh::ThreshMap=ThreshMap(.7),
                         row_thresh::ThreshMap=ThreshMap(.7),
                         fill_na_fn=mean;
-                        post_thresh_filter::Function = combine_fxns(
+                        post_thresh_filter::Function = combineFxns(
                             AbstractVector{Bool},
                             df -> (df[:had_stroke] .== 1)::AbstractVector{Bool},
-                            aphasia_count_filter_gen(4),
+                            aphasiaCountFilterGen(4),
                          &)
                        )
   typealias ColRowThreshes Tuple{Float64, Float64}
@@ -163,28 +160,14 @@ function loadContinuous(col_thresh::ThreshMap=ThreshMap(.7),
 end
 
 
-function getPcaInput(df::DataFrame)
-  valid_cols::AbstractVector{Symbol} = begin
-    invalid_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type])
-    valid_col_fn(c::Symbol) = !in(c, invalid_cols)
-    filter(valid_col_fn, names(df))
+function getDataMat(df::DataFrame)
+  data_cols::AbstractVector{Symbol} = begin
+    non_data_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type])
+    isDataCol(c::Symbol) = !in(c, non_data_cols)
+    filter(isDataCol, names(df))
   end
 
-  Matrix(df[:, valid_cols])', valid_cols
-end
-
-
-function pca(df::DataFrame, maxoutdim=1)
-  mat::Matrix{Float64}, _ = getPcaInput(df)
-  pca_model = fit(PCA, mat; maxoutdim=maxoutdim)
-  recon_data::Matrix{Float64} = transform(pca_model, mat)
-
-  ret = DataFrame(id=df[:id])
-  for i in 1:maxoutdim
-    ret[symbol("recon_$i")] = recon_data[i, :][:]::Vector{Float64}
-  end
-
-  (ret, pca_model)
+  Matrix(df[:, data_cols]), data_cols
 end
 
 
@@ -198,45 +181,6 @@ function addAphasiaClassifications(df::DataFrame,
 end
 
 
-typealias Continuous Dict{Step5Data, DataFrame}
-
-function pca(dfs::Continuous,
-             lname::Step5Data, rname::Step5Data)
-
-  ((llower_dim, lmodel), (rlower_dim, rmodel)) = map([lname, rname]) do s::Step5Data
-    df::DataFrame = dfs[s]
-    data, model = pca(df)
-    rename!(data, :recon_1, Symbol("$s"))
-    (data, model)
-  end
-
-  (join(llower_dim, rlower_dim, kind=:inner, on=:id),
-   (lmodel, rmodel))
-end
-
-
-typealias Step5s Tuple{Step5Data, Step5Data}
-function plot_(pca_df::DataFrame,
-               leftright::Nullable{Step5s}=Nullable{Step5s}())
-
-  left, right = isnull(leftright) ? names(pca_df)[2:3] : map(symbol, get(leftright))
-
-  df_plot::DataFrame = addAphasiaClassifications(pca_df)
-
-  plot(df_plot, y=left, x=right, color=:aphasia_type,
-       Guide.Title("$left vs $right"))
-end
-
-plot_(pca_df::DataFrame, left::Step5Data, right::Step5Data) = plot_(pca_df,
-  Nullable((left, right)))
-
-
-
-function plot_(continuous::Continuous, left::Step5Data, right::Step5Data)
-  pca_df::DataFrame, _ = pca(continuous, left, right)
-  plot_(pca_df, left, right)
-end
-
 
 function filterForRecCols(dfs::Continuous)
   ret = Continuous()
@@ -245,15 +189,15 @@ function filterForRecCols(dfs::Continuous)
     cols = readtable("../../data/step5/rec_cols.csv")[:col_name]
     Symbol[symbol(n) for n in cols]
   end
-  
+
   for step5_data::Step5Data in keys(dfs)
     df::DataFrame = dfs[step5_data]
     valid_cols::Vector{Symbol} = intersect(rec_cols, names(df))
     ret[step5_data] = df[[:id; :aphasia_type; valid_cols]]
   end
-  
+
   ret[lexical][:speech_rate] = dfs[lexical][:word_count]/6
-  
+
   ret
 end
 
@@ -266,6 +210,6 @@ function filterOutAphasiaType(dfs::Continuous, aphasia_type::AbstractString="non
     valid_rows::Vector{Bool} = df[:aphasia_type] .!= aphasia_type
     ret[step5_data] = df[valid_rows, :]
   end
-  
+
   ret
 end
