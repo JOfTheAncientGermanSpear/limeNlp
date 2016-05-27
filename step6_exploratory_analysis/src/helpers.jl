@@ -1,4 +1,5 @@
 using DataFrames
+using Lazy
 
 _data_dir = "../../data/"
 
@@ -139,11 +140,7 @@ typealias Continuous Dict{Step5Data, DataFrame}
 function loadContinuous(col_thresh::ThreshMap=ThreshMap(.7),
                         row_thresh::ThreshMap=ThreshMap(.7),
                         fill_na_fn=mean;
-                        post_thresh_filter::Function = combineFxns(
-                            AbstractVector{Bool},
-                            df -> (df[:had_stroke] .== 1)::AbstractVector{Bool},
-                            aphasiaCountFilterGen(4),
-                         &)
+                        post_thresh_filter::Function = aphasiaCountFilterGen(4)
                        )
   typealias ColRowThreshes Tuple{Float64, Float64}
 
@@ -162,7 +159,7 @@ end
 
 function getDataMat(df::DataFrame)
   data_cols::AbstractVector{Symbol} = begin
-    non_data_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type])
+    non_data_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type, :aphasia_type_general])
     isDataCol(c::Symbol) = !in(c, non_data_cols)
     filter(isDataCol, names(df))
   end
@@ -175,9 +172,24 @@ function addAphasiaClassifications(df::DataFrame,
                                      ignore_cols::Set{Symbol} = Set([:severity]))
   pat_class = readtable("$_data_dir/patient_classifications.csv")
 
-  ret::DataFrame = join(df, pat_class, on=:id, kind=:inner)
+  ret::DataFrame = join(df, pat_class, on=:id, kind=:left)
+  ret[ret[:had_stroke] .== 0, :aphasia_type] = "control"
+  ret[:aphasia_type_general] = map(toGeneralAphasia, ret[:aphasia_type])
+
   valid_cols::Vector{Bool} = Bool[!in(c, ignore_cols) for c in names(ret)]
   ret[:, valid_cols]
+end
+
+
+toGeneralAphasia(a::AbstractString) = @switch a begin
+  "none"; "stroke";
+  "control"; "control";
+  "aphasia"
+end
+
+
+function addSimpleAphasiaClassifications!(df::DataFrame)
+  df[:aphasia_type_simple] = []
 end
 
 

@@ -13,11 +13,12 @@ function runKmeans(continuous::Continuous, s5data::Step5Data, k::Int64=4)
 end
 
 
-function plotKmeans(continuous::Continuous, s5data::Step5Data, k::Int64=4)
+function plotKmeans(continuous::Continuous, s5data::Step5Data, k::Int64=4;
+                    color_col::Symbol=:aphasia_type)
   kres = runKmeans(continuous, s5data, k)
   assignments::Vector{Int64} = kres.assignments
   assignment_orders::Vector{Int64} = sortperm(assignments)
 
-  plot(y=assignments[assignment_orders],
-    color=continuous[s5data][assignment_orders, :aphasia_type])
+  plot(Geom.histogram, x=assignments,
+    color=continuous[s5data][color_col])
 end
