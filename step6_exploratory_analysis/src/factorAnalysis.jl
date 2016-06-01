@@ -40,9 +40,11 @@ function plot_(pca_df::DataFrame,
 
   left, right = isnull(leftright) ? names(pca_df)[2:3] : map(symbol, get(leftright))
 
-  df_plot::DataFrame = addAphasiaClassifications(pca_df)
+  pca_df_copy = copy(pca_df)
+  pca_df_copy[:had_stroke] = Int64[i < 300 ? 0 : 1 for i in pca_df[:id]]
+  df_plot::DataFrame = addAphasiaClassifications(pca_df_copy)
 
-  plot(df_plot, y=left, x=right, color=:aphasia_type,
+  plot(df_plot, y=left, x=right, color=:aphasia_type_general,
        Guide.Title("$left vs $right"))
 end
 
