@@ -1,3 +1,4 @@
+using Lazy
 using MLBase
 
 typealias Functions Vector{Function}
@@ -7,8 +8,8 @@ type Pipeline
   predicts::Functions
   score_fn::Function
   truths::AbstractVector
-  model_state::Function
-  model_state!::Function
+  param_state::Function
+  param_state!::Function
 end
 
 
@@ -18,13 +19,15 @@ _runFns(p::Pipeline, f::Symbol, ixs::IXs) = foldl(ixs, p.(f)) do prev_out, fn::F
   fn(prev_out)
 end
 
+typealias ParamState{T <: Any} Pair{Symbol, T}
+typealias ModelState Vector{ParamState}
+paramState!(pipe::Pipeline, p::ParamState) = pipe.param_state!(p[1], p[2])
+modelState!(pipe::Pipeline, m::ModelState) = map(p -> paramState!(pipe, p), m)
 
-modelState!(pipe::Pipeline, s::Symbol, value) = pipe.model_state!(s, value)
-modelState!(pipe::Pipeline, d::Dict{Symbol, Any}) = for (s, v) in d
-  modelState!(pipe, s, v)
-end
-
-modelState(pipe::Pipeline, s::Symbol) = pipe.model_state(s)
+paramState(pipe::Pipeline, s::Symbol) = pipe.param_state(s)
+modelState(pipe::Pipeline, ps::Vector{Symbol}) = ParamState[
+                                                  p => paramState(pipe, p)
+                                                  for p in ps]
 
 
 pipeFit(pipe::Pipeline, ixs::IXs) = _runFns(pipe, :fits, ixs)
@@ -59,29 +62,64 @@ function evalModel(pipe::Pipeline, cvg::CrossValGenerator, num_samples::Int64)
   train_scores, test_scores
 end
 
+typealias EvalInput{T <: AbstractVector} Pair{Symbol, T}
+typealias Combos Vector{ModelState}
+function _evalInputToModelStates(ei...)
 
-typealias ModelState Dict{Symbol, Any}
-typealias ModelStates AbstractVector{ModelState}
+  #enumerate hack to keep ordering
+  need_splits::Vector{Int64} = @>> enumerate(ei) begin
+    filter( ix_fv::Tuple{Int64, EvalInput} -> length(ix_fv[2][2]) > 1)
+    map( ix_fv -> ix_fv[1])
+  end
+
+  if length(need_splits) == 0
+    Any[Pair[k => v[1] for (k, v) in ei]]
+  else
+    ret = Combos()
+
+    ix::Int64 = need_splits[1]
+    f::Symbol, vs::AbstractVector = ei[ix]
+    for v in vs
+      remaining::Vector{EvalInput} = begin
+        r = EvalInput[l for l in copy(ei)]
+        r[ix] = f => [v]
+        r
+      end
+      ret =[ret; _evalInputToModelStates(remaining...)]
+    end
+
+    ret
+  end
+end
+
+
 function evalModelParallel(pipeGen::Function, cvg::CrossValGenerator, num_samples::Int64,
-  states::ModelStates)
-  scores = map(states) do s::ModelState
+  states...)
+
+  all_combos::Combos = _evalInputToModelStates(states...)
+
+  scores = map(all_combos) do combo::ModelState
     pipe = pipeGen()
-    modelState!(pipe, s)
+    modelState!(pipe, combo)
     train_scores, test_scores = evalModel(pipe, cvg, num_samples)
     mean(train_scores), mean(test_scores)
   end
+
   [t[1] for t in scores], [t[2] for t in scores]
 end
 
 
 function evalModel(pipe::Pipeline, cvg::CrossValGenerator, num_samples::Int64,
-  states::ModelStates)
-  scores = map(states) do s::ModelState
-    modelState!(pipe, s)
+  states...)
+  all_combos::Combos = _evalInputToModelStates(states...)
+
+  scores = map(all_combos) do combo::ModelState
+    modelState!(pipe, combo)
     train_scores, test_scores = evalModel(pipe, cvg, num_samples)
     mean(train_scores), mean(test_scores)
   end
-  [t[1] for t in scores], [t[2] for t in scores]
+
+  [t[1] for t in scores], [t[2] for t in scores], all_combos
 end
 
 
@@ -122,19 +160,17 @@ end
 
 function MLBase.f1score{T}(y_true::AbstractVector{T}, y_pred::AbstractVector{T})
   num_samples = length(y_true)
-  labels = unique(union(y_true, y_pred))
-
-  if length(labels) < 3
-    return f1score(y_true .== labels[1], y_pred .== labels[1])
-  end
+  labels = unique(y_true)
 
   reduce(0., labels) do acc::Float64, l::T
     truths = y_true .== l
+
     score = begin
       preds = y_pred .== l
       true_pos = sum(truths & preds)
       true_pos > 0. ? f1score(truths, preds) : 0.
     end
+
     weight = sum(truths)/num_samples
     acc + score * weight
   end
