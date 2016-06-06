@@ -71,7 +71,8 @@ function pipeTest(pipe::Pipeline, ixs::IXs)
 end
 
 
-function evalModel(pipe::Pipeline, cvg::CrossValGenerator, num_samples::Int64)
+function getTrainTestScores(pipe::Pipeline, cvg::CrossValGenerator,
+    num_samples::Int64)
 
   num_iterations = length(cvg)
 
@@ -131,7 +132,7 @@ function evalModelParallel(pipeGen::Function, cvg::CrossValGenerator, num_sample
   scores = map(all_combos) do combo::ModelState
     pipe = pipeGen()
     modelState!(pipe, combo)
-    train_scores, test_scores = evalModel(pipe, cvg, num_samples)
+    train_scores, test_scores = getTrainTestScores(pipe, cvg, num_samples)
     mean(train_scores), mean(test_scores)
   end
 
@@ -140,13 +141,13 @@ end
 
 
 function evalModel(pipe::Pipeline, cvg::CrossValGenerator, num_samples::Int64,
+  agg::Function=train_test->(mean(train_test[1]), mean(train_test[2])),
   states...)
   all_combos::Combos = _evalInputToModelStates(states...)
 
   scores = map(all_combos) do combo::ModelState
     modelState!(pipe, combo)
-    train_scores, test_scores = evalModel(pipe, cvg, num_samples)
-    mean(train_scores), mean(test_scores)
+    agg(getTrainTestScores(pipe, cvg, num_samples))
   end
 
   Float64[t[1] for t in scores], Float64[t[2] for t in scores], all_combos
