@@ -1,3 +1,5 @@
+using DataFrames
+using Gadfly
 using Lazy
 using MLBase
 
@@ -10,18 +12,40 @@ type Pipeline
   truths::AbstractVector
   param_state::Function
   param_state!::Function
+
+  Pipeline(fits::Functions, predicts::Functions,
+                    score_fn::Function, truths::AbstractVector,
+                    param_state::Function, param_state!::Function) = new(
+      fits, predicts, score_fn, truths, param_state, param_state!)
+end
+
+
+function Pipeline{T <: Any}(fits::Functions, predicts::Functions,
+                  score_fn::Function, truths::AbstractVector,
+                  model_state::Dict{Symbol, T})
+
+  paramState!(p::ParamState) = model_state[p[1]] = p[2]
+
+  paramState(s::Symbol) = model_state[s]
+
+  Pipeline(fits, predicts, score_fn, truths, paramState, paramState!)
 end
 
 
 typealias IXs AbstractVector{Int64}
 
-_runFns(p::Pipeline, f::Symbol, ixs::IXs) = foldl(ixs, p.(f)) do prev_out, fn::Function
-  fn(prev_out)
+_runFns(p::Pipeline, f::Symbol, ixs::IXs, stop_fn::Int64) = foldl(
+  ixs, p.(f)[1:stop_fn]) do prev_out, fn::Function
+    fn(prev_out)
 end
 
+
+_runFns(p::Pipeline, f::Symbol, ixs::IXs) = _runFns(
+  p, f, ixs, length(p.(f)))
+
 typealias ParamState{T <: Any} Pair{Symbol, T}
-typealias ModelState Vector{ParamState}
-paramState!(pipe::Pipeline, p::ParamState) = pipe.param_state!(p[1], p[2])
+typealias ModelState Dict{Symbol, Any}
+paramState!(pipe::Pipeline, p::ParamState) = pipe.param_state!(p)
 modelState!(pipe::Pipeline, m::ModelState) = map(p -> paramState!(pipe, p), m)
 
 paramState(pipe::Pipeline, s::Symbol) = pipe.param_state(s)
@@ -30,16 +54,20 @@ modelState(pipe::Pipeline, ps::Vector{Symbol}) = ParamState[
                                                   for p in ps]
 
 
-pipeFit(pipe::Pipeline, ixs::IXs) = _runFns(pipe, :fits, ixs)
+pipeFit!(pipe::Pipeline, ixs::IXs) = _runFns(pipe, :fits, ixs)
+pipeFit!(pipe::Pipeline, ixs::IXs, stop_fn::Int64) = _runFns(
+  pipe, :fits, ixs, stop_fn)
 
 
 pipePredict(pipe::Pipeline, ixs::IXs) = _runFns(pipe, :predicts, ixs)
+pipePredict(pipe, ixs::IXs, stop_fn::Int64) = _runFns(
+  pipe, :predicts, ixs, stop_fn)
 
 
 function pipeTest(pipe::Pipeline, ixs::IXs)
-  preds = pipePredict(pipe, ixs)
   truths = pipe.truths[ixs]
-  pipe.score_fn(preds, truths)
+  preds = pipePredict(pipe, ixs)
+  pipe.score_fn(truths, preds)
 end
 
 
@@ -52,7 +80,7 @@ function evalModel(pipe::Pipeline, cvg::CrossValGenerator, num_samples::Int64)
 
   function fit(ixs::IXs)
     fit_call += 1
-    pipeFit(pipe, ixs)
+    pipeFit!(pipe, ixs)
     train_scores[fit_call] = pipeTest(pipe, ixs)
   end
 
@@ -73,7 +101,8 @@ function _evalInputToModelStates(ei...)
   end
 
   if length(need_splits) == 0
-    Any[Pair[k => v[1] for (k, v) in ei]]
+    ms::ModelState = ModelState([k => v[1] for (k, v) in ei])
+    Combos([ms])
   else
     ret = Combos()
 
@@ -85,6 +114,7 @@ function _evalInputToModelStates(ei...)
         r[ix] = f => [v]
         r
       end
+
       ret =[ret; _evalInputToModelStates(remaining...)]
     end
 
@@ -105,7 +135,7 @@ function evalModelParallel(pipeGen::Function, cvg::CrossValGenerator, num_sample
     mean(train_scores), mean(test_scores)
   end
 
-  [t[1] for t in scores], [t[2] for t in scores]
+  [t[1] for t in scores], [t[2] for t in scores], all_combos
 end
 
 
@@ -119,7 +149,27 @@ function evalModel(pipe::Pipeline, cvg::CrossValGenerator, num_samples::Int64,
     mean(train_scores), mean(test_scores)
   end
 
-  [t[1] for t in scores], [t[2] for t in scores], all_combos
+  Float64[t[1] for t in scores], Float64[t[2] for t in scores], all_combos
+end
+
+
+function plotEvalModel(train_scores, test_scores, labels)
+  function mkLayer(scores, clr)
+    color = eval(parse("colorant\"$clr\""))
+    layer(y = scores, x = labels, Geom.point, Theme(default_color=color))
+  end
+  plot(mkLayer(train_scores, "deepskyblue"),
+       mkLayer(test_scores, "green"),
+       Guide.xlabel("Model State"),
+       Guide.ylabel("Score"))
+end
+
+typealias Scores Vector{Float64}
+function plotEvalModel{T}(modelEval::Tuple{Scores, Scores, Vector{T}})
+  mkLabel(p::ParamState) = "$(p[1]): $(p[2])"
+  mkLabel(m::ModelState) = join(map(mkLabel, m), "; ")
+  labels = map(mkLabel, modelEval[3])
+  plotEvalModel(modelEval[1], modelEval[2], labels)
 end
 
 
@@ -134,23 +184,31 @@ function r2score{T <: Real}(y_true::AbstractVector{T}, y_pred::AbstractVector{T}
 end
 
 
+precisionScore(t_pos::Int64, f_pos::Int64) = t_pos/(t_pos + f_pos)
+
 function precisionScore(y_true::AbstractVector{Bool}, y_pred::AbstractVector{Bool})
   true_pos = sum(y_pred & y_true)
   false_pos = sum(y_pred & !y_true)
 
-  true_pos/(true_pos + false_pos)
+  precisionScore(true_pos, false_pos)
 end
 
+recallScore(t_pos::Int64, f_neg::Int64) = t_pos/(t_pos + f_neg)
 
 function recallScore(y_true::AbstractVector{Bool}, y_pred::AbstractVector{Bool})
   true_pos = sum(y_pred & y_true)
   false_neg = sum(!y_pred & y_true)
 
-  true_pos/(true_pos + false_neg)
+  recallScore(true_pos, false_neg)
 end
 
 
 function MLBase.f1score(y_true::AbstractVector{Bool}, y_pred::AbstractVector{Bool})
+  true_pos = sum(y_true & y_pred)
+  if true_pos == 0
+    return 0
+  end
+
   precision = precisionScore(y_true, y_pred)
   recall = recallScore(y_true, y_pred)
 
@@ -164,14 +222,18 @@ function MLBase.f1score{T}(y_true::AbstractVector{T}, y_pred::AbstractVector{T})
 
   reduce(0., labels) do acc::Float64, l::T
     truths = y_true .== l
-
-    score = begin
-      preds = y_pred .== l
-      true_pos = sum(truths & preds)
-      true_pos > 0. ? f1score(truths, preds) : 0.
-    end
+    preds = y_pred .== l
+    score = f1score(truths, preds)
 
     weight = sum(truths)/num_samples
     acc + score * weight
   end
 end
+
+
+calcCorrelations(dataf::DataFrame, predictors::Vector{Symbol},
+  prediction::Symbol) = @>> predictors begin
+    map(p -> cor(dataf[p], dataf[prediction]))
+    cors -> DataFrame(predictor = predictors, cor = cors[:])
+    sort(cols=[:cor])
+  end

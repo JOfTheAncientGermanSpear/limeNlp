@@ -135,31 +135,34 @@ end
 
 ThreshMap(f::Float64) = ThreshMap(f, f, f)
 
+allDs(f::Function, T::Type) = Dict{Step5Data, T}(
+  [s::Step5Data => f(s)::T for s in [dependency, lexical, syntax]])
 
 typealias Continuous Dict{Step5Data, DataFrame}
 function loadContinuous(col_thresh::ThreshMap=ThreshMap(.7),
                         row_thresh::ThreshMap=ThreshMap(.7),
                         fill_na_fn=mean;
+                        sort_to_common_ids::Bool = true,
                         post_thresh_filter::Function = aphasiaCountFilterGen(4)
                        )
-  typealias ColRowThreshes Tuple{Float64, Float64}
 
-  rd(d::Step5Data, cr_threshes::ColRowThreshes) = begin
-    c_thresh::Float64, r_thresh::Float64 = cr_threshes
-    loadContinuous(d, post_thresh_filter,
+  threshes(s::Step5Data) = (col_thresh[s], row_thresh[s])
+  function rd(s::Step5Data)
+    c_thresh::Float64, r_thresh::Float64 = threshes(s)
+    loadContinuous(s, post_thresh_filter,
                     col_thresh=c_thresh, row_thresh=r_thresh,
                     fill_na_fn=fill_na_fn)
   end
 
-  threshes(d::Step5Data) = (col_thresh[d], row_thresh[d])
+  unsorted::Continuous = allDs(rd, DataFrame)
 
-  Dict{Step5Data,DataFrame}([d => rd(d, threshes(d)) for d in (dependency, lexical, syntax)])
+  sort_to_common_ids ? sortToCommonIds(unsorted) : unsorted
 end
 
 
 function getDataMat(df::DataFrame)
   data_cols::AbstractVector{Symbol} = begin
-    non_data_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type, :aphasia_type_general])
+    non_data_cols = Set{Symbol}([:had_stroke, :id, :aphasia_type, :aphasia_type_general, :is_aphasiac])
     isDataCol(c::Symbol) = !in(c, non_data_cols)
     filter(isDataCol, names(df))
   end
@@ -175,6 +178,7 @@ function addAphasiaClassifications(df::DataFrame,
   ret::DataFrame = join(df, pat_class, on=:id, kind=:left)
   ret[ret[:had_stroke] .== 0, :aphasia_type] = "control"
   ret[:aphasia_type_general] = map(toGeneralAphasia, ret[:aphasia_type])
+  ret[:is_aphasiac] = map(isAphasiac, ret[:aphasia_type])
 
   valid_cols::Vector{Bool} = Bool[!in(c, ignore_cols) for c in names(ret)]
   ret[:, valid_cols]
@@ -188,10 +192,12 @@ toGeneralAphasia(a::AbstractString) = @switch a begin
 end
 
 
+isAphasiac(a::AbstractString) = toGeneralAphasia(a) == "aphasia"
+
+
 function addSimpleAphasiaClassifications!(df::DataFrame)
   df[:aphasia_type_simple] = []
 end
-
 
 
 function filterForRecCols(dfs::Continuous)
@@ -225,3 +231,17 @@ function filterOutAphasiaType(dfs::Continuous, aphasia_type::AbstractString="non
 
   ret
 end
+
+
+function sortToCommonIds(dfs...)
+  common_ids = intersect(map(df -> df[:id], dfs)...)
+
+  map(dfs) do df::DataFrame
+    common_id_ixs = Int64[findin(df[:id], i)[1] for i in common_ids]
+    df[common_id_ixs, :]
+  end
+end
+
+
+sortToCommonIds(c::Continuous) = Continuous(
+  zip(keys(c), sortToCommonIds(values(c)...)))
